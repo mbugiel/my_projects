@@ -1,0 +1,151 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="menu">
+
+    <h2>{{ "clientList.filter" | translate }}</h2>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "clientList.surname" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputSurname>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "clientList.name" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputName>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "clientList.companyName" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputCompanyName>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "clientList.phoneNumber" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputPhoneNumber>
+        </mat-form-field>
+    </div>
+
+
+</section>
+
+<section class="right-panel">
+
+
+    <div class="inner-right-panel">
+
+        <h3 *ngIf="isLoaded && clients_count==0" class="errorHeader">{{ "clientList.errors.clientListNotFound" | translate }}</h3>
+
+
+        <table #client_table *ngIf="isLoaded && clients_count>0" mat-table [dataSource]="client_list" matSort multiTemplateDataRows>
+
+
+            <ng-container matColumnDef="surname">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "clientList.surname" | translate }}</th>
+                <td mat-cell *matCellDef="let client">{{client.surname}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "clientList.name" | translate }}</th>
+                <td mat-cell *matCellDef="let client">{{client.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="company_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "clientList.companyName" | translate }}</th>
+                <td mat-cell *matCellDef="let client">{{client.company_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone_number">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "clientList.phoneNumber" | translate }}</th>
+                <td mat-cell *matCellDef="let client">{{client.phone_number}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let client" (click)="$event.stopPropagation()">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedClient = expandedClient === client ? null : client); $event.stopPropagation()">
+                        @if (expandedClient === client) {
+                        <mat-icon>keyboard_arrow_up</mat-icon>
+                        } @else {
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        }
+                    </button>
+                </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let client" [attr.colspan]="columnsToDisplayWithExpand.length">
+                    <div class="client-detail" [@detailExpand]="client == expandedClient ? 'expanded' : 'collapsed'">
+                        <div class="client-description">
+                            <p><b>{{"clientList.nip" | translate}}:</b> {{client.nip}}</p>
+                            <p><b>{{"clientList.email" | translate}}:</b> {{client.email}} </p>
+                            <p><b>{{"clientList.city" | translate}}:</b> {{client.city_id_FK}} </p>
+                            <p><b>{{"clientList.address" | translate}}:</b> {{client.address}} </p>
+                            <p><b>{{"clientList.postalCode" | translate}}:</b> {{client.postal_code}} </p>
+                            <p class="client-description-attribution">-- {{client.comment}} </p>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef>{{ "clientList.edit" | translate }}</th>
+                <td mat-cell *matCellDef="let client" (click)="$event.stopPropagation()">
+                    <a routerLink="/manage-mate/client-edit/{{client.id}}">
+                        <mat-icon class="edit">edit</mat-icon>
+                        {{ "clientList.edit" | translate }}
+                    </a>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>{{ "clientList.delete" | translate }}</th>
+                <td mat-cell *matCellDef="let client" (click)="$event.stopPropagation()">
+                    <button mat-raised-button (click)="openDialog('100ms', '100ms', client.id, client.name + ' ' + client.surname)">
+                        <mat-icon class="delete">delete</mat-icon>
+                        {{ "clientList.delete" | translate }}
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let client; columns: columnsToDisplayWithExpand;"
+                class="client-row"
+                [class.expanded-row]="expandedClient === client"
+                (click)="expandedClient = expandedClient === client ? null : client">
+            </tr>
+            <tr mat-row *matRowDef="let myRowData columns: ['expandedDetail']" class="detail-row"></tr>
+
+            <!-- <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr> -->
+      
+    
+        </table>
+
+        <div *ngIf="!isLoaded" class="loader-container">
+            
+            <div class="loader"></div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <!-- (page)="pageLoad($event)"
+            [pageSize]="120"
+            [hidePageSize]="false"
+            [length]="1000"
+            [disabled]="false"
+            [pageIndex]="page"
+            [showFirstLastButtons]="false"
+            
+        -->
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 200]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>

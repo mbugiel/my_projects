@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{data.title}}<strong>{{data.value}}</strong></h2>
+<mat-dialog-content class="input-center">
+  <mat-form-field [formGroup]="input_field">
+    <mat-label>{{data.label}}</mat-label>
+    <input matInput formControlName="field">
+  </mat-form-field>
+  <div *ngIf="submitted && input_field.invalid" class="invalid">{{ "editDialog.empty" | translate }}</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="Cancel()">{{ "editDialog.cancel" | translate }}</button>
+  <button mat-button (click)="Confirm()" cdkFocusInitial>{{ "editDialog.confirm" | translate }}</button>
+</mat-dialog-actions>

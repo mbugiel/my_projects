@@ -1,0 +1,328 @@
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\appsettings.Development.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\appsettings.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.exe
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.deps.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.runtimeconfig.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.pdb
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\BouncyCastle.Cryptography.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Google.Apis.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Google.Apis.Auth.PlatformServices.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Google.Apis.Auth.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Google.Apis.Core.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Humanizer.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\MailKit.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Microsoft.OpenApi.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\MimeKit.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Mono.TextTemplating.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Newtonsoft.Json.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Npgsql.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.CodeDom.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.Composition.AttributedModel.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.Composition.Convention.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.Composition.Hosting.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.Composition.Runtime.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.Composition.TypedParts.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\System.Management.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\bin\Release\net8.0\runtimes\win\lib\net7.0\System.Management.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.AssemblyReference.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.AssemblyInfoInputs.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.AssemblyInfo.cs
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.CoreCompileInputs.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.MvcApplicationPartsAssemblyInfo.cs
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets.build.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets.development.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.AuthenticationAPI.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.build.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.buildMultiTargeting.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.buildTransitive.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\staticwebassets.pack.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\scopedcss\bundle\AuthenticationAPI.styles.css
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.CopyComplete
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\refint\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.pdb
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.genruntimeconfig.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI\AuthenticationAPI\obj\Release\net8.0\ref\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\appsettings.Development.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\appsettings.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.exe
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.deps.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.runtimeconfig.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.pdb
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\BouncyCastle.Cryptography.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Humanizer.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\MailKit.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.OpenApi.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\MimeKit.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Mono.TextTemplating.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Npgsql.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\System.CodeDom.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.AttributedModel.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.Convention.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.Hosting.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.Runtime.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.TypedParts.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.AssemblyReference.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.AssemblyInfoInputs.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.AssemblyInfo.cs
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.CoreCompileInputs.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.MvcApplicationPartsAssemblyInfo.cs
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets.build.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets.development.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.AuthenticationAPI.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.build.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.buildMultiTargeting.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.buildTransitive.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets.pack.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\scopedcss\bundle\AuthenticationAPI.styles.css
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.CopyComplete
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\refint\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.pdb
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.genruntimeconfig.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 2.0\AuthenticationAPI\obj\Release\net8.0\ref\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.AssemblyReference.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.AssemblyInfoInputs.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.AssemblyInfo.cs
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.CoreCompileInputs.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.MvcApplicationPartsAssemblyInfo.cs
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\refint\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.pdb
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\appsettings.Development.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\appsettings.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.exe
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.deps.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.runtimeconfig.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\AuthenticationAPI.pdb
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\BouncyCastle.Cryptography.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Humanizer.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\MailKit.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Microsoft.OpenApi.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\MimeKit.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Mono.TextTemplating.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Npgsql.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\System.CodeDom.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.AttributedModel.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.Convention.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.Hosting.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.Runtime.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\System.Composition.TypedParts.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\bin\Release\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets.build.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets.development.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.AuthenticationAPI.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.build.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.buildMultiTargeting.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets\msbuild.buildTransitive.AuthenticationAPI.props
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\staticwebassets.pack.json
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\scopedcss\bundle\AuthenticationAPI.styles.css
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.csproj.CopyComplete
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\AuthenticationAPI.genruntimeconfig.cache
+F:\Projekty\Magazyn\storage\AuthenticationAPI 3.0\AuthenticationAPI\obj\Release\net8.0\ref\AuthenticationAPI.dll

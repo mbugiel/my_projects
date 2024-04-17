@@ -1,0 +1,88 @@
+<header>
+
+  <nav class="first-row">
+    
+    <div class="first-row-left">
+
+      <div class="account-menu-container">
+      
+        <div class="logo">
+          <a routerLink="/manage-mate/home/">M</a>
+        </div>
+        <div class="account-menu left-0">
+          <a routerLink="/">{{ "headerTabs.m.mainPage" | translate }}</a>
+        </div>
+
+      </div>
+
+        <div class="nav-button" *ngFor="let tab of tabs; let i = index"  id="{{ tab }}" [class.bottom-black]="!tabChecks[i]" [class.bottom-white]="tabChecks[i]" (click)="ActivateTabs(tab)">
+          <a>{{ tabTranslations[tab] | translate }}</a>
+        </div>
+      
+
+    </div>
+
+    <div class="middle-space"></div>
+
+    
+
+    <div class="account-menu-container">
+
+      <a class="account-button" routerLink="#">{{ "headerTabs.account.selfName" | translate }}</a>
+      <div class="account-menu right-0">
+        <a (click)="logout()">{{ "headerTabs.account.logout" | translate }}</a>
+      </div>
+
+    </div>
+    
+  </nav>
+      
+  
+  <nav class="second-row">
+    
+    <nav *ngIf="tabChecks[0]">
+
+      <a routerLink="/manage-mate/item-list">{{ "headerTabs.storage.stock" | translate }}</a>
+      <a routerLink="/manage-mate/item-add">{{ "headerTabs.storage.itemAdd" | translate }}</a>
+      <a routerLink="/manage-mate/item-type">{{ "headerTabs.storage.itemType" | translate }}</a>
+      <a routerLink="/manage-mate/item-counting">{{ "headerTabs.storage.itemCountingType" | translate }}</a>
+    
+    </nav>
+
+
+    <nav *ngIf="tabChecks[1]">
+    
+      <a routerLink="/manage-mate/order-list">{{ "headerTabs.orders.orderList" | translate }}</a>
+      <a routerLink="/manage-mate/order-add">{{ "headerTabs.orders.orderAdd" | translate }}</a>
+
+    </nav>
+
+
+    <nav *ngIf="tabChecks[2]">
+    
+      <a routerLink="/manage-mate/client-list">{{ "headerTabs.clients.clientList" | translate }}</a>
+      <a routerLink="/manage-mate/client-add">{{ "headerTabs.clients.clientAdd" | translate }}</a>
+
+    </nav>
+
+
+    <nav *ngIf="tabChecks[3]">
+
+      <a routerLink="/manage-mate/con-site-list">{{ "headerTabs.constructions.constructionList" | translate }}</a>
+      <a routerLink="/manage-mate/con-site-add">{{ "headerTabs.constructions.constructionAdd" | translate }}</a>
+    
+    </nav>
+
+
+    <nav *ngIf="tabChecks[4]">
+    
+      <a routerLink="/manage-mate/invoice-list">{{ "headerTabs.invoices.invoiceList" | translate }}</a>
+      <a routerLink="/manage-mate/invoice-add">{{ "headerTabs.invoices.invoiceAdd" | translate }}</a>
+      <a routerLink="/manage-mate/invoice-add-all">{{ "headerTabs.invoices.invoiceAddAll" | translate }}</a>
+
+
+    </nav>
+    
+  </nav>
+
+</header>

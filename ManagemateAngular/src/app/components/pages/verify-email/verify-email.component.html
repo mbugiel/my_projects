@@ -1,0 +1,41 @@
+<div class="container">
+    
+  <div class="details">
+    
+    <h2>Weryfikacja</h2>
+
+    <form [formGroup]="verificationForm" (ngSubmit)="checkEmail()">
+      <h5>Na adres {{email}} został wysłany kod weryfikacyjny w celu potwierdzenia adresu e-mail.</h5>
+      <div class="input-container">
+        <label>Kod weryfikacyjny:</label>
+        <div>
+          <input
+            type="text"
+            maxlength="6"
+            formControlName="verificationCode"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="verify">
+        <button type="submit" [disabled]="verificationForm.invalid">Weryfikuj</button>
+      </div>
+
+      <div class="send-again" [ngClass]="{'disabled' : isResendDisabled}">
+        <a (click)="resendEmail()">Wyślij email ponownie <span *ngIf="isResendDisabled">({{countdown}})</span></a>
+      </div>
+      
+    </form>
+    
+  </div>
+
+
+  <div *ngIf="!isLoaded" class="loader-page">
+            
+    <div class="loader"></div>
+
+  </div>
+
+
+</div>  

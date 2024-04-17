@@ -1,0 +1,161 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedCitiesList || !isLoadedAddedClient" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "clientAdd.selfName" | translate }}</h2>
+
+<!-- 
+    <section *ngIf="cities_list.length == 0 && isLoadedCitiesList" class="main">
+
+        <h3 class="errorHeader">{{ "clientAdd.errors.citiesList" | translate }}</h3>
+
+    </section> 
+-->
+
+    <form [formGroup]="add_Client_Form" class="main">
+
+
+        <div class="outer-left-panel">
+    
+            <div class="left-panel">
+    
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.surname" | translate }}</mat-label>
+                        <input matInput #inputSurname formControlName="inputSurname">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.name" | translate }}</mat-label>
+                        <input matInput #inputName formControlName="inputName">
+                    </mat-form-field>
+                </label>
+                
+            </div>
+        
+        
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.companyName" | translate }}</mat-label>
+                        <input matInput placeholder="{{ 'clientAdd.companyNameExample' | translate }}" #inputCompanyName formControlName="inputCompanyName">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.nip" | translate }}</mat-label>
+                        <input matInput placeholder="5342879221" #inputNIP formControlName="inputNIP">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+        
+        
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.phoneNumber" | translate }}</mat-label>
+                        <input matInput placeholder="898 891 213" #inputPhoneNumber formControlName="inputPhoneNumber">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.email" | translate }}</mat-label>
+                        <input type="email" matInput placeholder="john.doe@example.com" #inputEmail formControlName="inputEmail">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+            
+            
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.address" | translate }}</mat-label>
+                        <input matInput #inputAddress formControlName="inputAddress">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "clientAdd.postalCode" | translate }}</mat-label>
+                        <input matInput #inputPostalCode formControlName="inputPostalCode">
+                    </mat-form-field>
+                </label>
+                
+            </div>
+        
+            
+            
+            <div class="left-panel">
+
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "clientAdd.city" | translate }}</mat-label>
+                        <input #inputCity
+                               type="text"
+                               placeholder="{{ 'clientAdd.cityExample' | translate }}"
+                               matInput
+                               (input)="filterCities()"
+                               (focus)="filterCities()"
+                               [matAutocomplete]="autoCity"
+                                formControlName="inputCity">
+                        <mat-autocomplete requireSelection #autoCity="matAutocomplete">
+                          @for (option of cities_list_filtered; track option) {
+                            <mat-option [value]="option.city">{{option.city}}</mat-option>
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+                <label>
+                    <button class="addCity" type="button" (click)="openAddDialog('100ms', '100ms')">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </label>
+            </div>
+    
+        </div>
+        
+        
+        <div class="right-panel">
+    
+            <label>
+                <mat-form-field>
+                    <mat-label>{{ "clientAdd.comment" | translate }}</mat-label>
+                    <textarea matInput id="comment" #inputComment formControlName="inputComment"></textarea>
+                </mat-form-field>
+            </label>
+    
+            <div class="button-container">
+                <input type="submit" value="{{ 'headerTabs.clients.clientAdd' | translate }}" (click)="add_client()">
+                <div *ngIf="submitted && add_Client_Form.invalid" class="invalid-form">
+                    <div *ngIf="!emptyError">
+                        {{ "clientAdd.errors.formError.empty" | translate }}
+                    </div>
+                    <div *ngIf="add_Client_Form.get('inputPhoneNumber')?.hasError('pattern')">
+                        {{ "clientAdd.errors.formError.phone" | translate }}
+                    </div>
+                </div>
+            
+            </div>
+            
+        </div>
+    
+        
+    
+    
+    </form>
+
+</section>
+
+

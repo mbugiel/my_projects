@@ -1,0 +1,14 @@
+:host{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+div{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+    font-weight: bold;
+}

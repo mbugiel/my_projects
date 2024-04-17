@@ -1,0 +1,108 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedOrder" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2 *ngIf="isLoadedOrder">
+        {{ "orderInfo.selfName" | translate }}
+        <span class="order_name">{{selected_order.order_name}}</span>
+        <a routerLink="/manage-mate/order-edit/{{selected_order.id}}">
+            <mat-icon class="edit">edit</mat-icon>
+            {{ "itemList.edit" | translate }}
+        </a>
+    </h2>
+
+
+    <div *ngIf="isLoadedOrder" class="main">
+
+
+        <div class="outer-left-panel">
+            
+            <div>
+                <h3 class="info-header">{{ "orderInfo.conSite" | translate }}</h3>
+                <h4>{{selected_order.construction_site_id_FK.construction_site_name}}</h4>
+                <h4>{{ "orderInfo.Address" | translate }} {{selected_order.construction_site_id_FK.address}}, {{selected_order.construction_site_id_FK.cities_list_id_FK}}, {{selected_order.construction_site_id_FK.postal_code}}</h4>
+            </div>
+
+            <div>
+                <h3 class="info-header">{{ "orderInfo.client" | translate }}</h3>
+                <h4>{{selected_order.client_id_FK.name}} {{selected_order.client_id_FK.surname}} - {{selected_order.client_id_FK.company_name}}</h4>
+                <h4>{{ "orderInfo.Address" | translate }} {{selected_order.client_id_FK.address}}, {{selected_order.client_id_FK.city_id_FK}}, {{selected_order.client_id_FK.postal_code}}</h4>
+                <h4>{{ "orderInfo.clientMail" | translate }} {{selected_order.client_id_FK.email}}</h4>
+                <h4>{{ "orderInfo.clientPhone" | translate }} {{selected_order.client_id_FK.phone_number}}</h4>
+                <h4>{{ "orderInfo.clientNip" | translate }} {{selected_order.client_id_FK.nip}}</h4>
+            </div>
+    
+        </div>
+        
+
+
+
+        <div class="outer-left-panel">
+
+            <div>
+                <h3 class="info-header">{{ "orderInfo.creationDate" | translate }}</h3>
+                <h4>{{formatDate(selected_order.creation_date)}}</h4>
+            </div>
+            
+            <div>
+                <h3 class="info-header">{{ "orderInfo.status" | translate }}</h3>
+
+                <h4 [class.color-green]="selected_order.status==1" [class.color-red]="selected_order.status==0">
+
+                    @if(selected_order.status == 0){
+                        {{ "orderList.statusInactive" | translate }}
+                    }
+                    @else {
+                        {{ "orderList.statusActive" | translate }}
+                    }                    
+
+                </h4>
+
+            </div>
+
+            <div>
+                <h3 class="info-header">{{ "orderInfo.comment" | translate }}</h3>
+                
+                @if (!selected_order.comment){
+                    <h4>{{ "orderInfo.noComment" | translate }}</h4>
+                }
+                @else {
+                    <h4>{{selected_order.comment}}</h4>
+                }
+
+            </div>
+    
+        </div>
+
+
+
+        
+        <div class="outer-left-panel">
+
+            <h3 class="info-header">{{ "orderInfo.receipts" | translate }}</h3>
+
+            <button routerLink="/manage-mate/receipt-list-out" class="color-green color-green-hover">{{ 'orderInfo.receiptsOut' | translate }}</button>
+
+            <button routerLink="/manage-mate/receipt-list-in" class="color-red color-red-hover">{{ 'orderInfo.receiptsIn' | translate }}</button>
+    
+    
+        </div>
+    
+        
+    
+        
+    
+    
+    </div>
+
+</section>
+
+
+

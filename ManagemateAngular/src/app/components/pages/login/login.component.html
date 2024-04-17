@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div *ngIf="!isLoaded" class="loader-page">
+            
+    <div class="loader"></div>
+  
+  </div>
+
+  <div class="details">
+    <h2>Logowanie</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="input-container">
+        <label>Nazwa użytkownika:</label>
+        <div>
+          <input
+            type="text"
+            formControlName="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="errors" *ngIf="fc.username.errors && isSubmitted">
+          <div *ngIf="fc.username.errors.required">Nie może być puste</div>
+        </div>
+      </div>
+
+
+      <div class="input-container">
+        <label>Hasło:</label>
+        <div>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="errors" *ngIf="fc.password.errors && isSubmitted">
+          <div *ngIf="fc.password.errors.required">Nie może być puste</div>
+        </div>
+      </div>
+
+      <div class="login_register">
+        <button type="submit">Zaloguj się</button>
+        <a routerLink="/register">Nie mam konta</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+:host{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.outer-main{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+
+.outer-left-panel{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.left-panel{
+    display: flex;
+    align-items: space-between;
+}
+
+.left-panel label, .right-panel label{
+    margin: 0.5rem;
+    position: relative;
+}
+
+h4{
+    position: absolute;
+    top: -2rem;
+}
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea{
+    max-height: 10rem;
+}
+
+
+h4{
+    margin: 0.3rem 0;
+    padding-left: 0.5rem;
+}
+
+/* input[type = "text"], input[type="number"] {
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    height: 2rem;
+    padding: 0.8rem;
+    width: 40rem;
+    outline: none;
+    border: none;
+} */
+
+mat-form-field{
+
+    min-width: 300px;
+
+}
+
+input[type = "submit"]{
+    margin-top: 1rem;
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    height: 2.2rem;
+    color: navy;
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+input[type = "submit"]:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.button-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.invalid-form{
+
+    display: flex;
+    padding: 0.5rem;
+    color: red;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    max-width: 212px;
+    word-wrap: break-word;
+
+}
+
+.addCity{
+
+    color: black;
+    cursor: pointer;
+    margin-top: 0.6rem;
+    border-radius: 15px;
+    border: 1px gray solid;
+    color: navy;
+    display: flex;
+    align-items: center;
+    padding: 0.35rem;
+
+}
+
+.addCity:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+/* textarea{
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    height: 2rem;
+    padding: 0.8rem;
+    width: 40rem;
+    outline: none;
+    border: 1px solid lightgray;
+} */
+
+/* textarea:focus{
+    background-color: transparent;
+    border-color: black;
+} */
+
+

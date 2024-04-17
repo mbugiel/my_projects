@@ -1,0 +1,82 @@
+:host{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.outer-main{
+    padding: 1rem 2rem;
+}
+
+.order_name{
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+
+.info-header{
+    color: navy;
+}
+
+.main{
+    display: flex;
+}
+
+.outer-left-panel{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5rem;
+}
+
+.outer-left-panel div{
+    padding: 0 1rem;
+}
+
+
+.left-panel{
+    display: flex;
+    align-items: space-between;
+}
+
+button{
+    margin-top: 1rem;
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    font-size: 1.1rem;
+    height: 3rem;
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+button:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.color-green-hover:hover{
+    color:white;
+    background-color: green;
+    border-color: green;
+}
+
+.color-red-hover:hover{
+    color:white;
+    background-color: red;
+    border-color: red;
+}
+
+
+.edit{
+    margin-left: 3rem;
+    color: rgb(255, 183, 0);
+}
+
+
+
+.color-green{
+    color:green;
+}
+
+.color-red{
+    color: red;
+}

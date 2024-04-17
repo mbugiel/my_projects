@@ -1,0 +1,336 @@
+{
+    "errorMessages": {
+        "error":"Error!",
+        "1": "Session not found",
+        "2": "Encryption error",
+        "3": "Decryption error",
+        "4": "Username in use",
+        "5": "Email address is already in use",
+        "6": "Error while adding user",
+        "7": "User not found",
+        "8": "Incorrect password",
+        "9": "Confirmation code has expired",
+        "10": "Too many incorrect attempts",
+        "11": "Incorrect confirmation code",
+        "12": "Confirmation code not found",
+        "13": "No items on receipt",
+        "14": "Null error",
+        "15": "Error while reading e-mail template",
+        "16": "Server response error",
+        "17": "Session has expired",
+        "18": "Duplicate error",
+        "19": "Object not found",
+        "20": "To short time between sending e-mails",
+        "21": "Password is invalid",
+        "default": "Unknown error"
+    },
+
+    "successMessages":{
+        "success":"Success!",
+        "welcome":"Welcome to Managemate ",
+        "emailSent":"We sent an e-mail",
+        "emailInfo":"Check Your inbox at {0} to get verification code.",
+        "logout":"Logged out",
+        "addItem":"Added Item",
+        "deleteItem":"Deleted Item",
+        "editItem":"Edited Item",
+        "deleteItemType":"Deleted Group",
+        "addItemType":"Added Group",
+        "editItemType":"Edited Group",
+        "addItemCountingType":"Added Unit",
+        "editItemCountingType":"Edited Unit",
+        "deleteItemCountingType":"Deleted Unit",
+        "addClient":"Added Client",
+        "editClient":"Edited Client",
+        "deleteClient":"Deleted Client",    
+        "addConSite":"Added Construction",
+        "editConSite":"Edited construction",
+        "deleteConSite":"Deleted Construction",
+        "addCity":"Added City",
+        "addOrder":"Added Order",
+        "deleteOrder":"Deleted Order",
+        "editOrder":"Edited Order"
+    },
+
+    "deleteDialog":{
+        "itemTitle":"Delete Item?",
+        "itemTypeTitle":"Delete Group?",
+        "itemCountingTypeTitle":"Delete Counting Unit?",
+        "clientTitle":"Delete Client?",
+        "con_siteTitle":"Delete Construction?",
+        "orderTitle":"Delete Order?",
+
+        "itemMessage":"Are you sure to delete item ",
+        "itemTypeMessage":"Deletion of a group cause deletion of all associated items!\nAre you sure to delete group ",
+        "itemCountingTypeMessage":"Deletion of a counting unit cause deletion of all associated items!\nAre you sure to delete unit ",
+        "clientMessage":"Are you sure to delete client ",
+        "con_siteMessage":"Are you sure to delete construction ",
+        "orderMessage":"Are you sure to delete order ",
+        
+        "yes":"Yes",
+        "no":"No"
+    },
+
+    "editDialog":{
+        "itemTypeTitle":"Edit Group ",
+        "itemCountingTypeTitle":"Edit Unit ",
+        "cancel":"Cancel",
+        "confirm":"Confirm",
+        "empty":"Field can't be empty*"
+    },
+
+    "passwordDialog":{
+        "dialogTitle":"Type Your password to delete ",
+        "dialogLabel":"Password"
+    },
+    
+    "addDialog":{
+        "cityTitle":"Add City:",
+        "cityLabel":"City Name",
+        "cancel":"Cancel",
+        "add":"Add"
+    },
+
+    "mainHeader": {
+        "about":"About the program",
+        "contact":"Contact",
+        "toProgram":"To the program"
+    },
+
+    "headerTabs":{
+        "m":{
+            "mainPage":"Main\u00a0Page"
+        },
+
+        "storage":{
+            "selfName":"Storage",
+            
+            "stock":"In Stock",
+            "itemAdd":"Add Item",
+            "itemType":"Item Groups",
+            "itemCountingType":"Counting Units"
+        },
+
+        "orders":{
+            "selfName":"Orders",
+
+            "orderList":"Order List",
+            "orderAdd":"New Order"
+        },
+
+        "clients":{
+            "selfName":"Clients",
+
+            "clientList":"Client List",
+            "clientAdd":"Add Client"
+        },
+
+        "constructions":{
+            "selfName":"Constructions",
+
+            "constructionList":"Construction List",
+            "constructionAdd":"Add Construction"
+        },
+
+        "invoices":{
+            "selfName":"Invoices",
+
+            "invoiceList":"Invoice List",
+            "invoiceAdd":"Issue an Invoice",
+            "invoiceAddAll":"Issue All Invoices"
+        },
+
+        "account":{
+            "selfName":"Account",
+
+            "logout":"Logout"
+        }
+    },
+
+    "itemList":{
+        "catalogNumber":"Catalog Number",
+        "name":"Name",
+        "nameExample":"Item Name",
+        "weight":"Weight [kg]",
+        "count":"Count",
+        "blockedCount":"Blocked Count",
+        "comment":"Notes",
+        "edit":"Edit",
+        "delete":"Delete",
+        "filter":"Filter:",
+        "errors":{
+            "itemListNotFound":"No Items Found"
+        }
+    },
+
+    "itemAdd":{
+        "selfName":"Add New Item:",
+        "catalogNumber":"Catalog Number",
+        "productName":"Product Name",
+        "productNameExample":"Example Name",
+        "itemType":"Item Group",
+        "itemTypeExample":"Example Group",
+        "weightKg":"Weight [kg]",
+        "count":"Count",
+        "blockedCount":"Reserved Count",
+        "price":"Net Price",
+        "taxPct":"Tax [%]",
+        "tradingType":"Trading Method",
+        "countingType":"Counting Unit",
+        "countingTypeExample":"pcs",
+        "comment":"Comment",
+        "errors":{
+            "itemTypes":"Add at least one item group before creating item.",
+            "tradingTypes":"Add at least one counting unit before creating item.",
+            "formError":"Fields can't be empty*"
+        }
+    },
+    "itemEdit":{
+        "selfName":"Edit Item:",
+        "confirm":"Confirm Changes"
+    },
+    "itemType":{
+        "selfName":"Item Group",
+        "addItemType":"Add Group",
+        "groupName":"Group Name",
+        "noGroups":"No Groups Found",
+        "add":"Dodaj"
+    },
+
+    "itemCountingType":{
+        "selfName":"Counting Unit",
+        "addItemCountingType":"Add Unit",
+        "noCountingTypes":"No Units Found",
+        "add":"Dodaj"
+    },
+
+    "clientList":{
+        "surname":"Surname",
+        "name":"Name",
+        "companyName":"Company Name",
+        "phoneNumber":"Phone Number",
+        "nip":"NIP",
+        "email":"Email",
+        "city":"City",
+        "address":"Address",
+        "postalCode":"Postal Code",
+        "comment":"Notes",
+        "edit":"Edit",
+        "delete":"Delete",
+        "filter":"Filter:",
+        "errors":{
+            "clientListNotFound":"No Clients Found"
+        }
+    },
+    "clientAdd":{
+        "selfName":"Add New Client:",
+        "surname":"Surname",
+        "name":"Name",
+        "companyName":"Company Name",
+        "companyNameExample":"Amazon",
+        "nip":"NIP",
+        "phoneNumber":"Phone Number",
+        "email":"Email",
+        "address":"Address",
+        "city":"City",
+        "cityExample":"Berlin",
+        "postalCode":"Postal Code",
+        "comment":"Notes",
+        "errors":{
+            "formError":{
+                "empty":"Fields can't be empty*",
+                "phone":"Enter a valid phone number*"
+            }
+        }
+    },
+    "clientEdit":{
+        "selfName":"Edit Client:",
+        "confirm":"Confirm Changes"
+    },
+
+    "con_siteList":{
+        "construction_site_name": "Construction Name",
+        "address": "Address",
+        "city": "City",
+        "postalCode": "Postal Code",
+        "comment": "Notes",
+        "edit": "Edit",
+        "delete": "Delete",
+        "filter": "Filter:",
+        "errors":{
+            "con_siteListNotFound": "Construction Sites Not Found"
+        }
+    },
+    "con_siteAdd":{
+        "selfName": "Add New Construction:",
+        "conSiteName": "Construction Name",
+        "address": "Address",
+        "city": "City",
+        "cityExample": "Berlin",
+        "postalCode": "Postal Code",
+        "comment": "Notes",
+        "errors":{
+            "formError":{
+                "empty": "Fields can't be empty*"
+            }
+        }
+    },
+    "con_siteEdit":{
+        "selfName":"Edytuj Budowę:",
+        "confirm":"Zatwierdź Zmiany"
+    },
+ 
+    "orderList":{
+        "orderName":"Order Name",
+        "clientName":"Client",
+        "constructionSiteName":"Construction",
+        "status":"Status",
+        "statusAll":"All",
+        "statusActive":"Active",
+        "statusInactive":"Inactive",
+        "creationDate":"Creation Date",
+        "errors":{
+            "ordersNotFound":"No Orders Found"
+        }
+    },
+
+    "orderAdd":{
+        "selfName":"Add New Order:",
+        "orderName":"Order Name",
+        "client":"Client",
+        "conSite":"Construction Site",
+        "status":"Status",
+        "comment":"Comment",
+        "orderAdd":"Add Order",
+        "errors":{
+            "clientListNotFound":"No Clients Found",
+            "con_siteListNotFound":"Construction Sites Not Found",
+            "formError":"Fields can't be empty*"
+        }
+
+    },
+
+    "orderEdit":{
+        "selfName":"Edit Order:",
+        "creationDate":"Creation Date",
+        "confirm":"Confirm Changes"
+    },
+
+    "orderInfo":{
+        "selfName":"Order:",
+        "conSite":"Relates to Construction Site",
+        "Address":"Address:",
+        "client":"Related Client",
+        "clientMail":"e-mail:",
+        "clientPhone":"phone:",
+        "clientNip":"NIP:",
+        "status":"Status",
+        "creationDate":"Creation Date",
+        "comment":"Comment on the Order",
+        "noComment":"No comments",
+        "receipts":"Order Receipts:",
+        "receiptsIn":"Returns",
+        "receiptsOut":"Releases"
+    }
+
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "kEGEOvUKspcHVfy3DBiyA4ko3kLdBS2TISrQVZDRpV0=",
+  "Source": "ManagemateAPI",
+  "BasePath": "_content/ManagemateAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

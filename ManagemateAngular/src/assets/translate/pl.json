@@ -1,0 +1,336 @@
+{
+    "errorMessages": {
+        "error":"Błąd!",
+        "1": "Nie znaleziono sesji",
+        "2": "Błąd szyfrowania",
+        "3": "Błąd deszyfrowania",
+        "4": "Nazwa użytkownika w użyciu",
+        "5": "Adres e-mail jest już używany",
+        "6": "Błąd dodawania użytkownika",
+        "7": "Nie znaleziono użytkownika",
+        "8": "Nieprawidłowe hasło",
+        "9": "Błąd czasu kodu potwierdzenia",
+        "10": "Błąd próby kodu potwierdzenia",
+        "11": "Nieprawidłowy kod potwierdzenia",
+        "12": "Nie znaleziono kodu potwierdzenia",
+        "13": "Brak pozycji na pokwitowaniu",
+        "14": "Null error",
+        "15": "Błąd odczytu szablonu wiadomości e-mail",
+        "16": "Błąd odpowiedzi serwera",
+        "17": "Sesja wygasła",
+        "18": "Duplikat",
+        "19": "Nie znaleziono obiektu",
+        "20": "Za mały odstęp czasu pomiędzy wysyłanymi e-mailami",
+        "21": "Nieprawidłowe hasło",
+        "default": "Nieznany błąd"
+    },
+
+    "successMessages":{
+        "success":"Sukces!",
+        "welcome":"Witamy w Managemate ",
+        "emailSent":"Wysłaliśmy wiadomość e-mail",
+        "emailInfo":"Sprawdź swoją skrzynkę odbiorczą pod adresem {0}, aby uzyskać kod weryfikacyjny.",
+        "logout":"Wylogowano",
+        "addItem":"Dodano Przedmiot",
+        "deleteItem":"Usunięto Przedmiot",
+        "editItem":"Edytowano Przedmiot",
+        "deleteItemType":"Usunięto Grupę",
+        "addItemType":"Dodano Grupę",
+        "editItemType":"Edytowano Grupę",
+        "addItemCountingType":"Dodano Jednostkę",
+        "editItemCountingType":"Edytowano Jednostkę",
+        "deleteItemCountingType":"Usunięto Jednostkę",
+        "addClient":"Dodano Klienta",
+        "editClient":"Edytowano Klienta",
+        "deleteClient":"Usunięto Klienta",
+        "addConSite":"Dodano Budowę",
+        "editConSite":"Edytowano Budowę",
+        "deleteConSite":"Usunięto Budowę",
+        "addCity":"Dodano Miasto",
+        "addOrder":"Dodano Zlecenie",
+        "deleteOrder":"Usunięto Zlecenie",
+        "editOrder":"Edytowano Zlecenie"
+    },
+
+    "deleteDialog":{
+        "itemTitle":"Usunąć Przedmiot?",
+        "itemTypeTitle":"Usunąć Grupę?",
+        "itemCountingTypeTitle":"Usunąć Jednostkę Zliczania?",
+        "clientTitle":"Usunąć Klienta?",
+        "con_siteTitle":"Usunąć Budowę?",
+        "orderTitle":"Usunąć Zlecenie?",
+
+        "itemMessage":"Na pewno chcesz usunąć przedmiot ",
+        "itemTypeMessage":"Usunięcie grupy spowoduje usunięcie wszystkich powiązanych z nią przedmiotów!\nNa pewno chcesz usunąć grupę ",
+        "itemCountingTypeMessage":"Usunięcie jednostki zliczania spowoduje usunięcie wszystkich powiązanych z nią przedmiotów!\nNa pewno chcesz usunąć jednostkę ",
+        "clientMessage":"Na pewno chcesz usunąć klienta ",
+        "con_siteMessage":"Na pewno chcesz usunąć budowę ",
+        "orderMessage":"Na pewno chcesz usunąć zlecenie ",
+        
+        "yes":"Tak",
+        "no":"Nie"
+    },
+
+    "editDialog":{
+        "itemTypeTitle":"Edytuj Grupę ",
+        "itemCountingTypeTitle":"Edytuj Jednostkę ",
+        "cancel":"Anuluj",
+        "confirm":"Zatwierdź",
+        "empty":"Pole nie może być puste*"
+    },
+
+    "passwordDialog":{
+        "dialogTitle":"Wprowadź swoje hasło, aby usunąć ",
+        "dialogLabel":"Hasło"
+    },
+
+    "addDialog":{
+        "cityTitle":"Dodaj Miasto:",
+        "cityLabel":"Nazwa Miasta",
+        "cancel":"Anuluj",
+        "add":"Dodaj"
+    },
+
+    "mainHeader": {
+        "about":"O programie",
+        "contact":"Kontakt",
+        "toProgram":"Do programu"
+    },
+    
+    "headerTabs":{
+        "m":{
+            "mainPage":"Strona\u00a0Główna"
+        },
+
+        "storage":{
+            "selfName":"Magazyn",
+            
+            "stock":"Stan Magazynu",
+            "itemAdd":"Dodaj Przedmiot",
+            "itemType":"Grupy Przedmiotów",
+            "itemCountingType":"Jednostki Zliczania"
+        },
+
+        "orders":{
+            "selfName":"Zlecenia",
+
+            "orderList":"Lista Zleceń",
+            "orderAdd":"Nowe Zlecenie"
+        },
+
+        "clients":{
+            "selfName":"Klienci",
+
+            "clientList":"Lista Klientów",
+            "clientAdd":"Dodaj Klienta"
+        },
+
+        "constructions":{
+            "selfName":"Budowy",
+
+            "constructionList":"Lista Budów",
+            "constructionAdd":"Dodaj Budowę"
+        },
+
+        "invoices":{
+            "selfName":"Faktury",
+
+            "invoiceList":"Lista Faktur",
+            "invoiceAdd":"Wystaw Fakturę",
+            "invoiceAddAll":"Wystaw Wszystkie Faktury"
+        },
+
+        "account":{
+            "selfName":"Konto",
+
+            "logout":"Wyloguj"
+        }
+    },
+
+    "itemList":{
+        "catalogNumber":"Numer Katalogowy",
+        "name":"Nazwa",
+        "nameExample":"Nazwa Przedmiotu",
+        "weight":"Waga [kg]",
+        "count":"Ilość",
+        "blockedCount":"Zarezerwowane",
+        "comment":"Uwagi",
+        "edit":"Edytuj",
+        "delete":"Usuń",
+        "filter":"Filtruj:",
+        "errors":{
+            "itemListNotFound":"Brak Przedmiotów"
+        }
+    },
+
+    "itemAdd":{
+        "selfName":"Dodaj Nowy Przedmiot:",
+        "catalogNumber":"Numer Katalogowy",
+        "productName":"Nazwa Przedmiotu",
+        "productNameExample":"Przykładowa Nazwa",
+        "itemType":"Grupa Przedmiotów",
+        "itemTypeExample":"Przykładowa Grupa",
+        "weightKg":"Waga [kg]",
+        "count":"Ilość",
+        "blockedCount":"Zarezerwowana Ilość",
+        "price":"Cena netto",
+        "taxPct":"VAT [%]",
+        "tradingType":"Rodzaj handlu",
+        "countingType":"Jednostka zliczania",
+        "countingTypeExample":"szt",
+        "comment":"Uwagi",
+        "errors":{
+            "itemTypes":"Aby dodać przedmiot musisz dodać przynajmniej jedną grupę przedmiotową.",
+            "tradingTypes":"Aby dodać przedmiot musisz dodać przynajmniej jedną jednostkę zliczania.",
+            "formError":"Pola nie mogą być puste*"
+        }
+    },
+    "itemEdit":{
+        "selfName":"Edytuj Przedmiot:",
+        "confirm":"Zatwierdź Zmiany"
+    },
+    "itemType":{
+        "selfName":"Grupa Przedmiotów",
+        "addItemType":"Dodaj Grupę",
+        "groupName":"Nazwa Grupy",
+        "noGroups":"Brak Grup",
+        "add":"Dodaj"
+    },
+
+    "itemCountingType":{
+        "selfName":"Jednostka Zliczania",
+        "addItemCountingType":"Dodaj Jednostkę",
+        "noCountingTypes":"Brak Jednostek",
+        "add":"Dodaj"
+    },
+
+    "clientList":{
+        "surname":"Nazwisko",
+        "name":"Imię",
+        "companyName":"Nazwa Firmy",
+        "phoneNumber":"Numer Telefonu",
+        "nip": "NIP",
+        "email": "Email",
+        "city": "Miasto",
+        "address": "Adres",
+        "postalCode": "Kod Pocztowy",
+        "comment": "Uwagi",
+        "edit":"Edytuj",
+        "delete":"Usuń",
+        "filter":"Filtruj:",
+        "errors":{
+            "clientListNotFound":"Nie Znaleziono Klientów"
+        }
+    },
+    "clientAdd":{
+        "selfName": "Dodaj Nowego Klienta:",
+        "surname": "Nazwisko",
+        "name": "Imię",
+        "companyName": "Nazwa Firmy",
+        "companyNameExample":"Amazon",
+        "nip": "NIP",
+        "phoneNumber": "Numer Telefonu",
+        "email": "Email",
+        "address": "Adres",
+        "city": "Miasto",
+        "cityExample": "Berlin",
+        "postalCode": "Kod Pocztowy",
+        "comment": "Uwagi",
+        "errors":{
+            "formError":{
+                "empty":"Pola nie mogą być puste*",
+                "phone":"Wprowadź poprawny numer telefonu*"
+            }
+        }
+    },
+    "clientEdit":{
+        "selfName":"Edytuj Klienta:",
+        "confirm":"Zatwierdź Zmiany"
+    },
+
+    "con_siteList":{
+        "construction_site_name":"Nazwa Budowy",
+        "address":"Adres",
+        "city":"Miasto",
+        "postalCode": "Kod Pocztowy",
+        "comment": "Uwagi",
+        "edit":"Edytuj",
+        "delete":"Usuń",
+        "filter":"Filtruj:",
+        "errors":{
+            "con_siteListNotFound":"Nie Znaleziono Budów"
+        }
+    },
+    "con_siteAdd":{
+        "selfName": "Dodaj Nową Budowę:",
+        "conSiteName": "Nazwa Budowy",
+        "address": "Adres",
+        "city": "Miasto",
+        "cityExample": "Berlin",
+        "postalCode": "Kod Pocztowy",
+        "comment": "Uwagi",
+        "errors":{
+            "formError":{
+                "empty":"Pola nie mogą być puste*"
+            }
+        }
+    },
+    "con_siteEdit":{
+        "selfName":"Edytuj Budowę:",
+        "confirm":"Zatwierdź Zmiany"
+    },
+
+    "orderList":{
+        "orderName":"Nazwa Zlecenia",
+        "clientName":"Klient",
+        "constructionSiteName":"Budowa",
+        "status":"Status",
+        "statusAll":"Wszystkie",
+        "statusActive":"Aktywne",
+        "statusInactive":"Nieaktywne",
+        "creationDate":"Data Utworzenia",
+        "errors":{
+            "ordersNotFound":"Brak Zleceń"
+        }
+    },
+
+    "orderAdd":{
+        "selfName":"Dodaj Nowe Zlecenie:",
+        "orderName":"Nazwa Zlecenia",
+        "client":"Klient",
+        "conSite":"Budowa",
+        "status":"Status",
+        "comment":"Uwagi",
+        "orderAdd":"Dodaj Zlecenie",
+        "errors":{
+            "clientListNotFound":"Nie Znaleziono Klientów",
+            "con_siteListNotFound":"Nie Znaleziono Budów",
+            "formError":"Pola nie mogą być puste*"
+        }
+
+    },
+
+    "orderEdit":{
+        "selfName":"Edytuj Zlecenie:",
+        "creationDate":"Data Utworzenia",
+        "confirm":"Zatwierdź Zmiany"
+    },
+
+    "orderInfo":{
+        "selfName":"Zlecenie:",
+        "conSite":"Dotyczy Budowy",
+        "Address":"Adres:",
+        "client":"Powiązany Klient",
+        "clientMail":"e-mail:",
+        "clientPhone":"tel.:",
+        "clientNip":"NIP:",
+        "status":"Status",
+        "creationDate":"Data Utworzenia",
+        "comment":"Uwagi do Zlecenia",
+        "noComment":"Brak uwag",
+        "receipts":"Kwity Zlecenia:",
+        "receiptsIn":"Zwroty",
+        "receiptsOut":"Wydania"
+    }
+
+}

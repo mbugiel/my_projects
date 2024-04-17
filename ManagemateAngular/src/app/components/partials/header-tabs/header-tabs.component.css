@@ -1,0 +1,140 @@
+header{
+    width: 100%;
+    position: relative;
+    background: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    font-weight: bold;
+    color: navy;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-menu a{
+    /* font-size: 0.8rem; */
+    border-radius: 5px;
+}
+
+.first-row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 2rem;
+}
+
+.second-row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 2rem;
+
+    border-bottom: 1px solid black;
+}
+
+/* first row -------------- */
+
+.first-row-left{
+    display: flex;
+    height: 100%;
+}
+
+.first-row-left a{
+    padding: 0.2rem 1rem;
+    margin: 0 0.3rem;
+}
+
+.account-button, .account-menu a{
+    padding: 0.2rem 0.5rem;
+}
+
+.account-menu a:hover{
+    background-color: rgb(223, 223, 223);
+}
+
+
+
+.nav-button, .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.middle-space{
+    flex-grow: 1;
+}
+
+.account-menu-container{
+    position: relative;
+    height: 100%;
+}
+
+.account-menu-container div:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+.account-menu-container:hover .account-menu{
+    display: block;
+}
+
+.account-menu{
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    padding: 0.5rem 0.5rem;
+    background-color: rgb(238, 238, 238);
+    display: none;
+}
+
+.right-0{
+    right: 0px;
+}
+
+.left-0{
+    left: 0px;
+}
+
+
+
+
+.logo, .account-button, .middle-space{
+    height: 100%;
+    border-radius: 5px 5px 0 0;
+    border-top: 1px solid white;
+    border-bottom: 1px solid black;
+}
+
+.bottom-black{
+    border-radius: 5px 5px 0 0;
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+
+}
+
+.bottom-white{
+    border-radius: 5px 5px 0 0;
+    border: 1px solid black;
+    border-bottom: 1px solid white;
+}
+
+a:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+
+/* second row settings */
+
+.second-row nav{
+    display: flex;
+}
+
+.second-row nav a, .nav-button a{
+    padding: 0.1rem 1rem;
+    border-radius: 5px;
+}

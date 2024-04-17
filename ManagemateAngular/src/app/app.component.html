@@ -1,0 +1,34 @@
+<ng-container *ngIf="!isLoaded; else loadedContent">
+  <div class="loader-page">        
+    <div class="loader"></div>
+  </div>
+</ng-container>
+<ng-template #loadedContent>
+  <app-header *ngIf="showHeader"></app-header>
+  <main-header *ngIf="showMainHeader"></main-header>
+  <div *ngIf="showMainHeader" id="space-without-main-header">
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="showHeader" id="space-without-header-tabs">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
+
+<!-- 
+<app-header *ngIf="showHeader"></app-header>
+<main-header *ngIf="showMainHeader"></main-header>
+
+<div *ngIf="showMainHeader" id="space-without-main-header">
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="showHeader" id="space-without-header-tabs">
+  <router-outlet></router-outlet>
+</div> -->
+
+
+
+<!-- <div id="base">
+  <app-menu *ngIf="showMenu"></app-menu>
+  <router-outlet></router-outlet>
+</div> -->

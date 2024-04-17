@@ -1,0 +1,203 @@
+{
+    "errorMessages": {
+        "error":"",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "",
+        "17": "",
+        "18": "",
+        "19": "",
+        "default": ""
+    },
+    
+    "successMessages":{
+        "success":"",
+        "addItem":"",
+        "deleteItem":"",
+        "editItem":"",
+        "deleteItemType":"",
+        "addItemType":"",
+        "addClient":"",
+        "editClient":"",
+        "deleteClient":""
+    },
+
+    "deleteDialog":{
+        "itemTitle":"",
+        "itemTypeTitle":"",
+        "clientTitle":"",
+        "itemMessage":"",
+        "itemTypeMessage":"",
+        "clientMessage":"",
+        "yes":"",
+        "no":""
+    },
+
+    "mainHeader": {
+        "about":"",
+        "contact":"",
+        "toProgram":""
+    },
+
+    "headerTabs":{
+        "m":{
+            "mainPage":""
+        },
+
+        "storage":{
+            "selfName":"",
+            
+            "stock":"",
+            "itemAdd":"",
+            "itemType":"",
+            "itemTypeList":"",
+            "itemTypeAdd":"",
+            "itemCountingType":"",
+            "itemCountingTypeList":"",
+            "itemCountingTypeAdd":""
+        },
+
+        "orders":{
+            "selfName":"",
+
+            "orderList":"",
+            "orderAdd":""
+        },
+
+        "clients":{
+            "selfName":"",
+
+            "clientList":"",
+            "clientAdd":""
+        },
+
+        "constructions":{
+            "selfName":"",
+
+            "constructionList":"",
+            "constructionAdd":""
+        },
+
+        "invoices":{
+            "selfName":"",
+
+            "invoiceList":"",
+            "invoiceAdd":"",
+            "invoiceAddAll":""
+        },
+
+        "account":{
+            "selfName":"",
+
+            "logout":""
+        }
+    },
+
+    "itemList":{
+        "catalogNumber":"",
+        "name":"",
+        "nameExample":"",
+        "weight":"",
+        "count":"",
+        "blockedCount":"",
+        "comment":"",
+        "edit":"",
+        "delete":"",
+        "filter":"",
+        "errors":{
+            "itemListNotFound":""
+        }
+    },
+
+    "itemAdd":{
+        "selfName":"",
+        "catalogNumber":"",
+        "productName":"",
+        "productNameExample":"",
+        "itemType":"",
+        "itemTypeExample":"",
+        "weightKg":"",
+        "count":"",
+        "blockedCount":"",
+        "price":"",
+        "taxPct":"",
+        "tradingType":"",
+        "countingType":"",
+        "countingTypeExample":"",
+        "comment":"",
+        "errors":{
+            "itemTypes":"",
+            "tradingTypes":"",
+            "formError":""
+        }
+    },
+    "itemEdit":{
+        "selfName":"",
+        "confirm":""
+    },
+    "itemType":{
+        "selfName":"",
+        "addItemType":"",
+        "groupName":"",
+        "noGroups":""
+    },
+
+    "clientList":{
+        "surname":"",
+        "name":"",
+        "companyName":"",
+        "phoneNumber":"",
+        "nip":"",
+        "email":"",
+        "city":"",
+        "address":"",
+        "postalCode":"",
+        "comment":"",
+        "edit":"",
+        "delete":"",
+        "filter":"",
+        "errors":{
+            "clientListNotFound":""
+        }
+    },
+    "clientAdd":{
+        "selfName":"",
+        "surname":"",
+        "name":"",
+        "companyName":"",
+        "companyNameExample":"",
+        "nip":"",
+        "phoneNumber":"",
+        "email":"",
+        "address":"",
+        "addressExample":"",
+        "city":"",
+        "cityExample":"",
+        "postalCode":"",
+        "comment":"",
+        "errors":{
+            "citiesList":"",
+            "formError":{
+                "empty":"",
+                "phone":""
+            }
+        }
+    },
+    "clientEdit":{
+        "selfName":"",
+        "confirm":""
+    }
+}

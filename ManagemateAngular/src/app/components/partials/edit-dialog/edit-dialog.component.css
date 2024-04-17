@@ -1,0 +1,23 @@
+.invalid{
+
+    display: flex;
+    padding: 0.5rem;
+    color: red;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    max-width: 212px;
+    word-wrap: break-word;
+
+}
+
+h2{
+    text-align: center;
+}
+
+.input-center{
+
+    display: flex;
+    justify-content: center;
+
+}

@@ -1,0 +1,68 @@
+:host{
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-container{
+  position: relative;
+}
+
+.errors {
+  bottom: 0px;
+  position: absolute;
+  color: red;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+input {
+  background-color: lightgray;
+  border-radius: 0.5rem;
+  height: 2rem;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  width: 15rem;
+  outline: none;
+  border: none;
+}
+label {
+  font-weight: bold;
+}
+.login_register{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.login_register a{
+  height: 2.2rem;
+  font-weight: bold;
+  line-height: 2.2rem;
+}
+
+.login_register button {
+  border: 1px gray solid;
+  background-color: #ebebeb;
+  height: 2.2rem;
+  color: navy;
+  border-radius: 15px;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.login_register button:hover {
+  background-color: blue;
+  color: white;
+  border-color: blue;
+  cursor: pointer;
+}

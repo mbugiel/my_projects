@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <History>True|2024-03-29T18:29:07.6092449Z;True|2024-03-29T19:26:54.2402427+01:00;True|2024-03-29T17:27:20.1452337+01:00;True|2024-03-29T15:07:11.0807481+01:00;True|2024-03-29T15:01:32.0769310+01:00;True|2024-03-29T15:00:22.9116295+01:00;True|2024-03-29T14:58:42.6311253+01:00;True|2024-03-29T14:49:55.6292297+01:00;True|2024-03-29T14:35:44.1207392+01:00;True|2024-03-29T14:35:19.1476227+01:00;True|2024-03-29T14:01:29.9622307+01:00;False|2024-03-29T14:00:54.7060802+01:00;</History>
+    <LastFailureDetails />
+    <_PublishTargetUrl>V:\TECHNIKUM\PROJEKT\Moje\pdf_test_MAPI\publisher</_PublishTargetUrl>
+  </PropertyGroup>
+</Project>

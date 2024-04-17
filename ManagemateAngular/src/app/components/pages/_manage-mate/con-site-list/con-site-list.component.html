@@ -1,0 +1,138 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="menu">
+
+    <h2>{{ "con_siteList.filter" | translate }}</h2>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "con_siteList.construction_site_name" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputConstructionSiteName>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "con_siteList.city" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputCity>
+        </mat-form-field>
+    </div>
+
+
+</section>
+
+<section class="right-panel">
+
+
+    <div class="inner-right-panel">
+
+        <h3 *ngIf="isLoaded && con_sites_count==0" class="errorHeader">{{ "con_siteList.errors.con_siteListNotFound" | translate }}</h3>
+
+
+        <table #con_site_table *ngIf="isLoaded && con_sites_count>0" mat-table [dataSource]="con_site_list" matSort  multiTemplateDataRows>
+
+
+            <ng-container matColumnDef="construction_site_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "con_siteList.construction_site_name" | translate }}</th>
+                <td mat-cell *matCellDef="let con_site">{{con_site.construction_site_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "con_siteList.address" | translate }}</th>
+                <td mat-cell *matCellDef="let con_site">{{con_site.address}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="cities_list_id_FK">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "con_siteList.city" | translate }}</th>
+                <td mat-cell *matCellDef="let con_site">{{con_site.cities_list_id_FK}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="postal_code">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "con_siteList.postalCode" | translate }}</th>
+                <td mat-cell *matCellDef="let con_site">{{con_site.postal_code}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let con_site" (click)="$event.stopPropagation()">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedConSite = expandedConSite === con_site ? null : con_site); $event.stopPropagation()">
+                        @if (expandedConSite === con_site) {
+                        <mat-icon>keyboard_arrow_up</mat-icon>
+                        } @else {
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        }
+                    </button>
+                </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let con_site" [attr.colspan]="columnsToDisplayWithExpand.length">
+                    <div class="con_site-detail" [@detailExpand]="con_site == expandedConSite ? 'expanded' : 'collapsed'">
+                        <div class="con_site-description">
+                            <p><b>{{"con_siteList.comment" | translate}}:</b> {{con_site.comment}}</p>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef>{{ "con_siteList.edit" | translate }}</th>
+                <td mat-cell *matCellDef="let con_site" (click)="$event.stopPropagation()">
+                    <a routerLink="/manage-mate/con-site-edit/{{con_site.id}}">
+                        <mat-icon class="edit">edit</mat-icon>
+                        {{ "con_siteList.edit" | translate }}
+                    </a>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>{{ "con_siteList.delete" | translate }}</th>
+                <td mat-cell *matCellDef="let con_site" (click)="$event.stopPropagation()">
+                    <button mat-raised-button (click)="openDialog('100ms', '100ms', con_site.id, con_site.construction_site_name)">
+                        <mat-icon class="delete">delete</mat-icon>
+                        {{ "con_siteList.delete" | translate }}
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let con_site; columns: columnsToDisplayWithExpand;"
+                class="con_site-row"
+                [class.expanded-row]="expandedConSite === con_site"
+                (click)="expandedConSite = expandedConSite === con_site ? null : con_site">
+            </tr>
+            <tr mat-row *matRowDef="let myRowData columns: ['expandedDetail']" class="detail-row"></tr>
+
+            <!-- <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr> -->
+      
+    
+        </table>
+
+        <div *ngIf="!isLoaded" class="loader-container">
+            
+            <div class="loader"></div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <!-- (page)="pageLoad($event)"
+            [pageSize]="120"
+            [hidePageSize]="false"
+            [length]="1000"
+            [disabled]="false"
+            [pageIndex]="page"
+            [showFirstLastButtons]="false"
+            
+        -->
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 200]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>

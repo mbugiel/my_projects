@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+    {{ data.message }}<strong>{{data.first_param}}</strong>&nbsp;?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{ "deleteDialog.no" | translate }}</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="deleteAndClose()">{{ "deleteDialog.yes" | translate }}</button>
+</mat-dialog-actions>
+

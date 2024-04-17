@@ -1,0 +1,110 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedCitiesList || !isLoadedAddedConSite" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "con_siteAdd.selfName" | translate }}</h2>
+
+<!-- 
+    <section *ngIf="cities_list.length == 0 && isLoadedCitiesList" class="main">
+
+        <h3 class="errorHeader">{{ "con_siteAdd.errors.citiesList" | translate }}</h3>
+
+    </section> 
+-->
+
+    <form [formGroup]="add_ConSite_Form" class="main">
+
+
+        <div class="outer-left-panel">
+    
+            <div class="left-panel">
+    
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "con_siteAdd.conSiteName" | translate }}</mat-label>
+                        <input matInput #inputConSiteName formControlName="inputConSiteName">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "con_siteAdd.address" | translate }}</mat-label>
+                        <input matInput #inputAddress formControlName="inputAddress">
+                    </mat-form-field>
+                </label>
+                
+            </div>
+        
+        
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "con_siteAdd.postalCode" | translate }}</mat-label>
+                        <input matInput placeholder="{{ 'con_siteAdd.companyNameExample' | translate }}" #inputCompanyName formControlName="inputPostalCode">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "con_siteAdd.city" | translate }}</mat-label>
+                        <input #inputCity
+                               type="text"
+                               placeholder="{{ 'con_siteAdd.cityExample' | translate }}"
+                               matInput
+                               (input)="filterCities()"
+                               (focus)="filterCities()"
+                               [matAutocomplete]="autoCity"
+                                formControlName="inputCity">
+                        <mat-autocomplete requireSelection #autoCity="matAutocomplete">
+                          @for (option of cities_list_filtered; track option) {
+                            <mat-option [value]="option.city">{{option.city}}</mat-option>
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+                <label>
+                <button class="addCity" type="button" (click)="openAddDialog('100ms', '100ms')">
+                    <mat-icon>add</mat-icon>
+                </button>
+                </label>
+            </div>
+
+            
+        </div>
+        
+        
+        <div class="right-panel">
+    
+            <label>
+                <mat-form-field>
+                    <mat-label>{{ "con_siteAdd.comment" | translate }}</mat-label>
+                    <textarea matInput id="comment" #inputComment formControlName="inputComment"></textarea>
+                </mat-form-field>
+            </label>
+    
+            <div class="button-container">
+                <input type="submit" value="{{ 'headerTabs.constructions.constructionAdd' | translate }}" (click)="add_con_site()">
+                <div *ngIf="submitted && add_ConSite_Form.invalid" class="invalid-form">
+                    <div *ngIf="!emptyError">
+                        {{ "con_siteAdd.errors.formError.empty" | translate }}
+                    </div>
+                </div>
+            
+            </div>
+            
+        </div>
+    
+        
+    
+    
+    </form>
+
+</section>
+
+

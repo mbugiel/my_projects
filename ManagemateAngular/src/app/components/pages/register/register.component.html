@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="details">
+    <h2>Rejestracja</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="input-container">
+        <label>Nazwa użytkownika:</label>
+        <div>
+          <input
+            type="text"
+            formControlName="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="errors" *ngIf="fc.username.errors && isSubmitted">
+          <div *ngIf="fc.username.errors.required">Nie może być puste</div>
+          <div *ngIf="fc.username.errors.minlength">Minimum 3 znaki</div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label>Adres email:</label>
+        <div>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="errors" *ngIf="fc.email.errors && isSubmitted">
+          <div *ngIf="fc.email.errors.required">Nie może być puste</div>
+          <div *ngIf="fc.email.errors.email">Nieprawidłowy email</div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label>Hasło:</label>
+        <div>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="errors" *ngIf="fc.password.errors && isSubmitted">
+          <div *ngIf="fc.password.errors.required">Nie może być puste</div>
+          <div *ngIf="fc.password.errors.minlength">Minimum 8 znaków</div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label>Powtórz hasło:</label>
+        <div>
+          <input
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="Confirm password"
+            required
+          />
+        </div>
+        <div class="errors" *ngIf="fc.confirmPassword.errors && isSubmitted">
+          <div *ngIf="fc.confirmPassword.errors.required">Nie może być puste</div>
+          <div *ngIf="fc.confirmPassword.errors.minlength">Minimum 8 znaków</div>
+          <div *ngIf="fc.confirmPassword.errors.notMatch">Hasła nie są takie same</div>
+        </div>
+      </div>
+
+      <div class="input-container-checkbox">
+        <label for="checkbox">Dwuetapowe logowanie:</label>
+        <input
+          type="checkbox"
+          id="checkbox"
+          formControlName="twoStepLogin"
+        />
+      </div>
+
+      <div class="login_register">
+        <button type="submit">Załóż konto</button>
+        <a routerLink="/login">Mam konto</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedItemTypes || !isLoadedTradingTypes || !isLoadedCountingTypes || !isLoadedAddedItem" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "itemAdd.selfName" | translate }}</h2>
+
+    <section *ngIf="item_types.length == 0 && isLoadedItemTypes" class="main">
+
+        <h3 class="errorHeader">{{ "itemAdd.errors.itemTypes" | translate }}</h3>
+
+    </section>
+
+    <section *ngIf="counting_types.length == 0 && isLoadedCountingTypes" class="main">
+
+        <h3 class="errorHeader">{{ "itemAdd.errors.tradingTypes" | translate }}</h3>
+
+    </section>
+
+
+    <form [formGroup]="add_Item_Form" class="main" *ngIf="item_types.length>0 && trading_types.length>0 && counting_types.length>0">
+
+
+        <div class="outer-left-panel">
+    
+            <div class="left-panel">
+    
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.catalogNumber" | translate }}</mat-label>
+                        <input matInput placeholder="13523785" #inputCatalogNumber formControlName="inputCatalogNumber">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.productName" | translate }}</mat-label>
+                        <input matInput placeholder="{{ 'itemAdd.productNameExample' | translate }}" #inputProductName formControlName="inputProductName">
+                    </mat-form-field>
+                </label>
+                
+            </div>
+        
+        
+            <div class="left-panel">
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "itemAdd.itemType" | translate }}</mat-label>
+                        <input #inputItemType
+                               type="text"
+                               placeholder="{{ 'itemAdd.itemTypeExample' | translate }}"
+                               matInput
+                               [matAutocomplete]="autoItemType"
+                               (input)="filterItemTypes()"
+                               (focus)="filterItemTypes()" formControlName="inputItemType">
+                        <mat-autocomplete requireSelection #autoItemType="matAutocomplete">
+                          @for (option of item_types_filtered; track option) {
+                            <mat-option [value]="option.item_type">{{option.item_type}}</mat-option>
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.weightKg" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="10" #inputWeightKg formControlName="inputWeightKg">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+        
+        
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.count" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="100" #inputCount formControlName="inputCount">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.blockedCount" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="100" #inputBlockedCount formControlName="inputBlockedCount">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+            
+            
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.price" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="20.52" #inputPrice formControlName="inputPrice">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.taxPct" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="23" value="23" #inputTaxPct formControlName="inputTaxPct">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+            
+            
+            <div class="left-panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.tradingType" | translate }}</mat-label>
+                        <mat-select #inputTradingType formControlName="inputTradingType">
+                          @for (option of trading_types; track option) {
+
+                            <mat-option *ngIf="pl_language" [value]="option.id">{{option.trading_type_pl}}</mat-option>
+
+                            <mat-option *ngIf="!pl_language" [value]="option.id">{{option.trading_type_en}}</mat-option>
+                          }
+                        </mat-select>
+                      </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "itemAdd.countingType" | translate }}</mat-label>
+                        <input #inputCountingType
+                               type="text"
+                               placeholder="{{ 'itemAdd.countingTypeExample' | translate }}"
+                               matInput
+                               [matAutocomplete]="autoCountingType"
+                               (input)="filterCountingTypes()"
+                               (focus)="filterCountingTypes()" formControlName="inputCountingType">
+                        <mat-autocomplete requireSelection #autoCountingType="matAutocomplete">
+                          @for (option of counting_types_filtered; track option) {
+                            <mat-option [value]="option.counting_type">{{option.counting_type}}</mat-option>
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+            </div>
+    
+        </div>
+        
+        
+        <div class="right-panel">
+    
+            <label>
+                <mat-form-field>
+                    <mat-label>{{ "itemAdd.comment" | translate }}</mat-label>
+                    <textarea matInput id="comment" #inputComment formControlName="inputComment"></textarea>
+                </mat-form-field>
+            </label>
+    
+            <div class="button-container">
+                
+                <button (click)="add_item()">{{ 'headerTabs.storage.itemAdd' | translate }}</button>
+                <div *ngIf="submitted && add_Item_Form.invalid" class="invalid-form">{{ "itemAdd.errors.formError" | translate }}</div>
+
+            </div>
+    
+        </div>
+    
+        
+    
+        
+    
+    
+    </form>
+
+</section>
+
+

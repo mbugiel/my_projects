@@ -1,0 +1,37 @@
+<header>
+
+  <div class="container">
+
+    <a routerLink="/" class="logo">ManageMate.pl</a>
+
+    <nav>
+
+      <ul>
+
+        <li>
+          <a routerLink="/about">{{ "mainHeader.about" | translate }}</a>
+        </li>
+
+        <li>
+          <a routerLink="/contact">{{ "mainHeader.contact" | translate }}</a>
+        </li>
+
+        <ng-container *ngIf="isLoggedIn(); else notLoggedIn">
+          <li>
+            <a routerLink="/manage-mate/home">{{ "mainHeader.toProgram" | translate }}</a>
+          </li>
+        </ng-container>
+        
+        <ng-template #notLoggedIn>
+          <li>
+            <a routerLink="/login">{{ "mainHeader.toProgram" | translate }}</a>
+          </li>
+        </ng-template>
+        
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>

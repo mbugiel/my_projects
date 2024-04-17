@@ -1,0 +1,196 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="menu">
+
+    <h2>{{ "itemList.filter" | translate }}</h2>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "itemList.catalogNumber" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputCatalogNumber>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "itemList.name" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" placeholder="{{ 'itemList.nameExample' | translate }}" #inputName>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "itemList.weight" | translate }}</mat-label>
+            <input type="number" matInput min="0" (keyup)="applyFilter()" #inputWeight>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "itemList.count" | translate }}</mat-label>
+            <input type="number" matInput min="0" (keyup)="applyFilter()" #inputCount>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "itemList.blockedCount" | translate }}</mat-label>
+            <input type="number" matInput min="0" (keyup)="applyFilter()" #inputBlockedCount>
+        </mat-form-field>
+    </div>
+
+
+</section>
+
+<section class="right-panel">
+
+
+    <div class="inner-right-panel">
+
+        <h3 *ngIf="isLoaded && items_count==0" class="errorHeader">{{ "itemList.errors.itemListNotFound" | translate }}</h3>
+
+
+        <table #item_table *ngIf="isLoaded && items_count>0" mat-table [dataSource]="item_list" matSort multiTemplateDataRows>
+
+
+            <ng-container matColumnDef="catalog_number">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "itemList.catalogNumber" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.catalog_number}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="product_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "itemList.name" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.product_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="weight_kg">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "itemList.weight" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.weight_kg}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="count">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "itemList.count" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.count}} {{item.counting_type}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="blocked_count">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "itemList.blockedCount" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.blocked_count}} {{item.counting_type}}</td>
+            </ng-container>
+
+
+
+
+
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedItem = expandedItem === item ? null : item); $event.stopPropagation()">
+                        @if (expandedItem === item) {
+                        <mat-icon>keyboard_arrow_up</mat-icon>
+                        } @else {
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        }
+                    </button>
+                </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="expandedDetail">
+
+                <td mat-cell *matCellDef="let item" [attr.colspan]="columnsToDisplay.length">
+
+                    <div class="client-detail" [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'">
+
+                        <div class="client-description">
+
+                            <p>
+                                <b>{{"itemAdd.itemType" | translate}}:</b> {{item.item_type}}
+                            </p>
+
+                            <p>
+                                <b>{{"itemAdd.price" | translate}}:</b> {{item.price}}
+                            </p>
+
+                            <p>
+                                <b>{{"itemAdd.taxPct" | translate}}:</b> {{item.tax_pct}}
+                            </p>
+                            
+                            @if(pl_language){
+                                <p>
+                                    <b>{{"itemAdd.tradingType" | translate}}:</b> {{item.trading_type_pl}}
+                                </p>
+                            } @else {
+                                <p>
+                                    <b>{{"itemAdd.tradingType" | translate}}:</b> {{item.trading_type_eng}}
+                                </p>
+                            }
+                            
+                            <p>
+                                <b>{{"itemAdd.countingType" | translate}}:</b> {{item.counting_type}}
+                            </p>
+
+                            <p>
+                                <b>{{ "itemList.comment" | translate }}:</b> {{item.comment}}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+            </ng-container>
+            
+
+
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef>{{ "itemList.edit" | translate }}</th>
+                <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
+                    <a routerLink="/manage-mate/item-edit/{{item.id}}">
+                        <mat-icon class="edit">edit</mat-icon>
+                        {{ "itemList.edit" | translate }}
+                    </a>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>{{ "itemList.delete" | translate }}</th>
+                <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
+                    <button mat-raised-button (click)="openDialog('100ms', '100ms', item.id, item.catalog_number)">
+                        <mat-icon class="delete">delete</mat-icon>
+                        {{ "itemList.delete" | translate }}
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+
+            <tr mat-row *matRowDef="let item; columns: columnsToDisplay;"
+                class="client-row"
+                [class.expanded-row]="expandedItem === item"
+                (click)="expandedItem = expandedItem === item ? null : item">
+            </tr>
+
+            <tr mat-row *matRowDef="let myRowData columns: ['expandedDetail']" class="detail-row"></tr>
+      
+    
+        </table>
+
+        <div *ngIf="!isLoaded" class="loader-container">
+            
+            <div class="loader"></div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <!-- (page)="pageLoad($event)"
+            [pageSize]="120"
+            [hidePageSize]="false"
+            [length]="1000"
+            [disabled]="false"
+            [pageIndex]="page"
+            [showFirstLastButtons]="false"
+        -->
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 240]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>

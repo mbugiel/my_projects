@@ -1,0 +1,142 @@
+
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedClients || !isLoadedConSites || !isLoadedAddedOrder" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "orderAdd.selfName" | translate }}</h2>
+
+    <section *ngIf="clients.length == 0 && isLoadedClients" class="main">
+
+        <h3 class="errorHeader">{{ "orderAdd.errors.clientListNotFound" | translate }}</h3>
+
+    </section>
+
+    <section *ngIf="con_sites.length == 0 && isLoadedConSites" class="main">
+
+        <h3 class="errorHeader">{{ "orderAdd.errors.con_siteListNotFound" | translate }}</h3>
+
+    </section>
+
+
+    <form [formGroup]="add_Order_Form" class="main" *ngIf="clients.length>0 && con_sites.length>0">
+
+
+        <div class="outer-left-panel">
+    
+            <div class="left-panel">
+    
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "orderAdd.orderName" | translate }}</mat-label>
+                        <input matInput #inputOrderName formControlName="inputOrderName">
+                    </mat-form-field>
+                </label>
+
+
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "orderAdd.client" | translate }}</mat-label>
+                        <input #inputClient
+                               type="text"
+                               matInput
+                               [matAutocomplete]="autoClient"
+                               (input)="filterClients()"
+                               (focus)="filterClients()" formControlName="inputClient">
+                        <mat-autocomplete requireSelection #autoClient="matAutocomplete">
+                          @for (option of clients_filtered; track option) {
+
+                            @if (option.company_name){
+
+                                <mat-option value="{{option.name}} - {{option.company_name}}">
+                                    {{option.name}} ({{option.company_name}})
+                                </mat-option>
+
+                            }
+                            @else {
+
+                                <mat-option value="{{option.name}}">
+                                    {{option.name}}
+                                </mat-option>
+
+                            }
+
+
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+                
+                
+            </div>
+        
+        
+            <div class="left-panel">
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "orderAdd.conSite" | translate }}</mat-label>
+                        <input #inputConSite
+                               type="text"
+                               matInput
+                               [matAutocomplete]="autoConSite"
+                               (input)="filterConSites()"
+                               (focus)="filterConSites()" formControlName="inputConSite">
+                        <mat-autocomplete requireSelection #autoConSite="matAutocomplete">
+                          @for (option of con_sites_filtered; track option) {
+                            <mat-option [value]="option.construction_site_name">{{option.construction_site_name}}</mat-option>
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "orderAdd.status" | translate }}</mat-label>
+                        <mat-select #inputStatus formControlName="inputStatus">
+
+                            <mat-option value="1">{{ 'orderList.statusActive' | translate }}</mat-option>
+                            <mat-option value="0">{{ 'orderList.statusInactive' | translate }}</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                </label>
+
+            </div>
+        
+            
+    
+        </div>
+        
+        
+        <div class="right-panel">
+    
+            <label>
+                <mat-form-field>
+                    <mat-label>{{ "orderAdd.comment" | translate }}</mat-label>
+                    <textarea matInput id="comment" #inputComment formControlName="inputComment"></textarea>
+                </mat-form-field>
+            </label>
+    
+            <div class="button-container">
+                
+                <button (click)="add_order()">{{ 'orderAdd.orderAdd' | translate }}</button>
+                <div *ngIf="submitted && add_Order_Form.invalid" class="invalid-form">{{ "orderAdd.errors.formError" | translate }}</div>
+
+            </div>
+    
+        </div>
+    
+        
+    
+        
+    
+    
+    </form>
+
+</section>
+
+

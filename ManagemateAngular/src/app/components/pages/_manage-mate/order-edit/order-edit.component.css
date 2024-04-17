@@ -1,0 +1,132 @@
+:host{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.outer-main{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+
+.outer-left-panel{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.left-panel{
+    display: flex;
+    align-items: space-between;
+}
+
+.left-panel label, .right-panel label{
+    margin: 0.5rem;
+    position: relative;
+}
+
+h4{
+    position: absolute;
+    top: -2rem;
+}
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea{
+    max-height: 10rem;
+}
+
+/* select{
+    height: 56px;
+    width: 212px;
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    border-radius: 4px 4px 0 0;
+    padding: 0 16px;
+    font-size: 1rem;
+} */
+
+mat-form-field{
+
+    min-width: 300px;
+
+}
+
+h4{
+    margin: 0.3rem 0;
+    padding-left: 0.5rem;
+}
+
+/* input[type = "text"], input[type="number"] {
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    height: 2rem;
+    padding: 0.8rem;
+    width: 40rem;
+    outline: none;
+    border: none;
+} */
+
+button{
+    margin-top: 1rem;
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    height: 2.2rem;
+    color: navy;
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+button:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.button-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.invalid-form{
+
+    padding: 0.5rem;
+    color: red;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* textarea{
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    height: 2rem;
+    padding: 0.8rem;
+    width: 40rem;
+    outline: none;
+    border: 1px solid lightgray;
+} */
+
+/* textarea:focus{
+    background-color: transparent;
+    border-color: black;
+} */
+
+
