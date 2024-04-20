@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Miłosz Bugiel 3B - zadanie 8</title>
+    <script>
+
+    var canvasElement;
+	var renderCtx;
+
+        var x, y, emoji_number, line;
+
+        function draw(num){
+
+            emoji_number = num;
+
+            canvasElement=document.getElementById("canvas");
+            renderCtx=canvasElement.getContext('2d');	
+        }
+
+
+        function getColors(){
+
+            var R1 = document.getElementById('R1').value;
+            var G1 = document.getElementById('G1').value;
+            var B1 = document.getElementById('B1').value;
+
+            var R2 = document.getElementById('R2').value;
+            var G2 = document.getElementById('G2').value;
+            var B2 = document.getElementById('B2').value;
+
+            if(R1 && G1 && B1 && R2 && G2 && B2)return {R1, G1, B1, R2, G2, B2};
+            else return null;
+        }
+
+        function emoji(emoji_num){
+
+            var col = getColors();
+            
+            switch(emoji_num){
+                case 1:
+
+                    renderCtx.lineWidth = line;
+                    renderCtx.strokeStyle = col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#000';
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true); // Outer circle
+	                renderCtx.stroke();
+
+                    renderCtx.strokeStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : '#000';
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 35, Math.PI/4, 3 * Math.PI/4); // Mouth
+                    renderCtx.moveTo(x-10, y-10);
+                    renderCtx.arc(x-15, y-10, 5, 0, Math.PI, true); // Left eye
+                    renderCtx.moveTo(x+20, y-10);
+                    renderCtx.arc(x+15, y-10, 5, 0, Math.PI * 2, true); // Right eye
+                    renderCtx.stroke();
+                    break;
+
+                case 2:
+                    
+                    renderCtx.lineWidth = line;
+                    renderCtx.strokeStyle= col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#C00';
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true);
+	                renderCtx.stroke();
+
+                    renderCtx.strokeStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : '#C00';
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-20, y-15);
+	                renderCtx.lineTo(x-10, y-15);
+
+	                renderCtx.moveTo(x+10, y-15);
+	                renderCtx.lineTo(x+20, y-15);
+
+	                renderCtx.moveTo(x-30, y+25);
+	                renderCtx.bezierCurveTo(x-30, y+25, x, y+50, x+30, y+25);
+	                renderCtx.bezierCurveTo(x+30, y+25, x, y, x-30, y+25);
+
+	                renderCtx.stroke();
+                    break;
+
+                case 3:
+
+                    renderCtx.lineWidth = line;
+                    renderCtx.strokeStyle= col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#0C0';
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true);
+	                renderCtx.stroke();
+
+	                renderCtx.fillStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : '#55B';
+
+	                renderCtx.moveTo(x+25, y-15);
+	                renderCtx.beginPath();
+	                renderCtx.arc(x+25,y-15,5,0,2 * Math.PI);
+
+	                renderCtx.moveTo(x-20, y-15);
+	                renderCtx.arc(x-25,y-15,5,0,2 * Math.PI);
+	                renderCtx.fill();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-30, y+25);
+	                renderCtx.bezierCurveTo(x-30, y+25, x, y-10, x+30, y+25);
+
+
+	                renderCtx.stroke();
+                    break;
+
+                case 4:
+
+                    renderCtx.lineWidth = line;
+                    renderCtx.strokeStyle= col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#EE0';
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true);
+	                renderCtx.stroke();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-15, y+35);
+	                renderCtx.bezierCurveTo(x-15, y+35, x+25, y+45, x+35, y+10);
+	                renderCtx.stroke();
+
+	                renderCtx.beginPath();
+	                renderCtx.strokeStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : '#000';
+	                renderCtx.fillStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : '#000';
+	                renderCtx.moveTo(x-30,y-25);
+	                renderCtx.lineTo(x+30, y-25);
+	                renderCtx.stroke();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-30, y-25);
+	                renderCtx.bezierCurveTo(x-35, y-5, x-5, y-5, x-10, y-25);
+
+	                renderCtx.moveTo(x+10, y-25);
+	                renderCtx.bezierCurveTo(x+5, y-5, x+35, y-5, x+30, y-25);
+
+	                renderCtx.fill();
+                    break;
+
+                case 5:
+
+                    renderCtx.lineWidth = line;
+                    renderCtx.fillStyle= col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#FF0';
+                    renderCtx.strokeStyle= col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : '#000';
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true);
+	                renderCtx.fill();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-25, y-20);
+	                renderCtx.lineTo(x-10, y-10);
+	                renderCtx.lineTo(x-25, y);
+
+	                renderCtx.moveTo(x+25, y-20);
+	                renderCtx.lineTo(x+10, y-10);
+	                renderCtx.lineTo(x+25, y);
+
+	                renderCtx.moveTo(x-30, y+15);
+	                renderCtx.bezierCurveTo(x-30, y+15, x, y+55, x+30, y+15);
+	                renderCtx.lineTo(x-30, y+15);
+
+	                renderCtx.stroke();
+
+                    break;
+
+                case 6:
+
+                    renderCtx.lineWidth = line;
+                    renderCtx.strokeStyle= col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#000';
+                    renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true);
+	                renderCtx.stroke();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-10, y-15);
+	                renderCtx.arc(x-20, y-15, 10, 0, Math.PI * 2, true);
+	                renderCtx.stroke();
+
+	                renderCtx.fillStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : "#000";
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-15, y-15);
+	                renderCtx.arc(x-20, y-15, 5, 0, Math.PI * 2, true);
+	                renderCtx.fill();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x+30, y-15);
+	                renderCtx.arc(x+20, y-15, 10, 0, Math.PI * 2, true);
+	                renderCtx.stroke();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x+25, y-15);
+	                renderCtx.arc(x+20, y-15, 5, 0, Math.PI * 2, true);
+	                renderCtx.fill();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-30, y+30);
+	                renderCtx.bezierCurveTo(x-30, y+30, x, y-15, x+30, y+30);
+	                renderCtx.lineTo(x-30, y+30);
+
+	                renderCtx.stroke();
+                    break;
+
+                case 7:
+
+                    renderCtx.lineWidth = line;
+                    renderCtx.fillStyle= col ? "rgb("+col.R1+","+col.G1+","+col.B1+")" : '#FF0';
+                    renderCtx.strokeStyle = col ? "rgb("+col.R2+","+col.G2+","+col.B2+")" : "#000";
+
+	                renderCtx.beginPath();
+                    renderCtx.arc(x, y, 50, 0, Math.PI * 2, true);
+	                renderCtx.fill();
+
+	                renderCtx.beginPath();
+	                renderCtx.moveTo(x-10, y-15);
+	                renderCtx.arc(x-20, y-15, 10, 0, Math.PI * 2, true);
+	                renderCtx.moveTo(x-17, y-15);
+	                renderCtx.arc(x-20, y-15, 3, 0, Math.PI * 2, true);
+
+	                renderCtx.moveTo(x+30, y-15);
+	                renderCtx.arc(x+20, y-15, 10, 0, Math.PI * 2, true);
+	                renderCtx.moveTo(x+23, y-15);
+	                renderCtx.arc(x+20, y-15, 3, 0, Math.PI * 2, true);
+
+	                renderCtx.moveTo(x-10, y-15);
+	                renderCtx.lineTo(x+10, y-15);
+
+
+	                renderCtx.moveTo(x-30, y+20);
+	                renderCtx.lineTo(x+30, y+20);
+	                // renderCtx.bezierCurveTo(795, 95, 825, 115, 855, 95);
+	                renderCtx.moveTo(x-10, y+20);
+	                renderCtx.lineTo(x-10, y+30);
+	                renderCtx.lineTo(x, y+30);
+	                renderCtx.lineTo(x, y+20);
+	                renderCtx.moveTo(x, y+30);
+	                renderCtx.lineTo(x+10, y+30);
+	                renderCtx.lineTo(x+10, y+20);
+
+	                renderCtx.stroke();
+                    break;
+                default:
+                    break;
+            }            
+
+        }
+
+        function pozycjaMyszki(e) {
+        
+            if (!e) var e = window.event;
+            if (e.pageX || e.pageY) {
+                 pozX = e.pageX;
+                 pozY = e.pageY;
+            } else if (e.clientX || e.clientY) {
+                 pozX = e.clientX + document.body.scrollLeft;
+                 pozY = e.clientY + document.body.scrollTop;
+            }
+        
+        	x=pozX;
+        	y=pozY-300;
+        
+            return {pozX,pozY}
+        }
+
+
+        // document.onmousemove = function(e){
+        	
+        // }
+
+        document.onmousedown = function(e){
+            pozycjaMyszki(e);
+            emoji(emoji_number);
+        }
+
+        function line_width(){
+
+            document.getElementById('val').innerHTML = document.getElementById('width').value;
+            line = document.getElementById('width').value;
+        }
+
+        window.onload = function(){
+            line_width();
+        }
+
+    </script>
+</head>
+<body>
+    <div class="panel">
+
+		<img onclick="draw(1)" width="103" height="102" src="emotki_1.png" alt="emotki_1">
+		<img onclick="draw(2)" width="103" height="102" src="emotki_2.png" alt="emotki_2">
+		<img onclick="draw(3)" width="103" height="102" src="emotki_3.png" alt="emotki_3">
+		<img onclick="draw(4)" width="103" height="102" src="emotki_4.png" alt="emotki_4">
+		<img onclick="draw(5)" width="103" height="102" src="emotki_5.png" alt="emotki_5">
+		<img onclick="draw(6)" width="103" height="102" src="emotki_6.png" alt="emotki_6">
+		<img onclick="draw(7)" width="103" height="102" src="emotki_7.png" alt="emotki_7">
+        
+        <div class="controls">
+            <div>Colors</div>
+            <div>R1:<input type="number" id="R1" min="0" max="255">R2:<input type="number" id="R2" min="0" max="255"></div>
+            <div>G1:<input type="number" id="G1" min="0" max="255">G2:<input type="number" id="G2" min="0" max="255"></div>
+            <div>B1:<input type="number" id="B1" min="0" max="255">B2:<input type="number" id="B2" min="0" max="255"></div>
+            <div>Line width<input type="range" id="width" step="1" min="1" max="20" value="1" oninput="line_width()"><span id="val"></span></div>
+        </div>
+
+	</div>
+    <canvas id="canvas" width="1850" height="850">
+
+    </canvas>
+</body>
+</html>

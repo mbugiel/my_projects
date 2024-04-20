@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kebabook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo-kebabook-small.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <content-Security-Policy enabled="true">
+        <script-src self="true">
+          <add source="maps.googleapis.com"/>            
+        </script-src>
+        <connect-src self="true">
+          <add source="maps.googleapis.com"/>            
+        </connect-src>
+    </content-Security-Policy>
+</head>
+<body>
+
+    <div class="left"></div>
+
+    <div class="middle">
+
+        <header>
+            <img class="logo-kebabook" src="logo-kebabook.png" alt="logo-kebabook" width="250">
+            
+            <nav class="navbar">
+                <a href="index.html">Dodaj Kebabownię</a>
+                <a href="znajdz.html">Znajdź Kebabownię</a>
+                <a href="lokalizacja.html">Kebabownie w pobliżu</a>
+                <a href="wszystkie.html">Wszystkie Kebabownie</a>
+            </nav>
+        </header>
+
+        <section class="middle-bottom">
+
+            <div class="middle-bottom-inner">
+
+                <section class="kebab-form">
+    
+                    <h3>Znajdź swoją ulubioną Kebabownię w pobliżu</h3>
+                    <h6>Filtry:</h6>
+    
+                    <h4>Promień w kilometrach:</h4>
+    
+                    <input placeholder="np.: 20" type="number" id="location-range">
+    
+                    <h4>Ocena jedzonego kebaba:</h4>
+    
+                    <label>
+                        1<input value="3" type="range" id="grade" step="1" min="1" max="5">5
+                    </label>
+    
+                    <input type="button" value="Szukaj" id="location-button">
+    
+                </section>
+    
+                <div id="box"></div>
+    
+    
+    
+                <section class="kebab-location">
+    
+                    <h3 id="find-header">Znalezione Kebabownie:</h3>
+    
+                    <div id="kebab-list"></div>
+    
+    
+                    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRbvZtyZ6-MCtHb9rttISAddY-6ehdoHo&loading=async&callback=initMap"></script>
+                    <script>
+    
+    
+                        function showError(error) {
+    
+                          switch(error.code) {
+    
+                            case error.PERMISSION_DENIED:
+                            
+                                $("#box").html("<b>Błąd!<br> </b>Pozwolenie na dostęp do lokalizacji jest wymagane.");
+                                $("#box").css("display", "block");
+                                $("#box").css("background-color", "red");
+    
+                                setTimeout(function(){
+                                    $("#box").css("display", "none");
+    
+    
+                                }, 4000);
+
+                                $("#loader-container").css("display", "none");
+                            
+                              break;
+    
+                            case error.POSITION_UNAVAILABLE:
+                              alert("Informacja o lokalizacji jest niedostępna.");
+                              $("#loader-container").css("display", "none");
+                              break;
+    
+                            case error.TIMEOUT:
+                              alert("Zapytanie o lokalizację wygasło.");
+                              $("#loader-container").css("display", "none");
+                              break;
+    
+                            case error.UNKNOWN_ERROR:
+                              alert("Wystąpił nieznany błąd.");
+                              $("#loader-container").css("display", "none");
+                              break;
+    
+                          }
+    
+                        }
+    
+                        function showMap(location, name){
+    
+                            
+                            let map = new google.maps.Map(
+                                document.getElementById('google-map'), {zoom: 12, center: location, mapId: 'DEMO_MAP_ID'}
+                            );
+    
+                            const infoWindow = new google.maps.InfoWindow();
+    
+                            let advancedMarker = new google.maps.marker.AdvancedMarkerElement({
+                                                    map: map,
+                                                    position: location,
+                                                    });
+    
+                            infoWindow.close();
+                            infoWindow.setContent(
+                            `Lokalizacja Kebabowni: <b>${name}</b>`,
+                            );
+                            infoWindow.open(advancedMarker.map, advancedMarker);
+                              
+    
+                        }
+    
+    
+                        function initMap(){
+    
+                            const { AdvancedMarkerElement } = google.maps.importLibrary("marker");
+    
+                        }
+    
+                    </script>
+    
+                </section>
+
+
+            </div>
+
+
+            <div id="google-map"></div>
+
+
+        </section>
+
+
+    </div>
+
+    <div class="right"></div>
+
+
+
+        <!-- <div class="kebab-list-box">
+
+            <div class="kebab-box-inner">
+
+                <div class="kebab-box-left">
+                    <h4>Nazwa:</h4>
+                    {0}
+                    <h4>Ocena:</h4>
+                    {5}
+                </div>
+        
+        
+                <div class="kebab-box-right">
+                    <h4>Komentarz:</h4>
+                    {1}
+                    <h4>Rodzaj Kebaba:</h4>
+                    {6}
+                </div>
+
+            </div>
+
+            <div>
+                <h4>{4}</h4>
+            </div>
+
+            <input type="button" value="Pokaż mapę" class="map-btn" onclick="showMap({lat: {2}, lng: {3}}, '+"'{0}'"+')">
+            
+
+        </div> -->
+
+
+
+    <script>
+
+        $("#location-button").click(function() {
+        
+
+
+            var range = $('#location-range').val();
+            var grade = $("#grade").val();
+
+            if(range == ""){
+                
+                $("#box").html("<b>Błąd!<br> </b>Pole odległości jest wymagane.");
+                $("#box").css("display", "block");
+                $("#box").css("background-color", "red");
+
+                setTimeout(function(){
+                    $("#box").css("display", "none");
+
+
+                }, 4000);
+
+                return;
+
+            }
+
+            $("#loader-container").css("display", "flex");
+
+
+            const listTemplate = '<div class="kebab-list-box"><div class="kebab-box-inner"><div class="kebab-box-left"><h4>Nazwa:</h4>{0}<h4>Ocena:</h4>{5}</div><div class="kebab-box-right"><h4>Komentarz:</h4>{1}<h4>Rodzaj Kebaba:</h4>{6}</div></div><div><h4>{4}</h4></div><input type="button" value="Pokaż mapę" class="map-btn" onclick="showMap({lat: {2}, lng: {3}}, '+"'{0}'"+')"></div>';
+
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(function(position){
+                
+                
+                    $.ajax({ 			     // /PSI13/ 						
+                        url: "http://localhost/Zadanie%2013/test.php", 
+                        method : "post",
+                        dataType : "json",
+                        data: { //dane do wysyłki
+                            location_range: range,
+                            grade: grade,
+                            my_latitude: position.coords.latitude,
+                            my_longitude: position.coords.longitude
+
+                        },
+                    
+                        success : function(response) {
+                        
+                            //console.log(response);
+
+                            $('#google-map').html('');
+                        
+                            // let responseTXT="";
+                            if (response.length!=0){//jeśli wróciło coś więcej niż 0
+                            
+                                if(response.error){
+                                
+                                    $("#kebab-list").html(response.error);
+                                
+                                }else{
+                                
+                                    $("#kebab-list").html("");
+                                
+                                    for(let $i=0; $i<response.length; $i++){
+                                    
+                                        let currentContent =  $("#kebab-list").html();
+
+                                        let kebab_type = "";
+
+                                        switch(parseInt(response[$i].kebabook_type)){
+
+                                            case 0:
+                                                kebab_type = "Rollo"; break;
+                                            case 1:
+                                                kebab_type = "W Bułce"; break;
+                                            case 2:
+                                                kebab_type = "Na talerzu"; break;
+                                            default:
+                                                kebab_type = "Inny";
+
+                                        }
+                                    
+                                        $("#kebab-list").html(currentContent+ 
+                                            listTemplate.replace(/\{0\}/g, response[$i].kebabook_name)
+                                            .replace("{1}", response[$i].comment)
+                                            .replace("{2}", response[$i].latitude)
+                                            .replace("{3}", response[$i].longitude)
+                                            .replace("{4}", response[$i].distance.toFixed(2)+" km")
+                                            .replace("{5}", response[$i].grade+"/5")
+                                            .replace("{6}", kebab_type)
+                                        );
+                                    
+                                    }
+                                
+                                }
+                            
+                            
+                            }
+
+                            $("#loader-container").css("display", "none");
+                        
+                        },
+                        error: (err) =>{
+                            $("#loader-container").css("display", "none");
+                            alert(err.error);
+                        }
+                    });
+                
+
+                
+                }, showError);
+
+
+            }
+        
+
+
+        });
+
+    </script>
+
+    <div id="loader-container">
+        
+        <div class="loader"></div>
+
+    </div>
+
+        
+</body>
+</html>

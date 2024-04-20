@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>pong</title>
+</head>
+<body style="background-color: #ddd">
+<div style="width:500px; height:400px; margin:0 auto ">
+<canvas width="500" height="400" id="canvas">
+</canvas>
+ 
+<script>
+
+function katToRad(kat){return kat*Math.PI/180; }
+/*
+1. losowy punkt startu
+2. losowy kierunek poruszania sie pilki na starcie
+3. kolory wylosowac na starcie lub pilka, paletka, plansza jest zdjeciem
+4. odbicie od paletki (x,y) od pilki (i,j) polecam IFa w granicach od do paletki
+5. zakonczyc gre, gdy pilka dotknie dolu, y>od sciany dolnej
+*/
+var Poziomo /*+ w prawo, - w lewo*/, Pionowo /* +1 w dol, -1 w gore*/, play, speed, R1, G1, B1, R2, G2, B2, R3, G3, B3; 
+var i, j;// pozycja pilki
+var x,y; //x i y myszki
+var canvas;
+
+function draw(blockx, blocky) {
+	
+	if (canvas.getContext) {
+
+		var c = canvas.getContext('2d');
+		
+
+		c.fillStyle="rgb(255,255,255)";
+		c.fillRect(0,0,500, 450);//biale tlo
+		c.strokeRect(0,0,500, 400);//obramowanie
+		
+		
+		
+		//rysowanie paletki w miejscu myszki (x,y)
+		c.fillStyle="rgb("+R2+","+G2+","+B2+")";
+		c.fillRect(x-50,370,100, 10);
+
+		//rysowanie paletki przeciwnika
+		c.fillStyle="rgb("+R3+","+G3+","+B3+")";
+		c.fillRect(blockx, blocky, 100, 10);
+		
+
+		// if(Pionowo < 0){
+
+			c.beginPath();
+			c.fillStyle="rgb(110,110,110)";
+			c.arc(i+(Poziomo * -1),j+(Pionowo * -1),4,katToRad(0),katToRad(360),false); //rysowanie cienia 1
+			c.fill();
+
+			c.beginPath();
+			c.fillStyle="rgb(130,130,130)";
+			c.arc(i+(2*(Poziomo * -1)),j+(2*(Pionowo * -1)),4,katToRad(0),katToRad(360),false); //rysowanie cienia 2
+			c.fill();
+
+			c.beginPath();
+			c.fillStyle="rgb(150,150,150)";
+			c.arc(i+(3*(Poziomo * -1)),j+(3*(Pionowo * -1)),3,katToRad(0),katToRad(360),false); //rysowanie cienia 3
+			c.fill();
+
+			c.beginPath();
+			c.fillStyle="rgb(170,170,170)";
+			c.arc(i+(4*(Poziomo * -1)),j+(4*(Pionowo * -1)),3,katToRad(0),katToRad(360),false); //rysowanie cienia 4
+			c.fill();
+
+			c.beginPath();
+			c.fillStyle="rgb(190,190,190)";
+			c.arc(i+(5*(Poziomo * -1)),j+(5*(Pionowo * -1)),2,katToRad(0),katToRad(360),false); //rysowanie cienia 5
+			c.fill();
+
+			c.beginPath()
+			c.fillStyle="rgb(210,210,210)";
+			c.arc(i+(6*(Poziomo * -1)),j+(6*(Pionowo * -1)),1,katToRad(0),katToRad(360),false); //rysowanie cienia 6
+			c.fill();
+			
+			c.closePath();
+
+		//rysowanie pseudopiłeczki
+		c.beginPath();
+		c.arc(i,j,5,katToRad(0),katToRad(360),false); //rysowanie pilki w miejscu (i,j)
+		c.fillStyle="rgb("+R1+","+G1+","+B1+")";
+		c.fill(); 
+		c.closePath();
+
+		if(i >= blockx && i <= blockx+100 && j > blocky + 10 && j <= blocky + 15)Pionowo = Pionowo * -1;
+		if(i >= blockx && i <= blockx+100 && j >= blocky - 5 && j < blocky)Pionowo = Pionowo * -1;
+
+		if(Poziomo >= 0 && i >= blockx-5 && i <= blockx && j >= blocky-5 && j <= blocky+15)Poziomo = Poziomo * -1;
+
+		if(Poziomo <= 0 && i >= blockx+100 && i <= blockx+105 && j >= blocky-5 && j <= blocky+15)Poziomo = Poziomo * -1;
+		
+
+		
+
+		//Zmiana kierunku piłki przy wykryciu kolizji ze ścianami
+		
+		if (speed == 5 && j<=9) Pionowo = Pionowo * -1;
+		if (speed == 4 && j<=8) Pionowo = Pionowo * -1;
+		if (speed == 3 && j<=7) Pionowo = Pionowo * -1;
+		if (speed == 2 && j<=6) Pionowo = Pionowo * -1;
+		if (speed == 1 && j<=5) Pionowo = Pionowo * -1;
+
+		if (speed == 5 && Math.abs(Poziomo) == 20 && (i>=476 || i<=24)) Poziomo = Poziomo * -1;
+		if (speed == 5 && Math.abs(Poziomo) == 15 && (i>=481 || i<=19)) Poziomo = Poziomo * -1;
+		if (speed == 5 && Math.abs(Poziomo) == 10 && (i>=486 || i<=14)) Poziomo = Poziomo * -1;
+		if (speed == 5 && Math.abs(Poziomo) <= 5 && (i>=491 || i<=9)) Poziomo = Poziomo * -1;
+
+		if (speed == 4 && Math.abs(Poziomo) == 16 && (i>=480 || i<=20)) Poziomo = Poziomo * -1;
+		if (speed == 4 && Math.abs(Poziomo) == 12 && (i>=484 || i<=16)) Poziomo = Poziomo * -1;
+		if (speed == 4 && Math.abs(Poziomo) == 8 && (i>=488 || i<=12)) Poziomo = Poziomo * -1;
+		if (speed == 4 && Math.abs(Poziomo) <= 4 && (i>=492 || i<=8)) Poziomo = Poziomo * -1;
+
+		if (speed == 3 && Math.abs(Poziomo) == 12 && (i>=484 || i<=16)) Poziomo = Poziomo * -1;
+		if (speed == 3 && Math.abs(Poziomo) == 9 && (i>=487 || i<=13)) Poziomo = Poziomo * -1;
+		if (speed == 3 && Math.abs(Poziomo) == 6 && (i>=490 || i<=10)) Poziomo = Poziomo * -1;
+		if (speed == 3 && Math.abs(Poziomo) <= 3 && (i>=493 || i<=7)) Poziomo = Poziomo * -1;
+
+		if (speed == 2 && Math.abs(Poziomo) == 8 && (i>=488 || i<=12)) Poziomo = Poziomo * -1;
+		if (speed == 2 && Math.abs(Poziomo) == 6 && (i>=490 || i<=10)) Poziomo = Poziomo * -1;
+		if (speed == 2 && Math.abs(Poziomo) == 4 && (i>=492 || i<=8)) Poziomo = Poziomo * -1;
+		if (speed == 2 && Math.abs(Poziomo) <= 2 && (i>=494 || i<=6)) Poziomo = Poziomo * -1;
+		if (speed == 2 && Math.abs(Poziomo) == 3 && (i>=493 || i<=7)) Poziomo = Poziomo * -1;
+
+		if (speed == 1 && Math.abs(Poziomo) == 4 && (i>=492 || i<=8)) Poziomo = Poziomo * -1;
+		if (speed == 1 && Math.abs(Poziomo) == 3 && (i>=493 || i<=7)) Poziomo = Poziomo * -1;
+		if (speed == 1 && Math.abs(Poziomo) == 2 && (i>=494 || i<=6)) Poziomo = Poziomo * -1;
+		if (speed == 1 && Math.abs(Poziomo) <= 1 && (i>=495 || i<=5)) Poziomo = Poziomo * -1;
+
+
+		/*
+
+			     -4   -3   -2   -1  -0.5  0.5   1   2    3    4
+				----|----|----|----|----|----|----|----|----|----
+				10    10   10   10   10   10   10   10   10   10
+
+		*/
+		if(i >= x-50 && i < x-40 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = -4 * speed;
+		}
+
+		if(i >= x-40 && i < x-30 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = -3 * speed;
+		}
+
+		if(i >= x-30 && i < x-20 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = -2;
+		}
+
+		if(i >= x-20 && i < x-10 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = -1 * speed;
+		}
+
+		if(i >= x-10 && i < x && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = -0.5 * speed;
+		}
+
+		if(i >= x && i < x+10 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = 0.5 * speed;
+		}
+
+		if(i >= x+10 && i < x+20 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = 1 * speed;
+		}
+
+		if(i >= x+20 && i < x+30 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = 2 * speed;
+		}
+
+		if(i >= x+30 && i < x+40 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = 3 * speed;
+		}
+		
+		if(i >= x+40 && i <= x+50 && ((j >= 365 && j < 370) || (j > 380 && j <= 385))){
+			Pionowo = Pionowo * -1;
+			Poziomo = 4 * speed;
+		}
+
+
+		if(Poziomo >= 0 && i >= x-55 && i <= x-50 && j >= 365 && j <= 385)Poziomo = Poziomo * -1;
+
+		if(Poziomo <= 0 && i >= x+50 && i <= x+55 && j >= 365 && j <= 385)Poziomo = Poziomo * -1;
+		
+		i += Poziomo;//pilka leci w prawo, gdy Poziomo > 0 i w lewo gdy Poziomo < 0 i pionowo gdy Poziomo = 0
+		j += Pionowo;
+		/*Koniec*/
+		if (j >= 395) {
+			clearInterval(play);
+			c.fillStyle="rgb(255, 50, 50)";
+			c.font = "bold 30px Arial";
+			c.fillText("Przegrałeś", 200, 250);
+		};
+		
+	}
+}
+	
+function pong(){
+
+	const blockx = Math.floor(Math.random() * 401);
+	const blocky = Math.floor(Math.random() * 101);
+
+	clearInterval(play);
+	i=Math.floor(Math.random() * (476 - 25) + 25);
+	j=10;
+	speed = document.getElementById('speed').value;
+	Pionowo= parseInt(speed);
+	R1 = Math.floor(Math.random() * 256);
+	G1 = Math.floor(Math.random() * 256);
+	B1 = Math.floor(Math.random() * 256);
+
+	R2 = Math.floor(Math.random() * 256);
+	G2 = Math.floor(Math.random() * 256);
+	B2 = Math.floor(Math.random() * 256);
+
+	R3= Math.floor(Math.random() * 256);
+	G3= Math.floor(Math.random() * 256);
+	B3= Math.floor(Math.random() * 256);
+	
+	do {
+
+		Poziomo = Math.floor(Math.random() * (4 +3) - 3);
+
+	} while (Poziomo == 0);
+
+	play = setInterval('draw('+blockx+','+blocky+')',10);
+}
+	
+ 	
+function pozycjaMyszki(e) {
+
+    if (!e) var e = window.event;
+    if (e.pageX || e.pageY) {
+         pozX = e.pageX;
+         pozY = e.pageY;
+    } else if (e.clientX || e.clientY) {
+         pozX = e.clientX + document.body.scrollLeft;
+         pozY = e.clientY + document.body.scrollTop;
+    }
+	pozX=pozX-((screen.width-500)/2);
+
+	x=pozX;
+	y=pozY;
+	
+    return {pozX,pozY}
+}
+	
+	
+document.onmousemove = function(e){
+	pozycjaMyszki(e);
+}
+
+window.onload = function(){
+	displayv();
+	canvas = document.getElementById('canvas');
+}
+
+function displayv(){
+	document.getElementById('text').innerHTML = document.getElementById('speed').value;
+}
+</script>
+<button onClick="pong()">Pong</button>
+<input type="range" oninput="displayv()" id="speed" value="1" min="1" max="5" step="1">
+<div >speed: </div>
+<div id="text"></div>
+<div  id="text2"></div>
+</div>
+
+
+</body>
+</html>

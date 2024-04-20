@@ -1,0 +1,340 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial;
+    transition: 0.1s;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    accent-color: grey;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.left, .right, .middle {
+    height: 100%;
+    float: left;
+}
+
+.left, .right{
+    width: 20%;
+}
+
+.middle{
+    width: 60%;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+
+.logo-kebabook{
+    margin-bottom: 0.5rem;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 2px solid orangered;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.navbar a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: orangered;
+    height: 100%;
+    /* border-radius: 5px; */
+    padding: 0 5px;
+}
+
+.navbar a:hover{
+    color: white;
+    background-color: orangered;
+}
+
+
+.middle-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0.5rem;
+}
+
+.middle-bottom-inner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.middle-bottom h4{
+    color: orangered;
+}
+
+h6{
+    margin: 0;
+}
+
+
+
+.kebab-form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    /* border: 1px solid; */
+}
+
+.kebab-location{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 1rem;
+}
+
+#google-map{
+    width: calc(100%);
+    height: 30rem;
+}
+
+
+.radio-container{
+    display: flex;
+}
+
+.radio-container label{
+    margin-right: 10px;
+}
+
+#name{ /*input*/
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+
+#location-range{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    width: 10rem;
+}
+
+#comment{ /*textarea*/
+    padding: 5px;
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 10rem;
+}
+
+#name, #comment{
+    width: 20rem;
+}
+
+#submit-button{
+    outline: none;
+    color: black;
+    border: 1px solid orangered;
+    background-color: transparent;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 5px;
+    width: 10rem;
+    cursor: pointer;
+}
+
+#submit-button:hover, #find-button:hover, #location-button:hover{
+    color: white;
+    background-color: orangered;
+}
+
+#box{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: none;
+}
+
+#find-button, #location-button{
+    outline: none;
+    color: black;
+    border: 1px solid orangered;
+    background-color: transparent;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 5px;
+    width: 10rem;
+    cursor: pointer;
+}
+
+#find-header{
+    color: orangered;
+}
+
+
+
+
+#kebab-list{
+
+    max-height: 30rem;
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: 10px;
+
+}
+
+
+.kebab-list-box{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background-color: lightgray;
+    margin: 5px;
+
+
+}
+
+.kebab-box-inner h4{
+    color: white;
+    margin: 0.5rem 0;
+}
+
+.kebab-box-inner{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.kebab-box-left{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    align-items: flex-start;
+
+}
+
+.kebab-box-right{
+
+    max-width: 15rem;
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    align-items: flex-end;
+
+}
+
+.kebab-list-inner h6{
+    margin: 0;
+}
+
+
+.map-btn{
+
+    outline: none;
+    border: 1px solid white;
+    margin: 1rem;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.map-btn:hover{
+
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+
+}
+
+.table-container{
+    width: 100%;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tbody > tr:nth-child(2n) > td{
+    background-color: lightgrey;
+}
+
+
+
+
+
+
+
+
+
+.left{
+    background-image: url('kebab-background-left.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.right{
+    background-image: url('kebab-background-right.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+
+
+
+
+#loader-container{    
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
+    opacity: 0.5;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    color: grey;
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 8px;
+    background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+    animation: l2 2s linear infinite;
+  }
+  .loader:before {
+
+    content:"Loading..."
+  }
+  @keyframes l2 {to{background-size: 100% 3px}}

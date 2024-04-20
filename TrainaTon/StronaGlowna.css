@@ -1,0 +1,766 @@
+/*---------------------------------GENERAL-----------------------------------------------------------------------------*/
+html{
+    font-family: Arial;
+    word-wrap: break-word;
+}
+.ht1{
+    background-color: rgb(240, 240, 240);
+}
+body{
+    margin: 0px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+}
+h2{
+    text-align: center;
+    margin: 0;
+}
+h3{
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+}
+h4{
+    margin: 0px;
+}
+label{
+    flex-grow: 1;
+}
+form{
+    margin: 0;
+}
+ul{
+    padding-inline-start: 17px;
+    margin: 5px 0;
+}
+a{
+    text-decoration: none;
+}
+.flex_g1{
+    flex-grow: 1;
+}
+.flex_g0{
+    flex-grow: 0;
+}
+.AlignSpaceBetween{
+    justify-content: space-between;
+    height: calc(100% - 28.89px);
+}
+.AlignSpaceBetween100{
+    justify-content: space-between;
+    height: 100%;
+}
+.margin_top_20{
+    margin-top: 20px;
+}
+.margin_right_10{
+    margin-right: 10px;;
+}
+.margin_left_5{
+    margin-left: 5px;
+}
+.margin_right_5{
+    margin-right: 5px;
+}
+.padding20p{
+    padding: 20px;
+}
+.text_align_left{
+    text-align: left;
+}
+.text_align_right{
+    text-align: right;
+}
+.width100perc{
+    width: 100%;
+}
+.bgColorWH{
+    background-color: white;
+}
+.bgColorSzary{
+    background-color: rgb(240, 240, 240);
+}
+
+/*---------------------------------PASEK GÓRNY-----------------------------------------------------------------------------*/
+.pasekGorny{
+    z-index: 1;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 1px;
+    background-color: white;
+}
+.LogoContainer{
+    display: block;
+    height: 50px;
+    max-width: 291px;
+    margin-top: 25px;
+    margin-left: 30px;
+    
+    float: left;
+}
+.logo{
+    height: 50px;
+    width: auto;
+}
+.hasloReklamowe{
+    color: #1d8cff;
+    line-height: 100px;
+    width: auto;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+.nawigacja{
+    float: right;
+    height: 100px;
+    width: auto;
+    text-align: center;
+}
+.ikonyPrzyciskow{
+    height: 24px;
+    width: auto;
+    margin-right: 4px;
+}
+.nawigacjaPrzyciski{
+    position: static;
+    line-height: 60px;
+    height: 60px;
+    width: auto;
+    color: black;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 20px;
+    margin-top: 20px;
+    transition: 0.3s;
+    padding: 0px 5px;
+}
+.nawigacjaPrzyciski:hover{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 1px;
+}
+/*---------------------------------PASEK OPÓŹNIENIE-----------------------------------------------------------------------*/
+.pasekZopoznieniem{
+    position: absolute;
+    max-width:900px;
+    height:30px;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    padding-top: 5px;
+}
+.najwiekszeOpoznienie{
+    z-index: -1;
+    background-color: red;
+    border-radius: 25px;
+    color: white;
+    line-height: 30px;
+}
+/*---------------------------------STRONA DOLNA---------------------------------------------------------------------------*/
+.dolnaStrona{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-image: url("graphics/tło_PKP_4.1.1.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+.sekcjaLewa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 350px;
+    color: #000000;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0 15px 15px 0;
+}
+.sekcjaSrodkowa{
+    flex-grow: 1;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+}
+.sekcjaPrawa{
+    flex-basis: 350px;
+    background-color: rgb(240, 240, 240);
+    box-shadow: -2px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 15px 0 0 15px;
+}
+/*---------------------------------SCROLLBAR---------------------------------------------------------------------------------*/
+*::-webkit-scrollbar{ 
+    width: 8px;
+}
+*::-webkit-scrollbar-track{
+    border-radius: 4px;
+    background-color: transparent;
+}
+*::-webkit-scrollbar-track-piece:start{
+    margin-top: 15px;
+}
+*::-webkit-scrollbar-track-piece:end{
+    margin-bottom: 15px;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: rgb(197, 197, 197);
+    border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(179, 179, 179);
+}
+*::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
+/*---------------------------------ZAWARTOŚĆ LEWA-------------------------------------------------------------------------*/
+/*-----lewa góra----*/
+.BlokadaFlexa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    flex-grow: 1;
+}
+.LewaGora{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.StronaOpis{
+    flex-basis: 250px;
+    font-size: 22px;
+    text-align: justify;
+
+}
+.logoTekst{
+    height: 20px;
+    width: auto;
+}
+/*-----lewy dół----*/
+.LewyDol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 250px;
+}
+.LewyDolForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+.ZalogujAbyDodacWpis{
+    font-weight: normal;
+    line-height: 35px;
+    margin-bottom: 20px;
+}
+.PrzyciskZaloguj{
+    width: 250px;
+    height: 35px;
+    background-color: #604d3c;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.PrzyciskZaloguj:hover{
+    background-color: #604d3cc9;
+}
+.PrzyciskZarejestruj{
+    width: 250px;
+    height: 35px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 25px;
+    text-align: center;
+    color: #604d3c;
+    border: 1px solid #604d3c;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.PrzyciskZarejestruj:hover{
+    background-color: #604d3c;
+    color: rgb(255, 255, 255);
+}
+/*----------------------formularz------------------------------------------*/
+.form{
+   width: 300px;
+   font-size: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+}
+.InputFont{
+    font-size: 15px;
+    margin-left: 12px;
+}
+.Rplaceholder::placeholder{
+    text-align: right;
+}
+.inputProperties{
+    margin-bottom: 5px;
+    outline: none;
+    border: 1px solid silver;
+    height: 24px;
+    border-radius: 12px;
+    padding-left: 12px;
+
+}
+.czas_i_daty{
+    width: 180px;
+    text-align: center;
+}
+.PrzyciskOpublikuj{
+    margin-top: 5px;
+    height: 20px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: transparent;
+    border: 1px solid #303030;
+}
+.PrzyciskOpublikuj:hover{
+    background-color: #303030;
+    color: white;
+}
+.ileWpisow{
+    color: #535353;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+/*---------------------------------ZAWARTOŚĆ ŚRODEK----------------------------------------------------------------------*/
+.wpisy{
+    width: 800px;
+    min-height: 200px;
+    background-color: white;
+    color: #535353;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 1px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    
+}
+.UserElements{
+    min-height: 200px;
+    width: 800px;
+
+    display: flex;
+    flex-direction: row;
+}
+.AdminElements{
+
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.EdytujIusunWpis{
+    margin-bottom: 15px;
+    width: 90px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.edytuj{
+    border: 1px solid silver;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+}
+.edytuj:hover{
+    background-color: orange;
+    border-color: orange;
+    color: white;
+}
+.usun{
+    border: 1px solid silver;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    margin-left: -5px;
+}
+.usun:hover{
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+.formEdycyjny{
+    margin: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.PrzyciskAnulujIZapisz{
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid silver;
+    color: black;
+    transition: 0.3s;
+    font-size: 18px;
+    cursor: pointer;
+}
+.red:hover{
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+.green:hover{
+    background-color: rgb(0, 199, 27);;
+    border-color: rgb(0, 199, 27);;
+    color: white;
+}
+.LeweInformacje{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: 15px;
+    border-right: 1px solid rgb(207, 207, 207);
+}
+.TrainInfo{
+    max-width: 485px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.data_kafelek{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.kolorTrainaton{
+    color:#1d8cff;
+
+}
+.kolorBlack{
+    color:#000;
+}
+.kolorRed{
+    color:#f00;
+}
+.dataWpisu_kafelek{
+    font-size: 12px;
+}
+.komentarzeSekcja{
+    flex-grow: 0;
+    margin: 15px 15px 15px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+.pokazKomentarzy{
+    flex-grow: 1;
+    width: 200px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+.komentarzeUL{
+    font-size: 12px;
+}
+.username{
+    font-size: 10px;
+    color: black;
+    font-weight: bold;
+}
+.inputKomentarzy{
+    width: 130px;
+    margin: 0;
+    outline: none;
+    border: none;
+}
+.inputKomentarzy:disabled{
+    background-color: transparent;
+    font-size: 12px;
+}
+.buttonKomentarzy{
+    width: 70px;
+    margin-left: -4;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.formEdycjaKom{
+    margin: 0;
+    width: 82px;
+    display: inline-block;
+}
+.KomentarzArea{
+    width: 350px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.textarea{
+    width: 400px;
+    min-height: 300px;
+}
+.EdytujUsunKom{
+    font-size: 10px;
+    width: 40px;
+    background-color: white;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.usunKom{
+    border-radius: 0 7px 7px 0;
+    margin-left: -4px;
+    color: red;
+}
+.edytujKom{
+    border-radius: 7px 0 0 7px;
+    color: orange;
+}
+.usunKom:hover{
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+.edytujKom:hover{
+    background-color: orange;
+    border-color: orange;
+    color: white;
+}
+/*---------edycja wpisu--------------*/
+.poleEdycjiWpisu{
+    width: 800px;
+    min-height: 400px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 1px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+/*----------------------------STRONA ADMINA-------------------------------------------------------------------------------*/
+
+.StronaDolnaAdmin{
+    width: 100%;
+    flex-grow: 1;
+    background-image: url("graphics/tło_PKP_1.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.panelAdmina{
+    width: 1500px;
+    height: 700px;
+    margin: 0 auto;
+    margin-top: 70px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 0px 2px 1px;
+}
+.NaglowekPanelAdmina{
+    font-size: 28px;
+    line-height: 80px;
+}
+.srodekPanelAdmina{
+    width: 1400px;
+    height: 650px;
+    margin: 50px;
+    margin-top: 0px;
+    float: left;
+}
+.srodekPanelAdminaLewy{
+    width: 420px;
+    height: 570px;
+    border-right: 1px solid rgb(207, 207, 207);
+}
+.srodekPanelAdminaPrawy{
+    width: 980px;
+    height: 570px;
+}
+/*------------------lewa strona----------------------*/
+.wyborUserow{
+    width: 370px;
+    height: 100%;
+    margin: 0 auto;
+}
+.listaUserow{
+    margin-top: 10px;
+    width: 370px;
+    max-height: 450px;
+    border: none;
+    outline: none;
+}
+option{
+    font-size: 18px;
+    margin-left: 15px;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.PrzyciskiUsunUsera{
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid green;
+    background-color: transparent;
+    color: green;
+    transition: 0.3s;
+    /*margin-bottom: 5px;*/
+    cursor: pointer;
+}
+.MniejszePrzyciskiUsun{
+    width: 120px;
+    margin-bottom: 10px;
+}
+.PrzyciskiUsunUsera:hover{
+    background-color: green;
+    color: white;
+}
+/*-----------------------prawa strona-----------------*/
+.tdBlock{
+    width: 100%;
+    height: 100%;
+}
+.customPageForm{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.customPageForm > div{
+    margin: 20px;
+    flex-grow: 1;
+}
+.FlexRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+input[type="file"]{
+    display: none;
+}
+.fileUploadBox{
+    width: 150px;
+    height: 20px;
+    margin-right: 550px;
+    /*margin-right: 50px;*/
+    border: 1px solid silver;
+    border-radius: 10px;
+    flex-grow: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.textInput{
+    width: 650px;
+    height: 20px;
+    margin-right: 50px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    padding-left: 10px;
+    transition: 0.3s;
+}
+.textInput:focus{
+    outline: none;
+    border-color: green;
+}
+.textareaLimit{
+    max-width: calc(100% - 50px);
+    max-height: 150px;
+    min-width: calc(100% - 50px);
+    min-height: 150px;
+    display: block;
+    border: 1px solid silver;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: 0.3s;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.textareaLimit:focus{
+    outline: none;
+    border-color: green;
+}
+.NewDataButton{
+    border: none;
+    height: 30px;
+    border-radius: 15px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: 70px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    transition: 0.3s;
+    margin-bottom: 0px;
+}
+.NewDataButton:hover{
+    background-color: rgb(0, 176, 0);
+}
+/*---------------------------------MEDIA---------------------------------------------------------------------------------------*/
+
+@media (min-width: 1921px){
+    .dolnaStrona{
+        width: 1920px;
+        margin: 0 auto;
+    }
+    .BlokadaFlexa{
+        flex-grow: 0;
+    }
+    .LewyDol{
+        margin-top: 92.865px;
+        margin-bottom: 92.865px;
+    }
+    .LewyDolForm{
+        margin-top: 63px;
+        margin-bottom: 63px;
+    }
+}
+/*------------do tła----------*/
+@media (max-height: 610px){
+    .dolnaStrona{
+        background-size: 1150 100%;
+    }
+
+}
+@media (min-height: 611px){
+    .dolnaStrona{
+        background-size: auto 100%;
+    }
+
+}
+@media (max-width: 1850px){
+    .StronaDolnaAdmin{
+        background-size: auto 1230px;
+    }
+
+}
+

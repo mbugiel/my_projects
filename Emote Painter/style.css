@@ -1,0 +1,34 @@
+html, body{
+	margin: 0;
+}
+.panel{
+
+	display: flex;
+	margin: 50px auto;
+	justify-content: space-around;
+	align-items: center;
+	width: 1000px;
+	height: 200px;
+	background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 0 5px black;
+
+}
+.controls{
+	flex-basis: 230px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+img{
+    float: left;
+}
+input[type="number"]{
+	width: 50px;
+}
+canvas{
+	border: 1px solid black;
+}

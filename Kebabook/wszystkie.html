@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kebabook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo-kebabook-small.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <content-Security-Policy enabled="true">
+        <script-src self="true">
+          <add source="maps.googleapis.com"/>            
+        </script-src>
+        <connect-src self="true">
+          <add source="maps.googleapis.com"/>            
+        </connect-src>
+    </content-Security-Policy>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+
+    <script>
+
+        let latitude, longitude;
+        let table;
+
+
+        function showError(error) {
+    
+            switch(error.code) {
+
+                case error.PERMISSION_DENIED:
+
+                    $("#box").html("<b>Błąd!<br> </b>Pozwolenie na dostęp do lokalizacji jest wymagane.");
+                    $("#box").css("display", "block");
+                    $("#box").css("background-color", "red");
+
+                    setTimeout(function(){
+                        $("#box").css("display", "none");
+                    
+                    
+                    }, 4000);
+                
+                    $("#loader-container").css("display", "none");
+                
+                  break;
+                
+                case error.POSITION_UNAVAILABLE:
+                  alert("Informacja o lokalizacji jest niedostępna.");
+                  $("#loader-container").css("display", "none");
+                  break;
+                
+                case error.TIMEOUT:
+                  alert("Zapytanie o lokalizację wygasło.");
+                  $("#loader-container").css("display", "none");
+                  break;
+                
+                case error.UNKNOWN_ERROR:
+                  alert("Wystąpił nieznany błąd.");
+                  $("#loader-container").css("display", "none");
+                  break;
+
+            }
+
+        }
+
+
+
+
+        $( document ).ready(function() {
+        
+
+            $("#loader-container").css("display", "flex");
+
+
+            const Template = '<td>{0}</td>';
+
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(function(position){
+                
+                    $.ajax({ 			     // /PSI13/ 						
+                        url: "http://localhost/Zadanie%2013/test.php", 
+                        method : "post",
+                        dataType : "json",
+                        data: { //dane do wysyłki
+                            tabela: true,
+                            my_latitude: position.coords.latitude,
+                            my_longitude: position.coords.longitude
+
+                        },
+                    
+                        success : function(response) {
+                        
+                            console.log(response);
+                        
+                            // let responseTXT="";
+                            if (response.length!=0){//jeśli wróciło coś więcej niż 0
+                            
+                                if(response.error){
+
+                                    $("#box").html("<b>Błąd!<br> </b>"+response.error);
+                                    $("#box").css("display", "block");
+                                    $("#box").css("background-color", "red");
+    
+                                    setTimeout(function(){
+                                        $("#box").css("display", "none");
+                                    }, 4000);
+                                
+                                
+                                }else{
+                                
+                                    $("#tabela_body").html("");
+                                
+                                    for(let $i=0; $i<response.length; $i++){
+                                    
+                                        let currentContent =  $("#tabela_body").html();
+
+                                        let kebab_type = "";
+
+                                        switch(parseInt(response[$i].kebabook_type)){
+
+                                            case 0:
+                                                kebab_type = "Rollo"; break;
+                                            case 1:
+                                                kebab_type = "W Bułce"; break;
+                                            case 2:
+                                                kebab_type = "Na talerzu"; break;
+                                            default:
+                                                kebab_type = "Inny";
+
+                                        }
+                                    
+                                        $("#tabela_body").html(currentContent+
+                                            "<tr>" +
+                                            Template.replace("{0}", response[$i].kebabook_name)+
+                                            Template.replace("{0}", kebab_type)+
+                                            Template.replace("{0}", response[$i].grade+"/5")+
+                                            Template.replace("{0}", response[$i].comment)+
+                                            Template.replace("{0}", response[$i].distance.toFixed(2)+" km")+
+                                            "</tr>"
+                                        );
+                                    
+                                    }
+
+                                    table = new DataTable('#tabela',{
+                                        scrollX : true
+                                    });
+                                
+                                }
+                            
+                            
+                            }
+
+                            $("#loader-container").css("display", "none");
+                        
+                        },
+                        error: (err) =>{
+                            $("#loader-container").css("display", "none");
+                            alert(err.error);
+                        }
+                    });
+                
+
+                
+                }, showError);
+
+
+            }
+    
+
+
+        });
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <div class="left"></div>
+
+    <div class="middle">
+
+        <header>
+            <img class="logo-kebabook" src="logo-kebabook.png" alt="logo-kebabook" width="250">
+            
+            <nav class="navbar">
+                <a href="index.html">Dodaj Kebabownię</a>
+                <a href="znajdz.html">Znajdź Kebabownię</a>
+                <a href="lokalizacja.html">Kebabownie w pobliżu</a>
+                <a href="wszystkie.html">Wszystkie Kebabownie</a>
+            </nav>
+        </header>
+
+        <section class="middle-bottom">
+
+            <div id="box"></div>
+
+
+            <h3>Wszystkie Zarejestrowane Kebabownie:</h3>
+
+            <div class="table-container">
+
+                <table id="tabela">
+
+                    <thead>
+                        <tr>
+                            <th>Nazwa</th>
+                            <th>Rodzaj kebaba</th>
+                            <th>Ocena</th>
+                            <th>Komentarz</th>
+                            <th>Dystans</th>
+                        </tr>
+    
+                        <tbody id="tabela_body"></tbody>
+    
+                    </thead>
+    
+                </table>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+    <div class="right"></div>
+
+
+    <div id="loader-container">
+
+        <div class="loader"></div>
+
+    </div>
+        
+</body>
+</html>
