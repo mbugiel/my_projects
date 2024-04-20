@@ -66,8 +66,6 @@ namespace AuthenticationAPI.Helper
 
                 rng.GetBytes(key);
                 rng.GetBytes(iv);
-                key[5] = Encoding.ASCII.GetBytes(user.Email)[0];
-                iv[8] = Encoding.ASCII.GetBytes(user.Username)[0];
 
 
 
