@@ -228,7 +228,7 @@ namespace ManagemateAPI.Controllers.Managemate
 
 
 
-        //Nieużywane
+        //Not in use
         [Route("api/Get_Client_Page")]
         [HttpPost]
         public async Task<IActionResult> Get_Client_Page([FromBody] Get_Client_Page obj)

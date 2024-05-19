@@ -591,29 +591,11 @@ namespace ManagemateAPI.Management.M_Authorized_Worker.Manager
         }
 
 
+
+
+
         /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
+         * NOT IN USE
          */
         public async Task<List<Authorized_Worker_Model_List>> Get_Authorized_Worker_By_Page(Get_Authorized_Worker_By_Page_Data obj)
         {

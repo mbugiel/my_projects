@@ -1346,9 +1346,6 @@ namespace ManagemateAPI.Management.M_Invoice.Manager
 
 
 
-
-
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\\
         public async Task<string> Invoice_Get_Logo_Tag(Session_Data session_Data, string invoice_full_number, byte[]? logo_bytes, string? file_type)
         {
             string logo_return_string = string.Empty;
@@ -1393,6 +1390,7 @@ namespace ManagemateAPI.Management.M_Invoice.Manager
             }
         }
 
+
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\\
         //Invoice number row
         public long Get_Avaible_Invoice_Number(bool invoice_type, long year, long month)
@@ -1414,6 +1412,7 @@ namespace ManagemateAPI.Management.M_Invoice.Manager
                 return Invoice_Number;
             }
         }
+
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\\
         //Full invoice number
@@ -1437,6 +1436,7 @@ namespace ManagemateAPI.Management.M_Invoice.Manager
             return Full_Invoice_Number;
         }
 
+
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\\
         public string Generate_Full_Invoice_Number_For_Files(bool invoice_type, long year, long month, long invoice_short_number)
         {
@@ -1456,11 +1456,7 @@ namespace ManagemateAPI.Management.M_Invoice.Manager
             }
 
             return Full_Invoice_Number;
-        }
-
-        
-        
-        
+        }        
         
         
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\\

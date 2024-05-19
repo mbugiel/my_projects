@@ -41,7 +41,7 @@ namespace ManagemateAPI.Controllers.Managemate
 
                 for (int i = 0; i < obj.amount; i++)
                 {
-                    uncrypted_stringus.Add(new Decrypted_Object { id = i, decryptedValue = "stringus" + i });
+                    uncrypted_stringus.Add(new Decrypted_Object { id = i, decryptedValue = "string" + i });
                 }
 
                 List<Encrypted_Object> encrypted_stringus = await Crypto.EncryptList(obj.session, uncrypted_stringus);
@@ -91,7 +91,7 @@ namespace ManagemateAPI.Controllers.Managemate
                         },
                         item_id_FK = new Item
                         {
-                            catalog_number = "stringus" + stringus.id,
+                            catalog_number = "string" + stringus.id,
                             product_name = stringus.encryptedValue,
                             item_type_id_FK = new Item_Type { item_type = stringus.encryptedValue},
                             weight_kg = stringus.id,
@@ -99,7 +99,7 @@ namespace ManagemateAPI.Controllers.Managemate
                             blocked_count = stringus.id,
                             price = stringus.encryptedValue,
                             tax_pct = stringus.id,
-                            item_counting_type_id_FK = new Item_Counting_Type { counting_type = "stringus" + stringus.id},
+                            item_counting_type_id_FK = new Item_Counting_Type { counting_type = "string" + stringus.id},
                             item_trading_type_id_FK = _context.Item_Trading_Type.Where(y => y.id.Equals(1)).FirstOrDefault(),
                             comment = stringus.encryptedValue,
                         },
@@ -111,7 +111,7 @@ namespace ManagemateAPI.Controllers.Managemate
                     _context.Invoice.Add(new Invoice
                     {
 
-                        prefix = "stringus" + stringus.id,
+                        prefix = "string" + stringus.id,
                         year = iye,
                         month = iye,
                         number = stringus.id,
@@ -184,7 +184,7 @@ namespace ManagemateAPI.Controllers.Managemate
 
                 _context.SaveChanges();
 
-                string result = "whatever";
+                string result = "success";
 
                 if (result == null)
                 {

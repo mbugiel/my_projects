@@ -628,11 +628,11 @@ namespace ManagemateAPI.Management.M_Item_On_Receipt.Manager
 
 
         /*
-         * Get_Item_On_Receipt_By_ID method
-         * This method gets a record from the Item_On_Receipt table by its ID and returns it.
+         * Get_Items_From_Receipt method
+         * This method gets all of records from the Item_On_Receipt table and returns list of theirs models.
          * 
-         * It accepts Get_Item_On_Receipt_By_ID_Data object as input.
-         * Then it gets a records that has the same ID as the ID given in the input object
+         * It accepts Get_Items_From_Receipt_Data object as input.
+         * Then it gets records from DB and makes models of them, after that it returns list of that models.
          */
         public async Task<List<Item_On_Receipt_Model>> Get_Items_From_Receipt(Get_Items_From_Receipt_Data input_obj)
         {

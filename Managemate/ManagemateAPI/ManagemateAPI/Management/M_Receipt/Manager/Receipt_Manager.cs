@@ -646,29 +646,13 @@ namespace ManagemateAPI.Management.M_Receipt.Manager
             }
         }
 
+
+
+
         /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
+         * 
+         * NOT IN USE
+         * 
          */
         public async Task<List<Receipt_Model_List>> Get_all_by_page_Receipts(Get_Receipts_Data obj)
         {

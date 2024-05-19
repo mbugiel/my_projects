@@ -358,38 +358,14 @@ namespace ManagemateAPI.Management.M_Cities_List.Manager
             }
         }
 
-        /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         */
+
+
+
+
+
 
         //Not in use
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
         public async Task<List<Cities_List_Model_List>> Get_Cities_List_By_Page(Get_Cities_List_By_Page input)
         {
             if (input == null)

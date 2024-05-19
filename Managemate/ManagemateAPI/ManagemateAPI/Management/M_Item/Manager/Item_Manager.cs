@@ -472,30 +472,15 @@ namespace ManagemateAPI.Management.M_Item.Manager
 
 
 
+
+
         /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
+         * 
+         * NOT IN USE
+         * 
          */
+
+
 
         //Check number of records
         public async Task<long> Get_Number_Of_Items(Get_Number_Of_Items_Data input)

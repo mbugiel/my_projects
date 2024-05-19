@@ -466,30 +466,12 @@ namespace ManagemateAPI.Management.M_Company.Manager
         }
 
 
-        /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         */
+        
+
+
+
+
+        // FOR DEVELOPMENT PURPOSES ONLY
         public async Task<string> DEV_Delete_Company(DEV_Delete_Company_Data obj)
         {
             if(obj == null)

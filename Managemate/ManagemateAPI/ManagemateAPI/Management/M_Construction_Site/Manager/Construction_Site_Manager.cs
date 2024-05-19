@@ -441,32 +441,16 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
             }
         }
 
-        /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         */
 
-        //Get by page
+
+
+
+
+
+
+        //NOT IN USE
+
+
         /*
         public async Task<List<Construction_Site_Model_List>> Get_Construction_Site_By_Page(Get_Construction_Site_By_Page obj)
         {

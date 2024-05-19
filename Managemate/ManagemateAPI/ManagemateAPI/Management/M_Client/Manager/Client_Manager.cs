@@ -529,31 +529,17 @@ namespace ManagemateAPI.Management.M_Client.Manager
             }
         }
 
-        /*
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         * złom
-         */
-        //Get by page | Nieużywane
+
+
+
+
+
+
+
+
+
+
+        //NOT IN USE
         public async Task<List<Client_Model_List>> Get_Client_Page(Get_Client_Page obj)
         {
             if (obj == null)
