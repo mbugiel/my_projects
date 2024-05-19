@@ -124,26 +124,27 @@ export class AuthService implements OnInit {
     const jsonData = JSON.stringify(session_Data);
 
 
-    this.http
+    return this.http
       .post(`${this.apiUrl}/Logout`, jsonData, this.options)
-      .subscribe({
-        next: () => {
+      .pipe(
+        tap({
+          next: () => {
 
-          this.cookie.deleteAll('/');
+            this.cookie.deleteAll('/');
 
-          this.displaySuccess(this.translate.instant('successMessages.logout'));
+            this.displaySuccess(this.translate.instant('successMessages.logout'));
 
-          this.router.navigateByUrl('/');
-          
-        },
-        error: err => {
+            this.router.navigateByUrl('/');
 
-          this.displayError(err);
+          },
+          error: err => {
 
-        }
-      });
+            this.displayError(err);
 
-      // this.router.navigateByUrl('/');
+          }
+        })
+      );
+      
   }
 
   isLoggedIn(): boolean {

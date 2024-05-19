@@ -1,0 +1,227 @@
+:host{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.outer-main{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#logout-button{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    margin-top: 1rem;
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    height: 2.2rem;
+    color:rgb(236, 0, 0);
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+#logout-button:hover{
+    background-color: red;
+    color: white;
+    border-color: red;
+    cursor: pointer;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+
+.outer-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel{
+    display: flex;
+    align-items: space-between;
+}
+
+.panel label, .right-panel label{
+    margin: 0.5rem;
+    position: relative;
+}
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+}
+
+h4{
+    position: absolute;
+    top: -2rem;
+}
+
+textarea{
+    max-height: 10rem;
+}
+
+
+h4{
+    margin: 0.3rem 0;
+    padding-left: 0.5rem;
+}
+
+/* input[type = "text"], input[type="number"] {
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    height: 2rem;
+    padding: 0.8rem;
+    width: 40rem;
+    outline: none;
+    border: none;
+} */
+
+mat-form-field{
+
+    min-width: 300px;
+
+}
+
+mat-form-field input:disabled{
+    color: black;
+}
+
+mat-label{
+    color: navy;
+}
+
+
+input[type = "submit"]{
+    margin-top: 1rem;
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    height: 2.2rem;
+    color: navy;
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+input[type = "submit"]:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.button-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.invalid-form{
+
+    display: flex;
+    padding: 0.5rem;
+    color: red;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    max-width: 212px;
+    word-wrap: break-word;
+
+}
+
+.addCity{
+
+    color: black;
+    cursor: pointer;
+    margin-top: 0.6rem;
+    border-radius: 15px;
+    border: 1px gray solid;
+    color: navy;
+    display: flex;
+    align-items: center;
+    padding: 0.35rem;
+
+}
+
+.addCity:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.drop-area {
+    border: dashed 2px black;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 100px;
+    cursor: pointer;
+}
+
+.file-upload{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.file-upload input[type="file"]{
+    display: none;
+}
+
+.file-upload b{
+    color: navy;
+}
+
+.file-upload span{
+    color: red;
+}
+
+.file-upload img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.cancel-upload{
+    cursor: pointer;
+}
+
+.color-red{
+    color: red;
+}
+
+h5{
+    max-width: 300px;
+    text-align: center;
+}
+  
+/* textarea{
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    height: 2rem;
+    padding: 0.8rem;
+    width: 40rem;
+    outline: none;
+    border: 1px solid lightgray;
+} */
+
+/* textarea:focus{
+    background-color: transparent;
+    border-color: black;
+} */
+
+

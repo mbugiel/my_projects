@@ -2,7 +2,7 @@
 
 <section id="menu">
 
-    <h2>{{ "itemList.filter" | translate }}</h2>
+    <h3>{{ "itemList.filter" | translate }}</h3>
 
     <div>
         <mat-form-field>
@@ -35,10 +35,12 @@
 
     <div class="inner-right-panel">
 
+        <h3>{{ "headerTabs.storage.stock" | translate }}:</h3>
+
         <h3 *ngIf="isLoaded && items_count==0" class="errorHeader">{{ "itemList.errors.itemListNotFound" | translate }}</h3>
 
 
-        <table #item_table *ngIf="isLoaded && items_count>0" mat-table [dataSource]="item_list" matSort multiTemplateDataRows>
+        <table #item_table *ngIf="isLoaded && items_count>0" mat-table [dataSource]="item_list" matSort matSortDisableClear multiTemplateDataRows>
 
 
             <ng-container matColumnDef="catalog_number">
@@ -88,7 +90,7 @@
 
                 <td mat-cell *matCellDef="let item" [attr.colspan]="columnsToDisplay.length">
 
-                    <div class="client-detail" [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'">
+                    <div class="item-detail" [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'">
 
                         <div class="client-description">
 

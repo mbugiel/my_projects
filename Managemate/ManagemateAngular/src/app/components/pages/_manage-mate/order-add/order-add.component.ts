@@ -61,6 +61,9 @@ export class OrderAddComponent implements OnInit {
       inputClient: ['', Validators.required],
       inputConSite: ['', Validators.required],
       inputStatus: ['', Validators.required],
+      inputDefaultPaymentMethod: ['', Validators.required],
+      inputDefaultPaymentDateOffset: ['', Validators.required],
+      inputDefaultDiscount: ['', Validators.required],
       inputComment: ['']
     });
 
@@ -157,6 +160,9 @@ export class OrderAddComponent implements OnInit {
     const ConSite_fk = fc.inputConSite.value;
     const Status = fc.inputStatus.value;
     const Comment = fc.inputComment.value;
+    const PayMethod = fc.inputDefaultPaymentMethod.value;
+    const PayOffset = fc.inputDefaultPaymentDateOffset.value;
+    const Discount = fc.inputDefaultDiscount.value / 100;
 
     const add_order_input:Add_Order_Data = {
 
@@ -171,6 +177,12 @@ export class OrderAddComponent implements OnInit {
       })!.id),
 
       status: Status,
+
+      default_payment_method: PayMethod,
+
+      default_payment_date_offset: PayOffset,
+
+      default_discount: Discount,
       
       comment:Comment
     }

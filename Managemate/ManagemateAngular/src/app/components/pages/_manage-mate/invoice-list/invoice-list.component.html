@@ -1,1 +1,87 @@
-<p>invoice-list works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div *ngIf="!isLoaded || !isLoadedOrder || !isDownloadedInvoice" class="loader-page">
+            
+    <div class="loader"></div>
+
+</div>
+
+<section id="menu">
+
+    <h3>{{ "itemList.filter" | translate }}</h3>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "invoiceList.invoiceType" | translate }}</mat-label>
+            <mat-select #inputStatus (selectionChange)="applyFilter($event.value)">
+              
+                <mat-option value="" >{{ 'invoiceList.invoiceTypeAll' | translate }}</mat-option>
+                <mat-option value="false">{{ 'invoiceList.invoiceTypeSale' | translate }}</mat-option>
+                <mat-option value="true">{{ 'invoiceList.invoiceTypeLease' | translate }}</mat-option>
+              
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+
+</section>
+
+<section class="right-panel" *ngIf="isLoadedOrder">
+
+    <div class="inner-right-panel">
+
+        <h3>{{ "invoiceList.invoiceHeader" | translate }} <span class="navy-font">{{order.order_name}}:</span></h3>
+
+        <h3 *ngIf="isLoaded && invoices_count==0" class="errorHeader">{{ "invoiceList.errors.invoiceListNotFound" | translate }}</h3>
+
+
+        <table #order_table *ngIf="isLoaded && invoices_count>0" mat-table [dataSource]="invoice_available_list" matSort matSortActive="order_name" matSortDirection="asc" matSortDisableClear>
+
+
+            <ng-container matColumnDef="month">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "invoiceList.month" | translate }}</th>
+                <td routerLink="/manage-mate/order/{{invoice_available.id}}" mat-cell *matCellDef="let invoice_available">{{this.dateHandler.get_month_name(invoice_available.month)}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "invoiceList.year" | translate }}</th>
+                <td routerLink="/manage-mate/order/{{invoice_available.id}}" mat-cell *matCellDef="let invoice_available">{{invoice_available.year}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="sale_invoice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "invoiceList.invoiceType" | translate }}</th>
+                <td routerLink="/manage-mate/order/{{invoice_available.id}}" mat-cell *matCellDef="let invoice_available">{{change_bool_to_invoice_type(invoice_available.sale_lease)}}</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="issue">
+                <th mat-header-cell *matHeaderCellDef>{{ "invoiceAdd.availableInvoice" | translate }}</th>
+                <td mat-cell *matCellDef="let invoice_available">
+                    <a (click)="open_invoice_dialog('100ms', '100ms', invoice_available.month, invoice_available.year, change_bool_to_invoice_type(invoice_available.sale_lease), invoice_available.sale_lease)">
+                        <mat-icon class="invoice">arrow_right_alt</mat-icon>
+                        {{ "invoiceList.issue" | translate }}
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+      
+    
+        </table>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 240]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>
+

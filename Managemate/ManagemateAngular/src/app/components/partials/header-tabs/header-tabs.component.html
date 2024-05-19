@@ -28,7 +28,7 @@
 
     <div class="account-menu-container">
 
-      <a class="account-button" routerLink="#">{{ "headerTabs.account.selfName" | translate }}</a>
+      <a class="account-button" routerLink="manage-mate/account">{{ "headerTabs.account.selfName" | translate }}</a>
       <div class="account-menu right-0">
         <a (click)="logout()">{{ "headerTabs.account.logout" | translate }}</a>
       </div>
@@ -75,6 +75,14 @@
 
 
     <nav *ngIf="tabChecks[4]">
+
+      <a routerLink="/manage-mate/service-list">{{ "headerTabs.services.serviceList" | translate }}</a>
+      <a routerLink="/manage-mate/service-add">{{ "headerTabs.services.serviceAdd" | translate }}</a>
+    
+    </nav>
+
+
+    <nav *ngIf="tabChecks[5]">
     
       <a routerLink="/manage-mate/invoice-list">{{ "headerTabs.invoices.invoiceList" | translate }}</a>
       <a routerLink="/manage-mate/invoice-add">{{ "headerTabs.invoices.invoiceAdd" | translate }}</a>
@@ -86,3 +94,7 @@
   </nav>
 
 </header>
+
+<div *ngIf="!LoggedOut" class="loader-page">
+  <div class="loader"></div>
+</div>

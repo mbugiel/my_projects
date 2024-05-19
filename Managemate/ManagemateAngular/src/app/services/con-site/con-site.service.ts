@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment.development';
 import { CookieService } from 'ngx-cookie-service';
 import { TranslateService } from '@ngx-translate/core';
 import { EncryptionService } from '../encryption/encryption.service';
+import { Location } from '@angular/common';
 //interfaces
 import { Add_Construction_Site_Data } from '../../shared/interfaces/API_Input_Models/Construction_Site_Models/Add_Construction_Site_Data';
 import { Edit_Construction_Site_Data } from '../../shared/interfaces/API_Input_Models/Construction_Site_Models/Edit_Construction_Site_Data';
@@ -40,7 +41,8 @@ export class ConSiteService{
     private encryption: EncryptionService,
     private router: Router,
     private cookie: CookieService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private location: Location
   ) { }
 
   
@@ -74,7 +76,7 @@ export class ConSiteService{
 
 
     return this.http
-      .post(`${this.apiUrl}/Add_ConstructionSite`, jsonData, this.options)
+      .post(`${this.apiUrl}/Add_Construction_Site`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -85,6 +87,7 @@ export class ConSiteService{
           complete: () => {
 
             this.displaySuccess(this.translate.instant('successMessages.addConSite'));
+            this.location.back();
             
           }
         })
@@ -102,7 +105,7 @@ export class ConSiteService{
 
 
     return this.http
-      .post(`${this.apiUrl}/Edit_ConstructionSite`, jsonData, this.options)
+      .post(`${this.apiUrl}/Edit_Construction_Site`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -113,6 +116,7 @@ export class ConSiteService{
           complete: () => {
 
             this.displaySuccess(this.translate.instant('successMessages.editConSite'));
+            this.location.back();
             
           }
         })
@@ -131,7 +135,7 @@ export class ConSiteService{
 
 
     return this.http
-      .post(`${this.apiUrl}/Delete_ConstructionSite`, jsonData, this.options)
+      .post(`${this.apiUrl}/Delete_Construction_Site`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -160,7 +164,7 @@ export class ConSiteService{
 
 
     return this.http
-      .post<Output_Construction_Site_Model_Response>(`${this.apiUrl}/Get_Construction_Site_by_ID`, jsonData, this.options)
+      .post<Output_Construction_Site_Model_Response>(`${this.apiUrl}/Get_Construction_Site_By_ID`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -185,7 +189,7 @@ export class ConSiteService{
 
 
     return this.http
-      .post<Output_Construction_Site_Model_List>(`${this.apiUrl}/Get_Construction_Sites`, jsonData, this.options)
+      .post<Output_Construction_Site_Model_List>(`${this.apiUrl}/Get_All_Construction_Site`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {

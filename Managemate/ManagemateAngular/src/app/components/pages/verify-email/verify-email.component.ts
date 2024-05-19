@@ -64,6 +64,8 @@ export class VerifyEmailComponent implements OnInit {
 
     })
 
+    this.isLoaded = true;
+
   }
 
   resendEmail(){

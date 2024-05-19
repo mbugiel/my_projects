@@ -1,0 +1,151 @@
+:host{
+    height: 100%;
+    overflow-y: auto;
+    display: block;
+}
+
+.outer-main{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.header-content{
+    display: flex;
+    align-items: baseline;
+}
+
+.header-content-right{
+    display: flex;
+    align-items: center;
+}
+
+.header-content *{
+    padding-right: 1rem;
+}
+
+
+.receipt-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+}
+
+mat-form-field{
+    width: 500px;
+}
+
+.receipt-footer{
+    padding: 1rem;
+    display: flex;
+}
+
+.receipt-footer *{
+    padding: 1rem;
+}
+
+h3{
+    margin: 0 0 0.5rem 0;
+}
+
+
+.margin-right{
+    margin-right: 0.5rem;
+}
+
+.margin-left{
+    margin-left: 0.5rem;
+}
+
+
+
+
+.btn{
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-button{
+
+    position: fixed;
+    display: flex;
+    align-items: baseline;
+    bottom: 1rem;
+    right: 2rem;
+
+}
+
+.save-button button{
+    width: fit-content;
+}
+
+.padding-x{
+    padding: 0 2rem;
+}
+
+td button{
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer
+}
+
+.delete{
+    color: rgb(134, 134, 134);
+}
+
+
+.color-green-hover:hover{
+    color:white;
+    background-color: green;
+    border-color: green;
+}
+
+.color-red-hover:hover{
+    color:white;
+    background-color: red;
+    border-color: red;
+}
+
+.color-navy-hover:hover{
+    color:white;
+    background-color: navy;
+    border-color: navy;
+}
+
+
+
+.color-green{
+    color:green;
+}
+
+.color-red{
+    color: red;
+}
+
+.color-navy{
+    color: navy;
+}
+
+.warning{
+    color: rgb(255, 200, 0);
+}

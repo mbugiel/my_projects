@@ -13,7 +13,6 @@ export interface Edit_Item_Data{
     blocked_count: number;
     price: number;
     tax_pct: number;
-    item_trading_type_id_FK: number;
     item_counting_type_id_FK: number;
     comment: string;
 }

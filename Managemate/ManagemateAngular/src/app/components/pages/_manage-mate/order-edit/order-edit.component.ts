@@ -17,6 +17,7 @@ import { OrderService } from '../../../../services/order/order.service';
 import { ConSiteService } from '../../../../services/con-site/con-site.service';
 import { ClientService } from '../../../../services/client/client.service';
 import { Edit_Order_Data } from '../../../../shared/interfaces/API_Input_Models/Order_Models/Edit_Order_Data';
+import { DateHandlerService } from '../../../../services/date-handler/date-handler.service';
 
 @Component({
   selector: 'app-order-edit',
@@ -36,8 +37,6 @@ export class OrderEditComponent implements OnInit {
 
   public isLoadedEditedOrder:boolean = true;
   public isLoadedEditingOrder:boolean = false;
-
-  public temp_timezone!:string;
 
   
   @ViewChild('inputClient') inputClient!: ElementRef;
@@ -59,7 +58,8 @@ export class OrderEditComponent implements OnInit {
     private client_service:ClientService,
     private conSite_service:ConSiteService,
     private router:Router,
-    private translate:TranslateService
+    private translate:TranslateService,
+    private dateHandler:DateHandlerService
   ){
 
     this.edit_Order_Form = this.fb.group({
@@ -68,6 +68,9 @@ export class OrderEditComponent implements OnInit {
       inputConSite: ['', Validators.required],
       inputStatus: ['', Validators.required],
       inputCreationDate: ['', Validators.required],
+      inputDefaultPaymentMethod: ['', Validators.required],
+      inputDefaultPaymentDateOffset: ['', Validators.required],
+      inputDefaultDiscount: ['', Validators.required],
       inputComment: ['']
     });
 
@@ -135,11 +138,16 @@ export class OrderEditComponent implements OnInit {
           fc.inputConSite.setValue(e_order.construction_site_id_FK.construction_site_name);
           fc.inputStatus.setValue(e_order.status.toString());
 
-          const read_date = new Date(e_order.creation_date).toISOString();
 
-          this.temp_timezone = read_date.substring(read_date.indexOf('.'));
+          const read_date = new Date(e_order.creation_date).toISOString();
           
           fc.inputCreationDate.setValue(read_date.substring(0, read_date.indexOf('.')));
+
+          fc.inputDefaultPaymentMethod.setValue(e_order.default_payment_method);
+
+          fc.inputDefaultPaymentDateOffset.setValue(e_order.default_payment_date_offset);
+
+          fc.inputDefaultDiscount.setValue(e_order.default_discount * 100);
 
           fc.inputComment.setValue(e_order.comment);
 
@@ -234,6 +242,9 @@ export class OrderEditComponent implements OnInit {
       const ConSite_fk = fc.inputConSite.value;
       const Status = fc.inputStatus.value;
       const CreationDate = fc.inputCreationDate.value;
+      const PayMethod = fc.inputDefaultPaymentMethod.value;
+      const PayOffset = fc.inputDefaultPaymentDateOffset.value;
+      const Discount = fc.inputDefaultDiscount.value / 100;
       const Comment = fc.inputComment.value;
   
       const edit_order_input:Edit_Order_Data = {
@@ -252,13 +263,16 @@ export class OrderEditComponent implements OnInit {
   
         status: Status,
 
-        creation_date: new Date(CreationDate+this.temp_timezone),
+        creation_date: this.dateHandler.changeToUtc(new Date(CreationDate)),
+
+        default_payment_method: PayMethod,
+
+        default_payment_date_offset: PayOffset,
+
+        default_discount: Discount,
         
         comment:Comment
       }
-
-      console.log(CreationDate)
-      console.log(new Date(CreationDate).toUTCString())
 
 
       this.order_service.edit_order(edit_order_input).subscribe({

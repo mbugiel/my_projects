@@ -69,7 +69,7 @@ export class ClientEditComponent implements OnInit {
       inputCompanyName: ['', Validators.required],
       inputNIP: ['', Validators.required],
       inputPhoneNumber: ['', [Validators.required, Validators.pattern("\\+?[0-9]+(\\s[0-9]+)*")]],
-      inputEmail: ['', Validators.required],
+      inputEmail: ['', [Validators.email,Validators.required]],
       inputAddress: ['', Validators.required],
       inputCity: ['', Validators.required],
       inputPostalCode: ['', Validators.required],
@@ -185,7 +185,7 @@ export class ClientEditComponent implements OnInit {
   }
 
   checkFormValidity(): void {
-    this.emptyError = Object.keys(this.edit_Client_Form.controls).every(controlName => {
+    this.emptyError = this.edit_Client_Form.get("inputCity")?.value !== null && Object.keys(this.edit_Client_Form.controls).every(controlName => {
       return !this.edit_Client_Form.get(controlName)?.hasError('required') || this.edit_Client_Form.get(controlName)?.value !== '';
     });
   }

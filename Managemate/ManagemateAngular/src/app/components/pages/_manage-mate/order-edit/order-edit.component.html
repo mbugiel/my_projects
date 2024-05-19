@@ -113,6 +113,33 @@
 
                 <label>
                     <mat-form-field>
+                        <mat-label>{{ "orderAdd.defaultPaymentMethod" | translate }}</mat-label>
+                        <input matInput #inputDefaultPaymentMethod formControlName="inputDefaultPaymentMethod">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "orderAdd.defaultPaymentDateOffset" | translate }}</mat-label>
+                        <input matInput type="number" #inputDefaultPaymentDateOffset formControlName="inputDefaultPaymentDateOffset">
+                    </mat-form-field>
+                </label>
+
+            </div>
+
+
+
+            <div class="left-panel">
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "orderAdd.defaultDiscount" | translate }}</mat-label>
+                        <input matInput #inputDefaultDiscount formControlName="inputDefaultDiscount">
+                    </mat-form-field>
+                </label>
+                
+                <label>
+                    <mat-form-field>
                         <mat-label>{{ "orderEdit.creationDate" | translate }}</mat-label>
                         <input type="datetime-local" matInput #inputCreationDate formControlName="inputCreationDate">
                     </mat-form-field>

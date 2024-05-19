@@ -72,7 +72,7 @@ export class ItemListComponent implements OnInit{
 
   ngOnInit(){
 
-    this.item_service.get_item_list().subscribe(
+    this.item_service.get_item_list({get_item:true}).subscribe(
       {
         next: response => {
           // console.log(response)
@@ -226,6 +226,7 @@ export class ItemListComponent implements OnInit{
       
                 // console.log("ilosc po usunieciu" + " " + this.item_list.data.length + "czy jest id= "+id+"? "+this.item_list.data.findIndex(item => item.id.toString() === id));
                 this.item_list.paginator = this.paginator;
+                this.items_count--;
                 this.myTable.renderRows();
       
       

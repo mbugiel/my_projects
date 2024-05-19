@@ -1,0 +1,53 @@
+.invalid{
+
+    display: flex;
+    padding: 0.5rem;
+    color: red;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    max-width: 212px;
+    word-wrap: break-word;
+
+}
+
+h2{
+    text-align: center;
+}
+
+.input-center{
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.panel{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+mat-form-field{
+    width: 270px;
+}
+
+.comment{
+    width: 75%;
+}
+
+.comment mat-form-field{
+    width: 100%;
+    overflow-y: auto;
+}
+
+.comment mat-form-field textarea{
+    overflow-y: auto;
+    resize: vertical;
+    max-height: 130px !important;
+}
+
+label{
+    margin: 0.5rem;
+    position: relative;
+}

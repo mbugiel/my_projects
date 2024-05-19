@@ -1,0 +1,101 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="menu">
+
+    <h3>{{ "itemList.filter" | translate }}</h3>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "itemList.name" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" placeholder="{{ 'itemList.nameExample' | translate }}" #inputName>
+        </mat-form-field>
+    </div>
+
+
+</section>
+
+<section class="right-panel">
+
+
+    <div class="inner-right-panel">
+
+        <h3>{{ "headerTabs.services.serviceList" | translate }}:</h3>
+
+        <h3 *ngIf="isLoaded && items_count==0" class="errorHeader">{{ "serviceList.errors.serviceNotFound" | translate }}</h3>
+
+
+        <table #item_table *ngIf="isLoaded && items_count>0" mat-table [dataSource]="item_list" matSort matSortDisableClear>
+
+            <ng-container matColumnDef="product_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "serviceList.serviceName" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.product_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "serviceList.price" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.price}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="tax_pct">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "serviceList.taxPct" | translate }}</th>
+                <td mat-cell *matCellDef="let item">{{item.tax_pct}}</td>
+            </ng-container>
+            
+
+
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef>{{ "itemList.edit" | translate }}</th>
+                <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
+                    <a routerLink="/manage-mate/service-edit/{{item.id}}">
+                        <mat-icon class="edit">edit</mat-icon>
+                        {{ "itemList.edit" | translate }}
+                    </a>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>{{ "itemList.delete" | translate }}</th>
+                <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
+                    <button mat-raised-button (click)="openDialog('100ms', '100ms', item.id, item.product_name)">
+                        <mat-icon class="delete">delete</mat-icon>
+                        {{ "itemList.delete" | translate }}
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+
+            <tr mat-row *matRowDef="let item; columns: columnsToDisplay;"></tr>
+      
+    
+        </table>
+
+        <div *ngIf="!isLoaded" class="loader-container">
+            
+            <div class="loader"></div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <!-- (page)="pageLoad($event)"
+            [pageSize]="120"
+            [hidePageSize]="false"
+            [length]="1000"
+            [disabled]="false"
+            [pageIndex]="page"
+            [showFirstLastButtons]="false"
+        -->
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 240]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>

@@ -1,0 +1,79 @@
+
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedEditingItem || !isLoadedEditedItem" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "serviceEdit.selfName" | translate }}</h2>
+
+
+    <form [formGroup]="edit_service_form" class="main">
+
+
+        <div class="outer-left-panel">
+    
+            <div class="left-panel">
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.productName" | translate }}</mat-label>
+                        <input matInput placeholder="{{ 'itemAdd.productNameExample' | translate }}" #inputServiceName formControlName="inputServiceName">
+                    </mat-form-field>
+                </label>
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.price" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="20.52" #inputPrice formControlName="inputPrice">
+                    </mat-form-field>
+                </label>
+                
+            </div>
+        
+            
+            
+            <div class="left-panel">
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.taxPct" | translate }}</mat-label>
+                        <input type="number" matInput min="0" placeholder="23" value="23" #inputTaxPct formControlName="inputTaxPct">
+                    </mat-form-field>
+                </label>
+
+                <div class="right-panel">
+    
+                    <label>
+                        <mat-form-field>
+                            <mat-label>{{ "itemAdd.comment" | translate }}</mat-label>
+                            <textarea matInput id="comment" #inputComment formControlName="inputComment"></textarea>
+                        </mat-form-field>
+                    </label>
+            
+                    <div class="button-container">
+                        
+                        <input type="button" value="{{ 'itemEdit.confirm' | translate }}" (click)="edit_item()">
+                        <div *ngIf="submitted && edit_service_form.invalid" class="invalid-form">{{ "itemAdd.errors.formError" | translate }}</div>
+        
+                    </div>
+            
+                </div>
+
+            </div>
+        
+            
+            
+            
+    
+        </div>        
+    
+    
+    </form>
+
+</section>
+
+

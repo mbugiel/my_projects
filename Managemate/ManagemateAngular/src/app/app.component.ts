@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
 import { MainHeaderComponent } from './components/partials/main-header/main-header.component';
 import { MenuComponent } from './components/partials/menu/menu.component';
 import { HeaderTabsComponent } from './components/partials/header-tabs/header-tabs.component';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT  } from '@angular/common';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private translate: TranslateService,
     private auth: AuthService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(DOCUMENT) private document: Document,
   ) {
 
     const browserLang = this.translate.getBrowserLang();
@@ -52,11 +52,19 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (isPlatformBrowser(this.platformId)) {
-      window.addEventListener('DOMContentLoaded', () => {
-          this.isLoaded = true;
+    if(this.document.readyState === 'complete'){
+
+      this.isLoaded = true;
+
+    }else{
+      
+      this.document.addEventListener('DOMContentLoaded', () => {
+        this.isLoaded = true;
       });
+      
     }
+
+    
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)

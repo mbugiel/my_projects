@@ -1,0 +1,18 @@
+.header{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.panel{
+    display: flex;
+}
+
+.panel label{
+    margin: 0.5rem 1rem;
+}
+
+mat-form-field{
+    width: 250px;
+}

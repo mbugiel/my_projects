@@ -45,14 +45,14 @@
                 <label>
                     <mat-form-field>
                         <mat-label>{{ "clientAdd.companyName" | translate }}</mat-label>
-                        <input matInput placeholder="{{ 'clientAdd.companyNameExample' | translate }}" #inputCompanyName formControlName="inputCompanyName">
+                        <input matInput #inputCompanyName formControlName="inputCompanyName">
                     </mat-form-field>
                 </label>
             
                 <label>
                     <mat-form-field>
                         <mat-label>{{ "clientAdd.nip" | translate }}</mat-label>
-                        <input matInput placeholder="5342879221" #inputNIP formControlName="inputNIP">
+                        <input matInput #inputNIP formControlName="inputNIP">
                     </mat-form-field>
                 </label>
             </div>
@@ -63,14 +63,14 @@
                 <label>
                     <mat-form-field>
                         <mat-label>{{ "clientAdd.phoneNumber" | translate }}</mat-label>
-                        <input matInput placeholder="898 891 213" #inputPhoneNumber formControlName="inputPhoneNumber">
+                        <input matInput #inputPhoneNumber formControlName="inputPhoneNumber">
                     </mat-form-field>
                 </label>
             
                 <label>
                     <mat-form-field>
                         <mat-label>{{ "clientAdd.email" | translate }}</mat-label>
-                        <input type="email" matInput placeholder="john.doe@example.com" #inputEmail formControlName="inputEmail">
+                        <input type="email" matInput #inputEmail formControlName="inputEmail">
                     </mat-form-field>
                 </label>
             </div>
@@ -100,7 +100,6 @@
                         <mat-label>{{ "clientAdd.city" | translate }}</mat-label>
                         <input #inputCity
                                type="text"
-                               placeholder="{{ 'clientAdd.cityExample' | translate }}"
                                matInput
                                (input)="filterCities()"
                                (focus)="filterCities()"

@@ -1,7 +1,7 @@
 
 <section class="outer-main">
 
-    <div *ngIf="!isLoadedEditingItem || !isLoadedItemTypes || !isLoadedTradingTypes || !isLoadedCountingTypes || !isLoadedEditedItem" class="loader-page">
+    <div *ngIf="!isLoadedEditingItem || !isLoadedItemTypes || !isLoadedCountingTypes || !isLoadedEditedItem" class="loader-page">
             
         <div class="loader"></div>
       
@@ -23,7 +23,7 @@
     </section>
 
 
-    <form [formGroup]="edit_Item_Form" class="main" *ngIf="item_types.length>0 && trading_types.length>0 && counting_types.length>0">
+    <form [formGroup]="edit_Item_Form" class="main" *ngIf="item_types.length>0 && counting_types.length>0">
 
 
         <div class="outer-left-panel">
@@ -113,19 +113,6 @@
             
             
             <div class="left-panel">
-                <label>
-                    <mat-form-field>
-                        <mat-label>{{ "itemAdd.tradingType" | translate }}</mat-label>
-                        <mat-select #inputTradingType formControlName="inputTradingType">
-                          @for (option of trading_types; track option) {
-
-                            <mat-option *ngIf="pl_language" [value]="option.id">{{option.trading_type_pl}}</mat-option>
-
-                            <mat-option *ngIf="!pl_language" [value]="option.id">{{option.trading_type_en}}</mat-option>
-                          }
-                        </mat-select>
-                      </mat-form-field>
-                </label>
             
                 <label>
                     <mat-form-field class="example-full-width">

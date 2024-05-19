@@ -34,7 +34,6 @@ export class ItemEditComponent implements OnInit {
   public pl_language:boolean;
 
   public isLoadedItemTypes:boolean = false;
-  public isLoadedTradingTypes:boolean = false;
   public isLoadedCountingTypes:boolean = false;
   public isLoadedEditedItem:boolean = true;
   public isLoadedEditingItem:boolean = false;
@@ -54,9 +53,6 @@ export class ItemEditComponent implements OnInit {
 
   public item_types: Array<Output_Item_Type_Model> = new Array<Output_Item_Type_Model>;
   public item_types_filtered!: Array<Output_Item_Type_Model>;
-
-  public trading_types: Array<Output_Item_Trading_Type_Model> = new Array<Output_Item_Trading_Type_Model>;
-  public trading_types_filtered!: Array<Output_Item_Trading_Type_Model>;
 
   public counting_types: Array<Output_Item_Counting_Type_Model> = new Array<Output_Item_Counting_Type_Model>;
   public counting_types_filtered!: Array<Output_Item_Counting_Type_Model>;
@@ -83,7 +79,6 @@ export class ItemEditComponent implements OnInit {
       inputBlockedCount: ['', Validators.required],
       inputPrice: ['', Validators.required],
       inputTaxPct: ['23', Validators.required],
-      inputTradingType: ['', Validators.required],
       inputCountingType: ['', Validators.required],
       inputComment: [''],
     });
@@ -149,7 +144,6 @@ export class ItemEditComponent implements OnInit {
           fc.inputBlockedCount.setValue(e_item.blocked_count);
           fc.inputPrice.setValue(e_item.price);
           fc.inputTaxPct.setValue(e_item.tax_pct);
-          fc.inputTradingType.setValue(e_item.item_trading_type_id_FK.id);
           fc.inputCountingType.setValue(e_item.item_counting_type_id_FK.counting_type);
           fc.inputComment.setValue(e_item.comment);
 
@@ -184,36 +178,6 @@ export class ItemEditComponent implements OnInit {
       complete: () =>{
 
         this.isLoadedItemTypes = true;
-
-      }
-
-    });
-
-
-
-
-
-    this.item_manager.get_item_trading_types().subscribe({
-
-      next: response => {
-
-        this.trading_types = response.responseData;
-
-        this.isLoadedTradingTypes = true;
-
-        // console.log(this.trading_types);
-
-      },
-      error: err => {
-
-        this.isLoadedTradingTypes = true;
-
-        this.redirectOnSessionError(err);
-
-      },
-      complete: () =>{
-
-        this.isLoadedTradingTypes = true;
 
       }
 
@@ -279,7 +243,6 @@ export class ItemEditComponent implements OnInit {
       const BlockedCount = fc.inputBlockedCount.value;
       const Price = fc.inputPrice.value;
       const TaxPct = fc.inputTaxPct.value;
-      const TradingType = fc.inputTradingType.value;
       const CountingType = fc.inputCountingType.value;
       const Comment = fc.inputComment.value;
 
@@ -298,7 +261,6 @@ export class ItemEditComponent implements OnInit {
         blocked_count:BlockedCount,
         price:Price,
         tax_pct:TaxPct,
-        item_trading_type_id_FK:TradingType,
 
         item_counting_type_id_FK:Number(this.counting_types.find(function(type){
           return type.counting_type == CountingType;
@@ -335,23 +297,6 @@ export class ItemEditComponent implements OnInit {
   filterItemTypes(): void {
     const filterValue = this.inputItemType.nativeElement.value.toLowerCase();
     this.item_types_filtered = this.item_types.filter(o => o.item_type.toLowerCase().includes(filterValue));
-  }
-
-  filterTradingTypes(): void {
-    
-    const filterValue = this.inputTradingType.nativeElement.value.toLowerCase();
-
-    if(this.pl_language){
-
-      this.trading_types_filtered = this.trading_types.filter(o => o.trading_type_pl.toLowerCase().includes(filterValue));
-
-    }else{
-
-      this.trading_types_filtered = this.trading_types.filter(o => o.trading_type_en.toLowerCase().includes(filterValue));
-
-    }
-
-    
   }
 
   filterCountingTypes(): void {

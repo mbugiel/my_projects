@@ -1,0 +1,77 @@
+
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedAddedItem" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "serviceAdd.selfName" | translate }}</h2>
+
+
+    <form [formGroup]="add_service_form" class="main">
+
+
+        <div class="outer-left-panel">
+    
+            <div class="left-panel">
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "serviceAdd.serviceName" | translate }}</mat-label>
+                        <input matInput #inputServiceName formControlName="inputServiceName">
+                    </mat-form-field>
+                </label>
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.price" | translate }}</mat-label>
+                        <input type="number" matInput min="0" #inputPrice formControlName="inputPrice">
+                    </mat-form-field>
+                </label>
+                
+            </div>
+            
+            
+            <div class="left-panel">
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "itemAdd.taxPct" | translate }}</mat-label>
+                        <input type="number" matInput min="0" value="23" #inputTaxPct formControlName="inputTaxPct">
+                    </mat-form-field>
+                </label>
+
+                <div class="right-panel">
+    
+                    <label>
+                        <mat-form-field>
+                            <mat-label>{{ "itemAdd.comment" | translate }}</mat-label>
+                            <textarea matInput id="comment" #inputComment formControlName="inputComment"></textarea>
+                        </mat-form-field>
+                    </label>
+            
+                    <div class="button-container">
+                        
+                        <button (click)="add_service()">{{ 'headerTabs.services.serviceAdd' | translate }}</button>
+                        <div *ngIf="submitted && add_service_form.invalid" class="invalid-form">{{ "itemAdd.errors.formError" | translate }}</div>
+        
+                    </div>
+            
+                </div>
+
+            </div>
+        
+    
+        </div>
+        
+    
+    
+    </form>
+
+</section>
+
+
+

@@ -46,7 +46,7 @@
                 <label>
                     <mat-form-field>
                         <mat-label>{{ "con_siteAdd.postalCode" | translate }}</mat-label>
-                        <input matInput placeholder="{{ 'con_siteAdd.companyNameExample' | translate }}" #inputCompanyName formControlName="inputPostalCode">
+                        <input matInput #inputCompanyName formControlName="inputPostalCode">
                     </mat-form-field>
                 </label>
             
@@ -55,7 +55,6 @@
                         <mat-label>{{ "con_siteAdd.city" | translate }}</mat-label>
                         <input #inputCity
                                type="text"
-                               placeholder="{{ 'con_siteAdd.cityExample' | translate }}"
                                matInput
                                (input)="filterCities()"
                                (focus)="filterCities()"

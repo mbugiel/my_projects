@@ -65,7 +65,7 @@ export class ClientAddComponent implements OnInit {
       inputCompanyName: ['', Validators.required],
       inputNIP: ['', Validators.required],
       inputPhoneNumber: ['', [Validators.required, Validators.pattern("\\+?[0-9]+(\\s[0-9]+)*")]],
-      inputEmail: ['', Validators.required],
+      inputEmail: ['', [Validators.email, Validators.required]],
       inputAddress: ['', Validators.required],
       inputCity: ['', Validators.required],
       inputPostalCode: ['', Validators.required],
@@ -125,7 +125,7 @@ export class ClientAddComponent implements OnInit {
   }
 
   checkFormValidity(): void {
-    this.emptyError = Object.keys(this.add_Client_Form.controls).every(controlName => {
+    this.emptyError = this.add_Client_Form.get("inputCity")?.value !== null && Object.keys(this.add_Client_Form.controls).every(controlName => {
       return !this.add_Client_Form.get(controlName)?.hasError('required') || this.add_Client_Form.get(controlName)?.value !== '';
     });
   }

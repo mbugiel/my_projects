@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { AuthService } from '../../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule} from '@angular/router';
+import { ActivatedRoute, RouterModule} from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 
@@ -15,42 +15,51 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class HeaderTabsComponent implements OnInit{
 
-  tabs: string[] = ['item', 'order', 'client', 'con-site','invoice'];
+  public LoggedOut:boolean = true;
+
+  tabs: string[] = ['item', 'order', 'client', 'con-site', 'service','invoice'];
   tabTranslations: any = {
     'item': 'headerTabs.storage.selfName',
     'order': 'headerTabs.orders.selfName',
     'client': 'headerTabs.clients.selfName',
     'con-site': 'headerTabs.constructions.selfName',
+    'service': 'headerTabs.services.selfName',
     'invoice': 'headerTabs.invoices.selfName'
   };
-  tabPrefix: string = '';
+  
   tabChecks: boolean[] = [true, false, false, false, false];
 
-  constructor(private location: Location, private auth: AuthService){}
+  constructor(
+    private location: Location,
+    private auth: AuthService
+  ){}
 
   ngOnInit(): void {
 
     const url = this.location.path();
 
-    const splited_url = url.split('/');
-
-    const regex = /^[0-9]+$/;
-
-    if(regex.test(splited_url[splited_url.length - 1])){
-      this.tabPrefix = splited_url[splited_url.length - 2];
-    }else{
-      this.tabPrefix = splited_url[splited_url.length - 1];
-    }
-
-    
 
     this.tabs.forEach((tab,index:number) => {
-      if(this.tabPrefix === 'home') return; //default magazyn
-      else{
-      if (this.tabPrefix.includes(tab)) this.tabChecks[index] = true;
-      else this.tabChecks[index] = false;
+
+      if(url.includes('home')){
+
+        return; //default magazyn
+
       }
+      else{
+
+        if (url.includes(tab)) this.tabChecks[index] = true;
+        else this.tabChecks[index] = false;
+
+      }
+
     });
+
+    if(this.tabChecks.every(value => value === false)){
+      
+      if(url.includes('receipt')) this.tabChecks[1] = true;
+
+    }
         
   }
 
@@ -64,6 +73,12 @@ export class HeaderTabsComponent implements OnInit{
   }
 
   logout(){
-    return this.auth.logout();
+
+    this.LoggedOut = false;
+    
+    this.auth.logout().subscribe(() => this.LoggedOut = true);
+
   }
+
+
 }

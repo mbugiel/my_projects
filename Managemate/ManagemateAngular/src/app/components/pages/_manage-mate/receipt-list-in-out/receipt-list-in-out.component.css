@@ -1,0 +1,173 @@
+:host{
+    height: 100%;
+    display: flex;
+}
+
+#menu{
+    display: flex;
+    padding: 0.5rem;
+    width: 20%;
+    border-right: 1px solid black;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-panel{
+    padding: 0.5rem;
+    flex-grow: 1;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner-header-container{
+    display: flex;
+    align-items: baseline;
+}
+
+.inner-header-container *{
+    padding: 0 0.5rem;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+}
+
+.inner-right-panel-1{
+    height: 60px;
+}
+
+.inner-right-panel{
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    height: calc(100% - 60px);
+}
+
+h4{
+    width: 100%;
+}
+
+h3{
+    margin: 0 0 0.5rem 0;
+}
+
+table{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    /* border-collapse: collapse; */
+}
+
+table th{
+    position: sticky;
+    top: 0px;
+}
+
+td button, td a{
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer
+}
+
+.edit{
+    color: rgb(255, 183, 0);
+}
+
+.delete{
+    color: rgb(134, 134, 134);
+}
+
+
+
+
+
+.table-header{
+    background: rgb(223, 223, 223);
+}
+
+.mat-mdc-row:hover{
+    background: rgb(238, 238, 238);
+}
+
+
+button{
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    border-radius: 15px;
+    padding: 0.2rem 0.5rem;
+    font-weight: bold;
+}
+button:hover{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.color-green-hover:hover{
+    color:white;
+    background-color: green;
+    border-color: green;
+}
+
+.color-red-hover:hover{
+    color:white;
+    background-color: red;
+    border-color: red;
+}
+
+
+.color-green{
+    color:green;
+}
+
+.color-red{
+    color: red;
+}
+
+
+td{
+    cursor: pointer;
+}
+
+
+
+tr.detail-row {
+    height: 0;
+  }
+  
+  tr.client-row:not(.expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.client-row:not(.expanded-row):active {
+    background: #efefef;
+  }
+  
+  .client-row td {
+    border-bottom-width: 0;
+  }
+  
+  .client-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .client-description {
+    padding: 16px;
+  }
+  
+  .client-description-attribution {
+    opacity: 0.5;
+  }

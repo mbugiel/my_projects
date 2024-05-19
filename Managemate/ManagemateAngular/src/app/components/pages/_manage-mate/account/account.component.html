@@ -1,0 +1,218 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<section class="outer-main">
+
+    <div *ngIf="!isLoadedCitiesList || !LoggedOut || !isLoadedAccountInfo" class="loader-page">
+            
+        <div class="loader"></div>
+      
+    </div>
+
+
+    <h2>{{ "account.selfName" | translate }}</h2>
+    <input type="submit" value="{{'headerTabs.account.logout' | translate}}" id="logout-button" (click)="logout()">
+
+
+
+    <section *ngIf="mustFill" class="main">
+
+        <h3 class="errorHeader">{{ "account.errors.mustFill" | translate }}</h3>
+
+    </section> 
+
+
+    <form [formGroup]="account_Form" class="main">
+
+
+        <div class="outer-panel">
+    
+            <div class="panel">
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.name" | translate }}</mat-label>
+                        <input matInput #inputName formControlName="inputName">
+                    </mat-form-field>
+                </label>
+                
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.surname" | translate }}</mat-label>
+                        <input matInput #inputSurname formControlName="inputSurname">
+                    </mat-form-field>
+                </label>
+                
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.companyName" | translate }}</mat-label>
+                        <input matInput #inputCompanyName formControlName="inputCompanyName">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+        
+            <div class="panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.nip" | translate }}</mat-label>
+                        <input matInput #inputNIP formControlName="inputNIP">
+                    </mat-form-field>
+                </label>
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.phoneNumber" | translate }}</mat-label>
+                        <input matInput #inputPhoneNumber formControlName="inputPhoneNumber">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.email" | translate }}</mat-label>
+                        <input type="email" matInput #inputEmail formControlName="inputEmail">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+        
+        
+            <div class="panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.address" | translate }}</mat-label>
+                        <input matInput #inputAddress formControlName="inputAddress">
+                    </mat-form-field>
+                </label>
+            
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.postalCode" | translate }}</mat-label>
+                        <input matInput #inputPostalCode formControlName="inputPostalCode">
+                    </mat-form-field>
+                </label>
+                
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.bankName" | translate }}</mat-label>
+                        <input matInput #inputBankName formControlName="inputBankName">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+            
+            
+            <div class="panel">
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.bankNumber" | translate }}</mat-label>
+                        <input matInput #inputBankNumber formControlName="inputBankNumber">
+                    </mat-form-field>
+                </label>
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.webPage" | translate }}</mat-label>
+                        <input matInput #inputWebPage formControlName="inputWebPage">
+                    </mat-form-field>
+                </label>
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.moneySign" | translate }}</mat-label>
+                        <input matInput #inputMoneySign formControlName="inputMoneySign">
+                    </mat-form-field>
+                </label>
+            </div>
+        
+            
+            
+            <div class="panel">
+
+                <label>
+                    <mat-form-field>
+                        <mat-label>{{ "account.moneySignDecimal" | translate }}</mat-label>
+                        <input matInput #inputMoneySignDecimal formControlName="inputMoneySignDecimal">
+                    </mat-form-field>
+                </label>
+                <label>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{ "account.city" | translate }}</mat-label>
+                        <input #inputCity
+                               type="text"
+                               matInput
+                               (input)="filterCities()"
+                               (focus)="filterCities()"
+                               [matAutocomplete]="autoCity"
+                                formControlName="inputCity">
+                        <mat-autocomplete requireSelection #autoCity="matAutocomplete">
+                          @for (option of cities_list_filtered; track option) {
+                            <mat-option [value]="option.city">{{option.city}}</mat-option>
+                          }
+                        </mat-autocomplete>
+                      </mat-form-field>
+                </label>
+                <label *ngIf="isEditing">
+                    <button class="addCity" type="button" (click)="openAddDialog('100ms', '100ms')">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </label>
+            </div>
+    
+        </div>
+        
+        
+        <div class="right-panel">
+
+            <label class="file-upload">
+
+                <div *ngIf="!imageUrl && isEditing"  class="drop-area" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+                    
+                    <b>{{"account.companyLogo" | translate}}</b>
+                    {{"account.fileUpload" | translate}} {{max_file_size_MB}}MB
+
+                    <span *ngIf="wrongType">{{"account.errors.fileType" | translate}}</span>
+
+                    <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)">
+                    
+                </div>
+
+                <div *ngIf="imageUrl">
+                    <img [src]="imageUrl" alt="{{'account.imgAltText' | translate}}"/>
+                </div>
+
+            </label>
+            <mat-icon *ngIf="imageUrl && isEditing" class="cancel-upload" (click)="removeImage()">delete_forever</mat-icon>
+
+            <div class="button-container">
+                <div *ngIf="isEmpty && isEditing">
+                    <input type="submit" value="{{ 'headerTabs.account.accountConfirm' | translate }}" (click)="add_account_info()">
+                </div>
+                <div *ngIf="!isEmpty && !isEditing">
+                    <input type="submit" value="{{ 'headerTabs.account.accountEdit' | translate }}" (click)="change_button()">
+                </div>
+                <div *ngIf="!isEmpty && isEditing">
+                    <input type="submit" value="{{ 'headerTabs.account.accountConfirm' | translate }}"
+                        (click)="edit_account_info()">
+                </div>
+                <div *ngIf="submitted && account_Form.invalid" class="invalid-form">
+                    <div *ngIf="!emptyError">
+                        {{ "account.errors.formError.empty" | translate }}
+                    </div>
+                    <div *ngIf="account_Form.get('inputPhoneNumber')?.hasError('pattern')">
+                        {{ "account.errors.formError.phone" | translate }}
+                    </div>
+                </div>
+
+                <h5 *ngIf="display_file_size_error" class="color-red">{{ "account.errors.fileSize" | translate }} {{max_file_size_MB}}MB</h5>
+
+            </div>
+            
+        </div>
+    
+        
+    
+    
+    </form>
+
+</section>
+
+

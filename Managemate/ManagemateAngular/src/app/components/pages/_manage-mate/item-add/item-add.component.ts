@@ -93,8 +93,6 @@ export class ItemAddComponent implements OnInit {
 
         this.item_types = response.responseData;
 
-        this.isLoadedItemTypes = true;
-
         // console.log(this.item_types);
 
       },
@@ -123,9 +121,13 @@ export class ItemAddComponent implements OnInit {
 
         this.trading_types = response.responseData;
 
-        this.isLoadedTradingTypes = true;
+        const service_type = this.trading_types.findIndex(type => type.id == 3);
 
-        // console.log(this.trading_types);
+        if(service_type != -1){
+          this.trading_types.splice(service_type, 1);
+        }
+
+        this.isLoadedTradingTypes = true;
 
       },
       error: err => {

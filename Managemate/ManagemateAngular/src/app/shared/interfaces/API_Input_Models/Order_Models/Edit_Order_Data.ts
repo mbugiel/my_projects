@@ -10,5 +10,8 @@ export interface Edit_Order_Data{
     construction_site_id_FK : number;
     status : number;
     creation_date: Date;
+    default_payment_method:string;
+    default_payment_date_offset:number;
+    default_discount:number;
     comment : string;
 }

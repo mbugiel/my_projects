@@ -32,6 +32,7 @@
         "emailInfo":"Sprawdź swoją skrzynkę odbiorczą pod adresem {0}, aby uzyskać kod weryfikacyjny.",
         "logout":"Wylogowano",
         "addItem":"Dodano Przedmiot",
+        "addService":"Dodano Usługę",
         "deleteItem":"Usunięto Przedmiot",
         "editItem":"Edytowano Przedmiot",
         "deleteItemType":"Usunięto Grupę",
@@ -49,23 +50,54 @@
         "addCity":"Dodano Miasto",
         "addOrder":"Dodano Zlecenie",
         "deleteOrder":"Usunięto Zlecenie",
-        "editOrder":"Edytowano Zlecenie"
+        "editOrder":"Edytowano Zlecenie",
+        "addEditReceipt":"Zapisano Kwit",
+        "deleteReceipt":"Usunięto Kwit",
+        "addCompany":"Dodano Informacje o Firmie",
+        "editCompany":"Edytowano Informacje o Firmie",
+        "addItemOnReceipt":"Dodano Przedmiot do Kwitu",
+        "addServiceOnReceipt":"Dodano Usługę do Kwitu",
+        "deleteItemOnReceipt":"Usunięto Przedmiot z Kwitu",
+        "addAuthWorker":"Dodano Osobę Uprawnioną",
+        "editAuthWorker":"Edytowano Osobę Uprawnioną",
+        "deleteAuthWorker":"Usunięto Osobę Uprawnioną"
+    },
+
+    "months":{
+        "1":"Styczeń",
+        "2":"Luty",
+        "3":"Marzec",
+        "4":"Kwiecień",
+        "5":"Maj",
+        "6":"Czerwiec",
+        "7":"Lipiec",
+        "8":"Sierpień",
+        "9":"Wrzesień",
+        "10":"Październik",
+        "11":"Listopad",
+        "12":"Grudzień"
     },
 
     "deleteDialog":{
         "itemTitle":"Usunąć Przedmiot?",
         "itemTypeTitle":"Usunąć Grupę?",
-        "itemCountingTypeTitle":"Usunąć Jednostkę Zliczania?",
+        "itemCountingTypeTitle":"Usunąć Jednostkę Miary?",
         "clientTitle":"Usunąć Klienta?",
         "con_siteTitle":"Usunąć Budowę?",
+        "serviceTitle":"Usunąć Usługę?",
         "orderTitle":"Usunąć Zlecenie?",
-
+        "itemOnReceiptTitle":"Usunąć przedmiot z kwitu?",
+        "authWorkerTitle":"Usunąć Osobę Uprawnioną?",
+        
         "itemMessage":"Na pewno chcesz usunąć przedmiot ",
         "itemTypeMessage":"Usunięcie grupy spowoduje usunięcie wszystkich powiązanych z nią przedmiotów!\nNa pewno chcesz usunąć grupę ",
-        "itemCountingTypeMessage":"Usunięcie jednostki zliczania spowoduje usunięcie wszystkich powiązanych z nią przedmiotów!\nNa pewno chcesz usunąć jednostkę ",
+        "itemCountingTypeMessage":"Usunięcie jednostki miary spowoduje usunięcie wszystkich powiązanych z nią przedmiotów!\nNa pewno chcesz usunąć jednostkę ",
         "clientMessage":"Na pewno chcesz usunąć klienta ",
         "con_siteMessage":"Na pewno chcesz usunąć budowę ",
+        "serviceMessage":"Na pewno chcesz usunąć usługę ",
         "orderMessage":"Na pewno chcesz usunąć zlecenie ",
+        "itemOnReceiptMessage":"Na pewno chcesz usunąć z kwitu ",
+        "authWorkerMessage":"Na pewno chcesz usunąć osobę uprawnioną ",
         
         "yes":"Tak",
         "no":"Nie"
@@ -91,6 +123,58 @@
         "add":"Dodaj"
     },
 
+    "selectItemDialog":{
+        "title":"Wybierz, który przedmiot chcesz dodać:",
+        "button":"Dodaj",
+        "buttonReturn":"Zwróć",
+        "add":"OK",
+        "outOfStock":"Brak na stanie",
+        "notAvailable":"Brak na budowie"
+    },
+
+    "selectNumberDialog":{
+        "title":"Wprowadź ilość:",
+        "label":"Ilość",
+        "labelSecond":"Uwagi do przedmiotu",
+        "cancel":"Anuluj",
+        "ok":"OK",
+        "minValue":"Ilość musi być większa od 0 i mniejsza lub równa ",
+        "minZero":"Ilość musi być większa od 0"
+    },
+
+
+    "addReceiptDialog":{
+        "title":"Dodaj Kwit",
+        "reservation":"Rezerwacja"
+    },
+
+    "addAuthWorkerDialog":{
+        "title":"Dodaj Osobę Uprawnioną"
+    },
+
+    "editAuthWorkerDialog":{
+        "title":"Edytuj Osobę Uprawnioną"
+    },
+
+
+    "invoiceDialog":{
+        "title":"Faktura z miesiąca",
+        "lease":"Dzierżawa",
+        "sale":"Sprzedaż",
+        "type":"Rodzaj faktury -",
+        "issueDate":"Data Wystawienia",
+        "saleDate":"Data Sprzedaży",
+        "paymentDate":"Termin płatności",
+        "paymentMethod":"Metoda Płatności",
+        "discount":"Zniżka [%]",
+        "comment":"Uwagi do Faktury",
+        
+        "buttonShow":"Wyświetl Fakturę",
+        "buttonDownload":"Pobierz Fakturę",
+        "buttonCancel":"Anuluj"
+    },
+
+
     "mainHeader": {
         "about":"O programie",
         "contact":"Kontakt",
@@ -108,7 +192,7 @@
             "stock":"Stan Magazynu",
             "itemAdd":"Dodaj Przedmiot",
             "itemType":"Grupy Przedmiotów",
-            "itemCountingType":"Jednostki Zliczania"
+            "itemCountingType":"Jednostki Miary"
         },
 
         "orders":{
@@ -132,6 +216,14 @@
             "constructionAdd":"Dodaj Budowę"
         },
 
+        "services":{
+            "selfName":"Usługi",
+
+            "serviceList":"Lista Usług",
+            "serviceAdd":"Dodaj Usługę"
+
+        },
+
         "invoices":{
             "selfName":"Faktury",
 
@@ -142,7 +234,8 @@
 
         "account":{
             "selfName":"Konto",
-
+            "accountConfirm":"Zatwierdź",
+            "accountEdit":"Edytuj",
             "logout":"Wyloguj"
         }
     },
@@ -176,12 +269,12 @@
         "price":"Cena netto",
         "taxPct":"VAT [%]",
         "tradingType":"Rodzaj handlu",
-        "countingType":"Jednostka zliczania",
+        "countingType":"Jednostka miary",
         "countingTypeExample":"szt",
         "comment":"Uwagi",
         "errors":{
             "itemTypes":"Aby dodać przedmiot musisz dodać przynajmniej jedną grupę przedmiotową.",
-            "tradingTypes":"Aby dodać przedmiot musisz dodać przynajmniej jedną jednostkę zliczania.",
+            "tradingTypes":"Aby dodać przedmiot musisz dodać przynajmniej jedną jednostkę miary.",
             "formError":"Pola nie mogą być puste*"
         }
     },
@@ -193,12 +286,14 @@
         "selfName":"Grupa Przedmiotów",
         "addItemType":"Dodaj Grupę",
         "groupName":"Nazwa Grupy",
+        "groupRate":"Stawka",
+        "groupRatePct":"Stawka w %",
         "noGroups":"Brak Grup",
         "add":"Dodaj"
     },
 
     "itemCountingType":{
-        "selfName":"Jednostka Zliczania",
+        "selfName":"Jednostka Miary",
         "addItemCountingType":"Dodaj Jednostkę",
         "noCountingTypes":"Brak Jednostek",
         "add":"Dodaj"
@@ -280,6 +375,27 @@
         "confirm":"Zatwierdź Zmiany"
     },
 
+    "serviceList":{
+        "serviceName":"Nazwa Usługi",
+        "price":"Cena netto",
+        "taxPct":"VAT [%]",
+        "errors":{
+            "serviceNotFound":"Nie Znaleziono Usług"
+        }
+    },
+
+    "serviceAdd":{
+        "selfName":"Dodaj nową Usługę:",
+
+        "serviceName":"Nazwa Usługi"
+    },
+
+    "serviceEdit":{
+        "selfName":"Edytuj Usługę",
+
+        "confirm":"Zatwierdź Zmiany"
+    },
+
     "orderList":{
         "orderName":"Nazwa Zlecenia",
         "clientName":"Klient",
@@ -300,6 +416,9 @@
         "client":"Klient",
         "conSite":"Budowa",
         "status":"Status",
+        "defaultPaymentMethod":"Domyślna metoda płatności",
+        "defaultPaymentDateOffset":"Ilość dni na zapłatę",
+        "defaultDiscount":"Upust na Fakturze [%]",
         "comment":"Uwagi",
         "orderAdd":"Dodaj Zlecenie",
         "errors":{
@@ -325,12 +444,143 @@
         "clientPhone":"tel.:",
         "clientNip":"NIP:",
         "status":"Status",
+        "defaultPaymentDateOffset":"Domyślna ilość dni na opłatę faktury",
+        "defaultDiscount":"Domyślny upust dawany na fakturę",
         "creationDate":"Data Utworzenia",
         "comment":"Uwagi do Zlecenia",
         "noComment":"Brak uwag",
         "receipts":"Kwity Zlecenia:",
         "receiptsIn":"Zwroty",
-        "receiptsOut":"Wydania"
+        "receiptsOut":"Wydania",
+        "receiptsInNew":"Nowy Zwrot",
+        "receiptsOutNew":"Nowe Wydanie"
+    },
+
+    "receiptList":{
+        "receiptsIn":"Zwroty",
+        "receiptsOut":"Wydania",
+        "receiptsHeader":"w zleceniu",
+        "date":"Data",
+        "element":"Element",
+        "transport":"Transport",
+        "summaryWeight":"Waga w sumie",
+        "comment":"Uwagi do Kwitu",
+        "errors":{
+            "receiptsNotFound":"Brak kwitów"
+        }
+    },
+
+    "receiptEdit":{
+        "receiptAdd":"Dodajesz",
+        "receiptEdit":"Edytujesz",
+        "receiptIn":"Zwrot",
+        "receiptOut":"Wydanie",
+        "receiptAddHeader":"w zleceniu",
+        "element":"Element",
+        "transport":"Transport",
+        "comment":"Uwagi do Kwitu",
+        "itemAdd":"Dodaj Przedmiot",
+        "itemService":"Dodaj Usługę",
+        "servicePrice":"Cena Netto",
+        "serviceTaxPct":"VAT [%]",
+        "itemReturn":"Zwróć Przedmiot",
+        "itemNo":"Lp.",
+        "itemCatNum":"Nr Kat.",
+        "itemName":"Nazwa",
+        "itemCountingType":"Jedn. miary",
+        "itemCount":"Ilość",
+        "itemAvailableCount":"Dostępna Ilość do zwrotu",
+        "itemWeight":"Waga elementu [kg]",
+        "itemSummaryWeight":"Waga łącznie [kg]",
+        "SummaryWeight":"Waga zestawu [kg]:",
+        "buttonAdd":"Dodaj Kwit",
+        "buttonSave":"Zapisz Kwit",
+
+        "errors":{
+            "itemListNotFound":"Dodaj przynajmniej jeden przedmiot, aby zapisać kwit",
+            "itemsOnReceiptNotFound":"Brak przedmiotów na kwicie"
+        }
+
+    },
+
+    "account":{
+        "selfName":"Moje dane Firmy",
+        "name": "Imię",
+        "surname": "Nazwisko",
+        "companyName": "Nazwa Firmy",
+        "nip": "NIP",
+        "phoneNumber": "Numer Telefonu",
+        "email": "Email",
+        "address": "Adres",
+        "city": "Miasto",
+        "postalCode": "Kod Pocztowy",
+        "bankName":"Nazwa Banku",
+        "bankNumber":"Numer Konta Bankowego",
+        "webPage":"Strona Internetowa",
+        "moneySign":"Waluta",
+        "moneySignDecimal": "Setna Część Waluty",
+        "companyLogo":"Dodaj Logo Firmy:",
+        "fileUpload":"Przeciągnij i upuść plik tutaj lub kliknij, aby wybrać plik. Max",
+        "imgAltText":"Podgląd loga",
+        "errors":{
+            "mustFill":"Musisz dodać te dane, aby były na fakturze",
+            "fileType":"Niedozwolony typ pliku!",
+            "formError":{
+                "empty":"Pola nie mogą być puste*",
+                "phone":"Wprowadź poprawny numer telefonu*"
+            },
+            "fileSize":"Twój plik jest za duży - maksymalna obsługiwana wielkość:"
+        }
+    },
+
+    "clientInfo":{
+        "selfName":"Klient:",
+        "client":"Informacje o Kliencie",
+        "comment":"Uwagi",
+        "address":"Adres:",
+        "email":"Email:",
+        "phone":"Numer Telefonu:",
+        "nip":"NIP:"
+    },
+
+    "authWorkerList":{
+        "selfName":"Osoby Uprawnione",
+        "authWorkerNew":"Nowa Osoba Uprawniona",
+        "surname":"Nazwisko",
+        "name":"Imię",
+        "contact":"Kontakt",
+        "collection":"Odbiór sprzętu",
+        "phoneNumber":"Numer Telefonu",
+        "email":"Email",
+        "comment":"Uwagi",
+        "edit":"Edytuj",
+        "delete":"Usuń",
+        "errors":{
+            "authWorkerListNotFound": "Brak Osób Uprawnionych"
+        }
+    },
+
+
+    "invoiceAdd":{
+        "availableInvoice":"Dostępne faktury",
+        "chooseInvoices":"Wybierz faktury",
+        "chooseOrder":"Wybierz Zlecenie"
+
+    },
+
+
+    "invoiceList":{
+        "invoiceType":"Rodzaj Faktury",
+        "invoiceTypeAll":"Wszystkie",
+        "invoiceTypeSale":"Sprzedaż",
+        "invoiceTypeLease":"Dzierżawa",
+        "invoiceHeader":"Dostępne faktury w zleceniu",
+        "issue":"Wystaw Fakturę",
+        "month":"Miesiąc",
+        "year":"Rok",
+        "errors":{
+            "invoiceListNotFound": "Nie znaleziono dostępnych faktur"
+        }
     }
 
 }

@@ -1,25 +1,27 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<div *ngIf="!is_Loaded_Order || !is_Loaded_Add_Receipt" class="loader-page">
+            
+    <div class="loader"></div>
+  
+</div>
+
+
 <section class="outer-main">
 
-    <div *ngIf="!isLoadedOrder" class="loader-page">
-            
-        <div class="loader"></div>
-      
-    </div>
 
 
-    <h2 *ngIf="isLoadedOrder">
+    <h3 *ngIf="is_Loaded_Order">
         {{ "orderInfo.selfName" | translate }}
         <span class="order_name">{{selected_order.order_name}}</span>
         <a routerLink="/manage-mate/order-edit/{{selected_order.id}}">
             <mat-icon class="edit">edit</mat-icon>
             {{ "itemList.edit" | translate }}
         </a>
-    </h2>
+    </h3>
 
 
-    <div *ngIf="isLoadedOrder" class="main">
+    <div *ngIf="is_Loaded_Order" class="main">
 
 
         <div class="outer-left-panel">
@@ -48,7 +50,7 @@
 
             <div>
                 <h3 class="info-header">{{ "orderInfo.creationDate" | translate }}</h3>
-                <h4>{{formatDate(selected_order.creation_date)}}</h4>
+                <h4>{{this.date_Handler.formatDate(selected_order.creation_date)}}</h4>
             </div>
             
             <div>
@@ -67,6 +69,60 @@
 
             </div>
 
+
+            <div>
+
+                <h3 class="info-header">{{ "orderAdd.defaultPaymentMethod" | translate }}</h3>
+                <h4>{{selected_order.default_payment_method}}</h4>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="info-header">{{ "orderInfo.defaultPaymentDateOffset" | translate }}</h3>
+                <h4>{{selected_order.default_payment_date_offset}}</h4>
+
+            </div>
+
+            <div>
+
+                <h3 class="info-header">{{ "orderInfo.defaultDiscount" | translate }}</h3>
+                <h4>{{selected_order.default_discount * 100}} %</h4>
+
+            </div>
+
+    
+        </div>
+
+
+
+        
+        <div class="right-panel">
+
+            <h3 class="info-header">{{ "orderInfo.receipts" | translate }}</h3>
+
+            <div class="left-panel">
+
+                <div class="right-panel">
+
+                    <button routerLink="/manage-mate/receipt-list-in-out/{{selected_order.id}}/1" class="color-green color-green-hover">{{ 'orderInfo.receiptsOut' | translate }}</button>
+
+                    <button routerLink="/manage-mate/receipt-list-in-out/{{selected_order.id}}/0" class="color-red color-red-hover">{{ 'orderInfo.receiptsIn' | translate }}</button>
+                
+                </div>
+                
+                <div class="right-panel">
+
+                    <button (click)="add_receipt(true)" class="color-green color-green-hover">{{ 'orderInfo.receiptsOutNew' | translate }}</button>
+
+                    <button (click)="add_receipt(false)" class="color-red color-red-hover">{{ 'orderInfo.receiptsInNew' | translate }}</button>
+
+                </div>
+                
+
+            </div>
+
             <div>
                 <h3 class="info-header">{{ "orderInfo.comment" | translate }}</h3>
                 
@@ -78,20 +134,6 @@
                 }
 
             </div>
-    
-        </div>
-
-
-
-        
-        <div class="outer-left-panel">
-
-            <h3 class="info-header">{{ "orderInfo.receipts" | translate }}</h3>
-
-            <button routerLink="/manage-mate/receipt-list-out" class="color-green color-green-hover">{{ 'orderInfo.receiptsOut' | translate }}</button>
-
-            <button routerLink="/manage-mate/receipt-list-in" class="color-red color-red-hover">{{ 'orderInfo.receiptsIn' | translate }}</button>
-    
     
         </div>
     

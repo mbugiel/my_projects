@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{ "selectNumberDialog.title" | translate }}</h2>
+
+<mat-dialog-content class="input-center">
+
+  <mat-form-field [formGroup]="input_field">
+    <mat-label>{{ "selectNumberDialog.label" | translate }}</mat-label>
+    <input matInput type="number" formControlName="field">
+  </mat-form-field>
+
+  <mat-form-field [formGroup]="input_field" *ngIf="data.display_annotation">
+    <mat-label>{{ "selectNumberDialog.labelSecond" | translate }}</mat-label>
+    <input matInput formControlName="annotation">
+  </mat-form-field>
+
+  <div *ngIf="submitted && input_field.invalid && data.get_item" class="invalid">{{ "selectNumberDialog.minValue" | translate }}{{this.data.max_value}}</div>
+  
+  <div *ngIf="submitted && input_field.invalid && !data.get_item" class="invalid">{{ "selectNumberDialog.minZero" | translate }}</div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="Cancel()">{{ "editDialog.cancel" | translate }}</button>
+  <button mat-button (click)="Confirm()" cdkFocusInitial>{{ "editDialog.confirm" | translate }}</button>
+</mat-dialog-actions>

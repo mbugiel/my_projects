@@ -170,7 +170,7 @@ export class ConSiteEditComponent implements OnInit {
   }
 
   checkFormValidity(): void {
-    this.emptyError = Object.keys(this.edit_ConSite_Form.controls).every(controlName => {
+    this.emptyError = this.edit_ConSite_Form.get("inputCity")?.value !== null && Object.keys(this.edit_ConSite_Form.controls).every(controlName => {
       return !this.edit_ConSite_Form.get(controlName)?.hasError('required') || this.edit_ConSite_Form.get(controlName)?.value !== '';
     });
   }

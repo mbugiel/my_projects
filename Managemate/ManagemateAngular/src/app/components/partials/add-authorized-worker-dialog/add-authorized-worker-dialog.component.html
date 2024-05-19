@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>{{ "addAuthWorkerDialog.title" | translate }}</h2>
+
+<mat-dialog-content class="input-center" [formGroup]="input_field">
+
+    <div class="panel">
+    <label>
+        <mat-form-field>
+            <mat-label>{{ "authWorkerList.surname" | translate }}</mat-label>
+            <input matInput formControlName="surname">
+        </mat-form-field>
+    </label>
+    <label>
+        <mat-form-field>
+            <mat-label>{{ "authWorkerList.name" | translate }}</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+    </label>
+    </div>
+    <div class="panel">
+    <label>
+        <mat-form-field>
+            <mat-label>{{ "authWorkerList.phoneNumber" | translate }}</mat-label>
+            <input matInput formControlName="phone_number">
+        </mat-form-field>
+    </label>
+    <label>
+        <mat-form-field>
+            <mat-label>{{ "authWorkerList.email" | translate }}</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+    </label>
+    </div>
+    <div class="panel">
+    <label>
+        <mat-checkbox formControlName="contact">{{ "authWorkerList.contact" | translate }}</mat-checkbox>
+    </label>
+    <label>
+        <mat-checkbox formControlName="collection">{{ "authWorkerList.collection" | translate }}</mat-checkbox>
+    </label>
+    </div>
+    <div class="panel">
+    <label class="comment">
+        <mat-form-field>
+            <mat-label>{{ "authWorkerList.comment" | translate }}</mat-label>
+            <textarea matInput formControlName="comment"></textarea>
+        </mat-form-field>
+    </label>
+    </div>
+
+    <div *ngIf="submitted && input_field.invalid" class="invalid">{{ "editDialog.empty" | translate }}</div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="Cancel()">{{ "editDialog.cancel" | translate }}</button>
+    <button mat-button (click)="Confirm()" cdkFocusInitial>{{ "editDialog.confirm" | translate }}</button>
+</mat-dialog-actions>

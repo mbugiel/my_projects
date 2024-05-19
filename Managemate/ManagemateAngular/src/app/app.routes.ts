@@ -27,9 +27,15 @@ import { ItemCountingTypeComponent } from './components/pages/_manage-mate/item-
 import { ClientEditComponent } from './components/pages/_manage-mate/client-edit/client-edit.component';
 import { OrderEditComponent } from './components/pages/_manage-mate/order-edit/order-edit.component';
 import { OrderComponent } from './components/pages/_manage-mate/order/order.component';
-import { ReceiptListInComponent } from './components/pages/_manage-mate/receipt-list-in/receipt-list-in.component';
-import { ReceiptListOutComponent } from './components/pages/_manage-mate/receipt-list-out/receipt-list-out.component';
+import { ReceiptListInOutComponent } from './components/pages/_manage-mate/receipt-list-in-out/receipt-list-in-out.component';
 import { ConSiteEditComponent } from './components/pages/_manage-mate/con-site-edit/con-site-edit.component';
+import { ReceiptComponent } from './components/pages/_manage-mate/receipt/receipt.component';
+import { ReceiptEditComponent } from './components/pages/_manage-mate/receipt-edit/receipt-edit.component';
+import { AccountComponent } from './components/pages/_manage-mate/account/account.component';
+import { ClientComponent } from './components/pages/_manage-mate/client/client.component';
+import { ServiceListComponent } from './components/pages/_manage-mate/service-list/service-list.component';
+import { ServiceAddComponent } from './components/pages/_manage-mate/service-add/service-add.component';
+import { ServiceEditComponent } from './components/pages/_manage-mate/service-edit/service-edit.component';
 
 export const routes: Routes = [
     {
@@ -96,6 +102,9 @@ export const routes: Routes = [
             path: 'home', component: HomeComponent,
           },
           {
+            path: 'account', component: AccountComponent,
+          },
+          {
             path: 'item-list', component: ItemListComponent,
           },
           {
@@ -123,10 +132,13 @@ export const routes: Routes = [
             path: 'order/:order_id', component: OrderComponent,
           },
           {
-            path: 'receipt-list-out', component: ReceiptListOutComponent,
+            path: 'receipt/:receipt_id', component: ReceiptComponent,
           },
           {
-            path: 'receipt-list-in', component: ReceiptListInComponent,
+            path: 'receipt-edit/:receipt_id', component: ReceiptEditComponent,
+          },
+          {
+            path: 'receipt-list-in-out/:order_id/:in_out', component: ReceiptListInOutComponent,
           },
           {
             path: 'client-list', component: ClientListComponent,
@@ -138,16 +150,28 @@ export const routes: Routes = [
             path: 'client-edit/:client_id', component: ClientEditComponent,
           },
           {
+            path: 'client/:client_id', component: ClientComponent,
+          },
+          {
             path: 'con-site-list', component: ConSiteListComponent,
           },
           {
             path: 'con-site-add', component: ConSiteAddComponent,
           },
           {
+            path: 'service-list', component: ServiceListComponent,
+          },
+          {
+            path: 'service-add', component: ServiceAddComponent,
+          },
+          {
+            path: 'service-edit/:service_id', component: ServiceEditComponent,
+          },
+          {
             path: 'con-site-edit/:con-site_id', component: ConSiteEditComponent,
           },
           {
-            path: 'invoice-list', component: InvoiceListComponent,
+            path: 'invoice-list/:order_id', component: InvoiceListComponent,
           },
           {
             path: 'invoice-add', component: InvoiceAddComponent,

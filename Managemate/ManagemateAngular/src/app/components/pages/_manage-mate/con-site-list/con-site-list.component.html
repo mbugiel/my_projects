@@ -2,7 +2,7 @@
 
 <section id="menu">
 
-    <h2>{{ "con_siteList.filter" | translate }}</h2>
+    <h3>{{ "con_siteList.filter" | translate }}</h3>
 
     <div>
         <mat-form-field>
@@ -23,10 +23,12 @@
 
     <div class="inner-right-panel">
 
+        <h3>{{ "headerTabs.constructions.constructionList" | translate }}:</h3>
+
         <h3 *ngIf="isLoaded && con_sites_count==0" class="errorHeader">{{ "con_siteList.errors.con_siteListNotFound" | translate }}</h3>
 
 
-        <table #con_site_table *ngIf="isLoaded && con_sites_count>0" mat-table [dataSource]="con_site_list" matSort  multiTemplateDataRows>
+        <table #con_site_table *ngIf="isLoaded && con_sites_count>0" mat-table [dataSource]="con_site_list" matSort matSortActive="construction_site_name" matSortDirection="asc" matSortDisableClear multiTemplateDataRows>
 
 
             <ng-container matColumnDef="construction_site_name">

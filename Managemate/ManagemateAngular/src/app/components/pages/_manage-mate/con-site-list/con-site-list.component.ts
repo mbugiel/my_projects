@@ -199,6 +199,7 @@ applyFilter() {
       
                 // console.log("ilosc po usunieciu" + " " + this.item_list.data.length + "czy jest id= "+id+"? "+this.item_list.data.findIndex(item => item.id.toString() === id));
                 this.con_site_list.paginator = this.paginator;
+                this.con_sites_count--;
                 this.myTable.renderRows();
       
       

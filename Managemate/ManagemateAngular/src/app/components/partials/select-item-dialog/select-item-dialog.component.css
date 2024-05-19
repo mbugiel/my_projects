@@ -1,0 +1,43 @@
+table th{
+    position: sticky;
+    top: 0px;
+}
+
+.table-header{
+    background: rgb(223, 223, 223);
+}
+
+.mat-mdc-dialog-actions{
+    justify-content: flex-end;
+}
+
+.mat-mdc-dialog-actions button{
+    margin: 0 1rem;
+}
+
+table button{
+    border: 1px gray solid;
+    background-color: #ebebeb;
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mat-mdc-row:hover{
+    background: rgb(238, 238, 238);
+}
+
+.color-green{
+    color:green;
+}
+
+.color-red{
+    color: red;
+}
+
+.color-green-hover:hover{
+    color:white;
+    background-color: green;
+    border-color: green;
+}

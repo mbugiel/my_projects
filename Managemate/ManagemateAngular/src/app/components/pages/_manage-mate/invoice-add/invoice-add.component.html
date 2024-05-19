@@ -1,1 +1,100 @@
-<p>invoice-add works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="menu">
+
+    <h3>{{ "itemList.filter" | translate }}</h3>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "orderList.orderName" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputOrderName>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "orderList.clientName" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" placeholder="{{ 'itemList.nameExample' | translate }}" #inputClientName>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "orderList.constructionSiteName" | translate }}</mat-label>
+            <input matInput min="0" (keyup)="applyFilter()" #inputConstructionSiteName>
+        </mat-form-field>
+    </div>
+
+
+</section>
+
+<section class="right-panel">
+
+
+    <div class="inner-right-panel">
+
+        <h3>{{ "invoiceAdd.chooseOrder" | translate }}:</h3>
+
+        <h3 *ngIf="isLoaded && orders_count==0" class="errorHeader">{{ "orderList.errors.ordersNotFound" | translate }}</h3>
+
+
+        <table #order_table *ngIf="isLoaded && orders_count>0" mat-table [dataSource]="order_list" matSort matSortActive="order_name" matSortDirection="asc" matSortDisableClear>
+
+
+            <ng-container matColumnDef="order_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "orderList.orderName" | translate }}</th>
+                <td routerLink="/manage-mate/invoice-list/{{order.id}}" mat-cell *matCellDef="let order">{{order.order_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="client_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "orderList.clientName" | translate }}</th>
+                <td routerLink="/manage-mate/invoice-list/{{order.id}}" mat-cell *matCellDef="let order">{{order.client_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="construction_site_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "orderList.constructionSiteName" | translate }}</th>
+                <td routerLink="/manage-mate/invoice-list/{{order.id}}" mat-cell *matCellDef="let order">{{order.construction_site_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="creation_date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "orderList.creationDate" | translate }}</th>
+                <td routerLink="/manage-mate/invoice-list/{{order.id}}" mat-cell *matCellDef="let order">{{this.dateHandler.formatDate(order.creation_date)}}</td>
+            </ng-container>
+
+
+
+            
+
+
+
+            <ng-container matColumnDef="issue">
+                <th mat-header-cell *matHeaderCellDef>{{ "invoiceAdd.availableInvoice" | translate }}</th>
+                <td mat-cell *matCellDef="let order">
+                    <a routerLink="/manage-mate/invoice-list/{{order.id}}">
+                        <mat-icon class="invoice">insert_drive_file</mat-icon>
+                        {{ "invoiceAdd.chooseInvoices" | translate }}
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+      
+    
+        </table>
+
+        <div *ngIf="!isLoaded" class="loader-container">
+            
+            <div class="loader"></div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 240]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>
+

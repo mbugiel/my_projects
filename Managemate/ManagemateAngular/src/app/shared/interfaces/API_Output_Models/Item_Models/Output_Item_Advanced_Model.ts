@@ -4,7 +4,7 @@ import { Output_Item_Trading_Type_Model } from "../Item_Trading_Type_Models/Outp
 export interface Output_Item_Advanced_Model
 {
 
-    id : bigint;
+    id : number;
     catalog_number : string;
     product_name : string;
     item_type : string;

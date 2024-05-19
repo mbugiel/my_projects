@@ -6,4 +6,6 @@ export interface Edit_Item_Type_Data{
     item_type_id : number;
 
     item_type : string;
+
+    rate:number;
 }

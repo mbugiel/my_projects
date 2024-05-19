@@ -1,9 +1,7 @@
 import {Session_Data} from "../../API_Other_Models/Session_Models/SessionData";
 
 export interface Edit_Company_Data{
-    session: Session_Data;
-    
-    id:number;
+    session?: Session_Data;
     
     name: string;
     surname: string;
@@ -17,5 +15,8 @@ export interface Edit_Company_Data{
     bank_name: string;
     bank_number: string;
     web_page: string;
-    money_sign: string
+    money_sign: string;
+    money_sign_decimal: string;
+    company_logo?:string;
+    file_type?:string;
 }

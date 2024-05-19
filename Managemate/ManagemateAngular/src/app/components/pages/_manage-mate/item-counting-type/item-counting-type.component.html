@@ -14,7 +14,7 @@
 
     <form [formGroup]="item_counting_type_Form" class="main">
 
-        <h2>{{ "itemCountingType.addItemCountingType" | translate }}</h2>
+        <h3>{{ "itemCountingType.addItemCountingType" | translate }}</h3>
 
 
     
@@ -30,9 +30,10 @@
             <div class="button-container">
             
                 <input type="button" value="{{ 'itemCountingType.add' | translate }}" (click)="add_item_counting_type()">
-                <div *ngIf="submitted && item_counting_type_Form.invalid" class="errorHeader">{{ "itemAdd.errors.formError" | translate }}</div>
-    
+                
             </div>
+            
+            <div *ngIf="submitted && item_counting_type_Form.invalid" class="errorHeader right-panel">{{ "itemAdd.errors.formError" | translate }}</div>
             
         </div>
         
@@ -46,6 +47,8 @@
     <div class="right-panel">
 
         <div class="inner-right-panel">
+
+            <h3>{{ "headerTabs.storage.itemCountingType" | translate }}:</h3>
 
 
             <h4 *ngIf="item_counting_types_count==0 && isLoaded" class="errorHeader">{{ "itemCountingType.noCountingTypes" | translate }}</h4>

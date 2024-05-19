@@ -1,0 +1,208 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div *ngIf="!is_Loaded_Client && !isLoaded" class="loader-page">
+
+    <div class="loader"></div>
+
+</div>
+
+
+<section class="outer-main">
+
+    <h2 *ngIf="is_Loaded_Client">
+        <div>
+            {{ "clientInfo.selfName" | translate }}
+            <span class="client_name">{{selected_client.name}}</span>
+        </div>
+    </h2>
+
+    <div class="panels">
+        <div class="client-panel">
+            <h2>
+                <a routerLink="/manage-mate/client-edit/{{selected_client.id}}">
+                    <mat-icon class="edit">edit</mat-icon>
+                    {{ "clientList.edit" | translate }}
+                </a>
+            </h2>
+
+            <div *ngIf="is_Loaded_Client" class="main">
+
+
+                <div class="outer-left-panel">
+
+                    <div>
+                        <h3 class="info-header">{{ "clientInfo.client" | translate }}</h3>
+                        <h4>{{selected_client.name}} {{selected_client.surname}} - {{selected_client.company_name}}</h4>
+                        <h4>{{ "clientInfo.address" | translate }} {{selected_client.address}},
+                            {{selected_client.city_id_FK}}, {{selected_client.postal_code}}</h4>
+                        <h4>{{ "clientInfo.email" | translate }} {{selected_client.email}}</h4>
+                        <h4>{{ "clientInfo.phone" | translate }} {{selected_client.phone_number}}</h4>
+                        <h4>{{ "clientInfo.nip" | translate }} {{selected_client.nip}}</h4>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="outer-left-panel">
+
+                    <div>
+                        <h3 class="info-header">{{ "clientInfo.comment" | translate }}</h3>
+
+                        @if (!selected_client.comment){
+                        <h4>{{ "clientInfo.noComment" | translate }}</h4>
+                        }
+                        @else {
+                        <h4>{{selected_client.comment}}</h4>
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="auth-worker-panel">
+
+            <h3 *ngIf="isLoaded" class="auth-worker-header">
+                {{ "authWorkerList.selfName" | translate }}
+                <a (click)="openAddDialog('100ms', '100ms')">
+                    <mat-icon class="add">add</mat-icon>
+                    {{ 'authWorkerList.authWorkerNew' | translate }}
+                </a>
+            </h3>
+
+            <div class="inner-table-panel">
+                <h3 *ngIf="isLoaded && auth_workers_count==0" class="errorHeader">
+                    {{ "authWorkerList.errors.authWorkerListNotFound" | translate }}</h3>
+
+                <table #auth_worker_table *ngIf="isLoaded && auth_workers_count>0" mat-table
+                    [dataSource]="auth_worker_list" matSort matSortDisableClear multiTemplateDataRows>
+
+
+                    <ng-container matColumnDef="surname">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "authWorkerList.surname" | translate }}
+                        </th>
+                        <td mat-cell *matCellDef="let auth_worker">{{auth_worker.surname}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "authWorkerList.name" | translate }}</th>
+                        <td mat-cell *matCellDef="let auth_worker">{{auth_worker.name}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="contact">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "authWorkerList.contact" | translate }}
+                        </th>
+                        <td mat-cell *matCellDef="let auth_worker">
+
+                            @if(auth_worker.contact === true){
+                            <mat-icon class="green">check</mat-icon>
+                            }
+                            @else {
+                            <mat-icon class="red">close</mat-icon>
+                            }
+
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="collection">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "authWorkerList.collection" | translate }}
+                        </th>
+                        <td mat-cell *matCellDef="let auth_worker">
+
+                            @if(auth_worker.collection === true){
+                            <mat-icon class="green">check</mat-icon>
+                            }
+                            @else {
+                            <mat-icon class="red">close</mat-icon>
+                            }
+
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="expand">
+                        <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                        <td mat-cell *matCellDef="let auth_worker" (click)="$event.stopPropagation()">
+                            <button mat-icon-button aria-label="expand row"
+                                (click)="(expandedAuthWorker = expandedAuthWorker === auth_worker ? null : auth_worker); $event.stopPropagation()">
+                                @if (expandedAuthWorker === auth_worker) {
+                                <mat-icon>keyboard_arrow_up</mat-icon>
+                                } @else {
+                                <mat-icon>keyboard_arrow_down</mat-icon>
+                                }
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="expandedDetail">
+                        <td mat-cell *matCellDef="let auth_worker" [attr.colspan]="columnsToDisplayWithExpand.length">
+                            <div class="auth-worker-detail"
+                                [@detailExpand]="auth_worker == expandedAuthWorker ? 'expanded' : 'collapsed'">
+                                <div class="auth-worker-description">
+                                    <p><b>{{"authWorkerList.phoneNumber" | translate}}:</b> {{auth_worker.phone_number}}
+                                    </p>
+                                    <p><b>{{"authWorkerList.email" | translate}}:</b> {{auth_worker.email}} </p>
+                                    <p><b>{{"authWorkerList.comment" | translate}}:</b> {{auth_worker.comment}} </p>
+                                </div>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="edit">
+                        <th mat-header-cell *matHeaderCellDef>
+                            {{ "authWorkerList.edit" | translate }}
+                        </th>
+                        <td mat-cell *matCellDef="let auth_worker" (click)="$event.stopPropagation()">
+                            <a mat-raised-button (click)="openEditDialog('100ms', '100ms', auth_worker.id)">
+                                <mat-icon class="edit">edit</mat-icon>
+                                {{ "authWorkerList.edit" | translate }}
+                            </a>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef>
+                            {{ "authWorkerList.delete" | translate }}
+                        </th>
+                        <td mat-cell *matCellDef="let auth_worker" (click)="$event.stopPropagation()">
+                            <a mat-raised-button
+                                (click)="openDialog('100ms', '100ms', auth_worker.id, auth_worker.name + ' ' + auth_worker.surname)">
+                                <mat-icon class="delete">delete</mat-icon>
+                                {{ "authWorkerList.delete" | translate }}
+                            </a>
+                        </td>
+                    </ng-container>
+
+                    <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+                    <tr mat-row *matRowDef="let auth_worker; columns: columnsToDisplayWithExpand;"
+                        class="auth-worker-row" [class.expanded-row]="expandedAuthWorker === auth_worker"
+                        (click)="expandedAuthWorker = expandedAuthWorker === auth_worker ? null : auth_worker">
+                    </tr>
+                    <tr mat-row *matRowDef="let myRowData columns: ['expandedDetail']" class="detail-row"></tr>
+
+                    <!-- <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr> -->
+
+
+                </table>
+            </div>
+
+            <div class="inner-right-panel-1">
+
+                <mat-paginator #pageNum showFirstLastButtons [pageSizeOptions]="[30, 60, 120, 200]"
+                    aria-label="Select page">
+                </mat-paginator>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>

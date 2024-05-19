@@ -17,6 +17,8 @@ import { animate, state, style, transition, trigger} from '@angular/animations';
 import { PasswordDialogComponent } from '../../../partials/password-dialog/password-dialog.component';
 import { OrderService } from '../../../../services/order/order.service';
 import { MatSelect, MatSelectModule} from '@angular/material/select';
+import { DateHandlerService } from '../../../../services/date-handler/date-handler.service';
+import { Get_All_Order_Data } from '../../../../shared/interfaces/API_Input_Models/Order_Models/Get_All_Order_Data';
 
 
 @Component({
@@ -65,7 +67,8 @@ export class OrderListComponent implements OnInit{
     private order_service:OrderService,
     private router:Router,
     public dialog: MatDialog,
-    private translate:TranslateService
+    private translate:TranslateService,
+    public dateHandler:DateHandlerService
   ){
     this.order_list = new MatTableDataSource<Output_Order_Model>();
     this.pl_language = translate.currentLang == "pl";
@@ -74,9 +77,25 @@ export class OrderListComponent implements OnInit{
 
 
 
+  redirectOnSessionError(err:any){
+
+    if(parseInt(err.error.code) == 9 || parseInt(err.error.code) == 10 || parseInt(err.error.code) == 1){
+
+      this.router.navigateByUrl('/login');
+
+    }
+
+  }
+
+
+
   ngOnInit(){
 
-    this.order_service.get_orders().subscribe(
+    const input:Get_All_Order_Data = {
+      all_or_active_only: false
+    }
+
+    this.order_service.get_orders(input).subscribe(
       {
         next: response => {
           
@@ -90,11 +109,8 @@ export class OrderListComponent implements OnInit{
         error: err => {
 
           this.isLoaded=true;
-          if(parseInt(err.error.code) == 9 || parseInt(err.error.code) == 10 || parseInt(err.error.code) == 1){
-
-            this.router.navigateByUrl('/login');
-
-          }
+          
+          this.redirectOnSessionError(err);
 
         },
         complete:()=>{
@@ -108,31 +124,6 @@ export class OrderListComponent implements OnInit{
         }
       }
     );
-
-  }
-
-
-  formatDate(input:Date): string {
-
-    const date = new Date(input);
-    const dsep = "-";
-    const tsep = ":";
-
-    let date_array:string[] = [
-      date.getUTCDate().toString(),
-      (date.getUTCMonth()+1).toString(),
-      date.getUTCFullYear().toString(),
-      date.getUTCHours().toString(),
-      date.getUTCMinutes().toString()
-    ];
-
-    for(let i = 0; i < 5; i++){
-
-      if(date_array[i].length < 2) date_array[i] = "0"+date_array[i];
-
-    }    
-
-    return date_array[0] + dsep + date_array[1] + dsep + date_array[2] + ", " + date_array[3] + tsep + date_array[4];
 
   }
 
@@ -233,11 +224,7 @@ export class OrderListComponent implements OnInit{
           {
             error: err => {
     
-              if(parseInt(err.error.code) == 9 || parseInt(err.error.code) == 10 || parseInt(err.error.code) == 1){
-    
-                this.router.navigateByUrl('/login');
-    
-              }
+              this.redirectOnSessionError(err);
     
             },
             complete: () => {
@@ -268,8 +255,6 @@ export class OrderListComponent implements OnInit{
     });
 
   }
-
-
 
 
 

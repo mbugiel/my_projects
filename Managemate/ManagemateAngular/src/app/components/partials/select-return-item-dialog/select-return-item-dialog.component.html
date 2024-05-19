@@ -1,0 +1,51 @@
+
+<div *ngIf="!is_loaded_items || !is_loaded_receipt_items" class="loader-page">
+    <div class="loader"></div>
+</div>
+
+<h2 mat-dialog-title><strong>{{ "selectItemDialog.title" | translate }}</strong></h2>
+<mat-dialog-content class="input-center">
+  
+    <table #items_available_table mat-table [dataSource]="items_to_select" matSort>
+
+        <ng-container matColumnDef="catalog_number">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "receiptEdit.itemCatNum" | translate }}</th>
+            <td mat-cell *matCellDef="let item">{{item.catalog_number}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="product_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "receiptEdit.itemName" | translate }}</th>
+            <td mat-cell *matCellDef="let item">{{item.product_name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "receiptEdit.itemAvailableCount" | translate }}</th>
+            <td mat-cell *matCellDef="let item">
+
+                <span *ngIf="item.available_count == 0" class="color-red">{{ "selectItemDialog.notAvailable" | translate }}</span>
+
+                <span *ngIf="item.available_count != 0">{{item.available_count.toFixed(2)}} {{item.counting_type}}</span>
+
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="button">
+            <th mat-header-cell *matHeaderCellDef>{{ "selectItemDialog.buttonReturn" | translate }}</th>
+            <td mat-cell *matCellDef="let item">
+            
+                <button *ngIf="item.available_count != 0" (click)="open_quantity_dialog(item.item_id)" class="color-red color-red-hover">{{ "selectItemDialog.buttonReturn" | translate }}</button>
+
+            </td>
+        </ng-container>           
+
+
+        <tr class="table-header" mat-header-row *matHeaderRowDef="columns_To_Display"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columns_To_Display"></tr>
+  
+
+    </table>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="ok()">{{ "selectItemDialog.add" | translate }}</button>
+</mat-dialog-actions>

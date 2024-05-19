@@ -8,7 +8,7 @@
 }
 
 .order_name{
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0 1rem;
 }
 
@@ -26,18 +26,31 @@
     padding-right: 5rem;
 }
 
-.outer-left-panel div{
-    padding: 0 1rem;
+h3{
+    margin: 0 0 0.5rem 0;
+}
+
+h4{
+    margin: 1rem 0;
+}
+
+.main h3{
+    margin-top: 1rem;
 }
 
 
 .left-panel{
     display: flex;
-    align-items: space-between;
+}
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.5rem;
 }
 
 button{
-    margin-top: 1rem;
+    margin: 1rem 0;
     border: 1px gray solid;
     background-color: #ebebeb;
     font-size: 1.1rem;
@@ -45,12 +58,8 @@ button{
     border-radius: 15px;
     padding: 0.5rem;
     font-weight: bold;
-}
-button:hover{
-    background-color: blue;
-    color: white;
-    border-color: blue;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .color-green-hover:hover{

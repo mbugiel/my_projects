@@ -1,10 +1,10 @@
 import {Session_Data} from "../../API_Other_Models/Session_Models/SessionData";
 
 export interface Edit_Authorized_Worker_Data{
-    session: Session_Data;
+    session?: Session_Data;
     
     id:number;
-    client_id_FK: 0;
+    client_id_FK: number;
     name: string;
     surname: string;
     phone_number: string;

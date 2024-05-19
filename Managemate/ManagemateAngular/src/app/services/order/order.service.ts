@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -15,6 +16,7 @@ import { Edit_Order_Data } from '../../shared/interfaces/API_Input_Models/Order_
 import { Delete_Order_Data } from '../../shared/interfaces/API_Input_Models/Order_Models/Delete_Order_Data';
 import { Get_By_ID_Order_Data } from '../../shared/interfaces/API_Input_Models/Order_Models/Get_By_ID_Order_Data';
 import { Output_Order_Advanced_Model_Response } from '../../shared/interfaces/API_Output_Models/Order_Models/Output_Order_Advanced_Model_Response';
+import { DateHandlerService } from '../date-handler/date-handler.service';
 
 
 @Injectable({
@@ -40,8 +42,10 @@ export class OrderService {
     private errorHandler: ErrorHandlerService,
     private encryption: EncryptionService,
     private router: Router,
+    private location: Location,
     private cookie: CookieService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private dateHandler: DateHandlerService
   ) { }
 
 
@@ -75,16 +79,21 @@ export class OrderService {
   add_order(input:Add_Order_Data){
 
     const sessionData = this.encryption.decrypt('session_data');
+    const current_date = this.dateHandler.changeToUtc(new Date());
 
     input.session = sessionData;
+    input.creation_date = current_date;
 
     const jsonData = JSON.stringify(input);
 
 
     return this.http
-      .post(`${this.apiUrl}/AddOrder`, jsonData, this.options)
+      .post(`${this.apiUrl}/Add_Order`, jsonData, this.options)
       .pipe(
         tap({
+          next: resp => {
+            console.log(resp)
+          },
           error: err => {
 
             this.displayError(err);
@@ -93,6 +102,7 @@ export class OrderService {
           complete: () => {
 
             this.displaySuccess(this.translate.instant('successMessages.addOrder'));
+            this.location.back();
             
           }
         })
@@ -110,7 +120,7 @@ export class OrderService {
 
 
     return this.http
-      .post(`${this.apiUrl}/EditOrder`, jsonData, this.options)
+      .post(`${this.apiUrl}/Edit_Order`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -121,6 +131,7 @@ export class OrderService {
           complete: () => {
 
             this.displaySuccess(this.translate.instant('successMessages.editOrder'));
+            this.location.back();
             
           }
         })
@@ -138,7 +149,7 @@ export class OrderService {
 
 
     return this.http
-      .post(`${this.apiUrl}/DeleteOrder`, jsonData, this.options)
+      .post(`${this.apiUrl}/Delete_Order`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -167,7 +178,7 @@ export class OrderService {
 
 
     return this.http
-      .post<Output_Order_Advanced_Model_Response>(`${this.apiUrl}/GetOrderById`, jsonData, this.options)
+      .post<Output_Order_Advanced_Model_Response>(`${this.apiUrl}/Get_Order_By_ID`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {
@@ -182,17 +193,17 @@ export class OrderService {
 
 
 
-  get_orders(): Observable<Output_Order_Model_Response>{
+  get_orders(input:Get_All_Order_Data): Observable<Output_Order_Model_Response>{
 
     const sessionData = this.encryption.decrypt('session_data');
 
-    const input:Get_All_Order_Data = {session: sessionData}
+    input.session = sessionData;
 
     const jsonData = JSON.stringify(input);
 
 
     return this.http
-      .post<Output_Order_Model_Response>(`${this.apiUrl}/GetOrders`, jsonData, this.options)
+      .post<Output_Order_Model_Response>(`${this.apiUrl}/Get_All_Order`, jsonData, this.options)
       .pipe(
         tap({
           error: err => {

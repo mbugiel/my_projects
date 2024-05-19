@@ -9,6 +9,5 @@ export interface Output_Authorized_Worker_Model
     contact : boolean;
     collection : boolean;
     comment : string;
-    client_name : string;
     
 }

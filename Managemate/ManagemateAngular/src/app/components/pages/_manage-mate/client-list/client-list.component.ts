@@ -214,6 +214,7 @@ export class ClientListComponent implements OnInit{
       
                 // console.log("ilosc po usunieciu" + " " + this.item_list.data.length + "czy jest id= "+id+"? "+this.item_list.data.findIndex(item => item.id.toString() === id));
                 this.client_list.paginator = this.paginator;
+                this.clients_count--;
                 this.myTable.renderRows();
       
       

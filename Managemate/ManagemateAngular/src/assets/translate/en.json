@@ -32,6 +32,7 @@
         "emailInfo":"Check Your inbox at {0} to get verification code.",
         "logout":"Logged out",
         "addItem":"Added Item",
+        "addService":"Added Service",
         "deleteItem":"Deleted Item",
         "editItem":"Edited Item",
         "deleteItemType":"Deleted Group",
@@ -49,23 +50,54 @@
         "addCity":"Added City",
         "addOrder":"Added Order",
         "deleteOrder":"Deleted Order",
-        "editOrder":"Edited Order"
+        "editOrder":"Edited Order",
+        "addEditReceipt":"Saved Receipt",
+        "deleteReceipt":"Deleted Receipt",
+        "addCompany": "Added Company Information",
+        "editCompany": "Edited Company Information",
+        "addItemOnReceipt":"Added Item to The Receipt",
+        "addServiceOnReceipt":"Added Service to The Receipt",
+        "deleteItemOnReceipt":"Deleted Item from The Receipt",
+        "addAuthWorker":"Added Authorized Worker",
+        "editAuthWorker":"Edited Authorized Worker",
+        "deleteAuthWorker":"Deleted Authorized Worker"
+    },
+
+    "months":{
+        "1":"January",
+        "2":"February",
+        "3":"March",
+        "4":"April",
+        "5":"May",
+        "6":"June",
+        "7":"July",
+        "8":"August",
+        "9":"September",
+        "10":"October",
+        "11":"November",
+        "12":"December"
     },
 
     "deleteDialog":{
         "itemTitle":"Delete Item?",
         "itemTypeTitle":"Delete Group?",
-        "itemCountingTypeTitle":"Delete Counting Unit?",
+        "itemCountingTypeTitle":"Delete Measure Unit?",
         "clientTitle":"Delete Client?",
         "con_siteTitle":"Delete Construction?",
+        "serviceTitle":"Delete Service?",
         "orderTitle":"Delete Order?",
-
+        "itemOnReceiptTitle":"Delete item from receipt?",
+        "authWorkerTitle":"Delete Authorized Worker?",
+        
         "itemMessage":"Are you sure to delete item ",
         "itemTypeMessage":"Deletion of a group cause deletion of all associated items!\nAre you sure to delete group ",
-        "itemCountingTypeMessage":"Deletion of a counting unit cause deletion of all associated items!\nAre you sure to delete unit ",
+        "itemCountingTypeMessage":"Deletion of a measure unit cause deletion of all associated items!\nAre you sure to delete unit ",
         "clientMessage":"Are you sure to delete client ",
         "con_siteMessage":"Are you sure to delete construction ",
+        "serviceMessage":"Are you sure to delete service ",
         "orderMessage":"Are you sure to delete order ",
+        "itemOnReceiptMessage":"Are you sure to delete from receipt ",
+        "authWorkerMessage":"Are you sure to delete authorized worker ",
         
         "yes":"Yes",
         "no":"No"
@@ -91,6 +123,55 @@
         "add":"Add"
     },
 
+    "selectItemDialog":{
+        "title":"Select the item You want to add:",
+        "button":"Add",
+        "buttonReturn":"Return",
+        "add":"OK",
+        "outOfStock":"Out of stock",
+        "notAvailable":"Nothing left on construction site"
+    },
+
+    "selectNumberDialog":{
+        "title":"Enter quantity:",
+        "label":"Quantity",
+        "labelSecond":"Comment on the item",
+        "cancel":"Cancel",
+        "ok":"OK",
+        "minValue":"Quantity has to be greater than 0 and less or equal to ",
+        "minZero":"Quantity has to be greater than 0"
+    },
+
+
+    "addReceiptDialog":{
+        "title":"Add Receipt",
+        "reservation":"Reservation"
+    },
+
+    "addAuthWorkerDialog":{
+        "title":"Add Authorized Worker"
+    },
+
+    "editAuthWorkerDialog":{
+        "title":"Edit Authorized Worker"
+    },
+
+    
+    "invoiceDialog":{
+        "title":"Invoice from month",
+        "type":"Invoice Type -",
+        "issueDate":"Issue Date",
+        "saleDate":"Sale Date",
+        "paymentDate":"Payment Date",
+        "paymentMethod":"Payment Method",
+        "discount":"Discount [%]",
+        "comment":"Comment on the Invoice",
+
+        "buttonShow":"Show Invoice",
+        "buttonDownload":"Download Invoice",
+        "buttonCancel":"Cancel"
+    },
+
     "mainHeader": {
         "about":"About the program",
         "contact":"Contact",
@@ -108,7 +189,7 @@
             "stock":"In Stock",
             "itemAdd":"Add Item",
             "itemType":"Item Groups",
-            "itemCountingType":"Counting Units"
+            "itemCountingType":"Measure Units"
         },
 
         "orders":{
@@ -132,6 +213,14 @@
             "constructionAdd":"Add Construction"
         },
 
+        "services":{
+            "selfName":"Services",
+
+            "serviceList":"Services List",
+            "serviceAdd":"Add Service"
+
+        },
+
         "invoices":{
             "selfName":"Invoices",
 
@@ -142,7 +231,8 @@
 
         "account":{
             "selfName":"Account",
-
+            "accountConfirm":"Confirm",
+            "accountEdit":"Edit",
             "logout":"Logout"
         }
     },
@@ -176,12 +266,12 @@
         "price":"Net Price",
         "taxPct":"Tax [%]",
         "tradingType":"Trading Method",
-        "countingType":"Counting Unit",
+        "countingType":"Measure Unit",
         "countingTypeExample":"pcs",
         "comment":"Comment",
         "errors":{
             "itemTypes":"Add at least one item group before creating item.",
-            "tradingTypes":"Add at least one counting unit before creating item.",
+            "tradingTypes":"Add at least one measure unit before creating item.",
             "formError":"Fields can't be empty*"
         }
     },
@@ -193,12 +283,14 @@
         "selfName":"Item Group",
         "addItemType":"Add Group",
         "groupName":"Group Name",
+        "groupRate":"Rate",
+        "groupRatePct":"Rate in %",
         "noGroups":"No Groups Found",
         "add":"Dodaj"
     },
 
     "itemCountingType":{
-        "selfName":"Counting Unit",
+        "selfName":"Measure Unit",
         "addItemCountingType":"Add Unit",
         "noCountingTypes":"No Units Found",
         "add":"Dodaj"
@@ -276,8 +368,30 @@
         }
     },
     "con_siteEdit":{
-        "selfName":"Edytuj Budowę:",
-        "confirm":"Zatwierdź Zmiany"
+        "selfName":"Edit Construction Site:",
+        "confirm":"Confirm Changes"
+    },
+
+    "serviceList":{
+        "serviceName":"Service Name",
+        "price":"Net Price",
+        "taxPct":"Tax [%]",
+        "errors":{
+            "serviceNotFound":"No Services Found"
+        }
+    },
+    
+    "serviceAdd":{
+        "selfName":"Add New Service:",
+        
+        "serviceName":"Service Name"
+    },
+
+    
+    "serviceEdit":{
+        "selfName":"Edit Service",
+
+        "confirm":"Confirm Changes"
     },
  
     "orderList":{
@@ -300,6 +414,9 @@
         "client":"Client",
         "conSite":"Construction Site",
         "status":"Status",
+        "defaultPaymentMethod":"Default Payment Method",
+        "defaultPaymentDateOffset":"Number of Days to Pay",
+        "defaultDiscount":"Invoice Discount [%]",
         "comment":"Comment",
         "orderAdd":"Add Order",
         "errors":{
@@ -325,12 +442,142 @@
         "clientPhone":"phone:",
         "clientNip":"NIP:",
         "status":"Status",
+        "defaultPaymentDateOffset":"Default number of Days to Pay the Invoice",
+        "defaultDiscount":"Default discount given on invoice",
         "creationDate":"Creation Date",
         "comment":"Comment on the Order",
         "noComment":"No comments",
         "receipts":"Order Receipts:",
         "receiptsIn":"Returns",
-        "receiptsOut":"Releases"
+        "receiptsOut":"Releases",
+        "receiptsInNew":"New Return",
+        "receiptsOutNew":"New Release"
+    },
+
+    "receiptList":{
+        "receiptsIn":"Returns",
+        "receiptsOut":"Releases",
+        "receiptsHeader":"in order",
+        "date":"Date",
+        "element":"Element",
+        "transport":"Transport",
+        "summaryWeight":"summary Weight",
+        "comment":"Comment on the Order",
+        "errors":{
+            "receiptsNotFound":"No receipts found"
+        }
+    },
+
+    "receiptEdit":{
+        "receiptAdd":"Adding",
+        "receiptEdit":"Editing",
+        "receiptIn":"Return",
+        "receiptOut":"Release",
+        "receiptAddHeader":"in order",
+        "element":"Element",
+        "transport":"Transport",
+        "comment":"Comment on the Order",
+        "itemAdd":"Add Item",
+        "itemService":"Add Service",
+        "servicePrice":"Net Price",
+        "serviceTaxPct":"Tax [%]",
+        "itemReturn":"Return Item",
+        "itemNo":"No.",
+        "itemCatNum":"Cat. No.",
+        "itemName":"Name",
+        "itemCountingType":"Measure unit",
+        "itemCount":"Count",
+        "itemAvailableCount":"Available Count to Return",
+        "itemWeight":"Element weight [kg]",
+        "itemSummaryWeight":"Summary weight [kg]",
+        "SummaryWeight":"Summary weight [kg]:",
+        "buttonAdd":"Add Receipt",
+        "buttonSave":"Save Receipt",
+
+        "errors":{
+            "itemListNotFound":"Add at least one item to save receipt",
+            "itemsOnReceiptNotFound":"No items on receipt found"
+        }
+
+    },
+
+    "account":{
+        "selfName": "My Company Details",
+        "name": "Name",
+        "surname": "Surname",
+        "companyName": "Company Name",
+        "nip": "NIP",
+        "phoneNumber": "Phone Number",
+        "email": "Email",
+        "address": "Address",
+        "city": "City",
+        "postalCode": "Postal Code",
+        "bankName": "Bank Name",
+        "bankNumber": "Bank Account Number",
+        "webPage": "Website",
+        "moneySign": "Currency",
+        "moneySignDecimal": "Hundredth of a Currency",
+        "companyLogo":"Add Company Logo:",
+        "fileUpload": "Drag and drop the file here or click to select the file. Max",
+        "imgAltText":"Logo preview",
+        "errors":{
+            "mustFill": "You must add this data to be on the invoice.",
+            "fileType": "Not allowed file type!",
+            "formError":{
+                "empty": "Fields cannot be empty*",
+                "phone": "Enter a valid phone number*"
+            },
+            "fileSize":"Your file is too large - max supported size:"
+        }
+    },
+
+    "clientInfo":{
+        "selfName":"Client:",
+        "client":"Client Information",
+        "comment":"Notes",
+        "address":"Address:",
+        "email":"Email:",
+        "phone":"Phone Number:",
+        "nip":"NIP:"
+    },
+
+    "authWorkerList":{
+        "selfName":"Authorized Workers",
+        "authWorkerNew":"New Authorized Worker",
+        "surname":"Surname",
+        "name":"Name",
+        "contact":"Contact",
+        "collection":"Collection",
+        "phoneNumber":"Phone Number",
+        "email":"Email",
+        "comment":"Notes",
+        "edit":"Edit",
+        "delete":"Delete",
+        "errors":{
+            "authWorkerListNotFound": "No authorized workers found"
+        }
+    },
+
+
+    "invoiceAdd":{
+        "availableInvoice":"Available Invoices",
+        "chooseInvoices":"Choose Invoices",
+        "chooseOrder":"Choose Order"
+    },
+
+
+    "invoiceList":{
+        "invoiceType":"Invoice Type",
+        "invoiceTypeAll":"All",
+        "invoiceTypeSale":"Sale",
+        "invoiceTypeLease":"Lease",
+        "invoiceHeader":"Available invoices in order",
+        "issue":"Issue Invoice",
+        "month":"Month",
+        "year":"Year",
+        "errors":{
+            "invoiceListNotFound": "No available invoices found"
+        }
     }
 
 }

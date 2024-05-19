@@ -4,4 +4,5 @@ export interface Add_Item_Type_Data{
     session?: Session_Data;
 
     item_type : string;
+    rate: number;
 }

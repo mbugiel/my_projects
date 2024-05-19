@@ -2,7 +2,7 @@
 
 <section id="menu">
 
-    <h2>{{ "itemList.filter" | translate }}</h2>
+    <h3>{{ "itemList.filter" | translate }}</h3>
 
     <div>
         <mat-form-field>
@@ -26,7 +26,7 @@
                 <mat-option value="0">{{ 'orderList.statusInactive' | translate }}</mat-option>
               
             </mat-select>
-          </mat-form-field>
+        </mat-form-field>
     </div>
 
 
@@ -37,10 +37,12 @@
 
     <div class="inner-right-panel">
 
+        <h3>{{ "headerTabs.orders.orderList" | translate }}:</h3>
+
         <h3 *ngIf="isLoaded && orders_count==0" class="errorHeader">{{ "orderList.errors.ordersNotFound" | translate }}</h3>
 
 
-        <table #order_table *ngIf="isLoaded && orders_count>0" mat-table [dataSource]="order_list" matSort>
+        <table #order_table *ngIf="isLoaded && orders_count>0" mat-table [dataSource]="order_list" matSort matSortActive="order_name" matSortDirection="asc" matSortDisableClear>
 
 
             <ng-container matColumnDef="order_name">
@@ -74,7 +76,7 @@
 
             <ng-container matColumnDef="creation_date">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "orderList.creationDate" | translate }}</th>
-                <td routerLink="/manage-mate/order/{{order.id}}" mat-cell *matCellDef="let order">{{formatDate(order.creation_date)}}</td>
+                <td routerLink="/manage-mate/order/{{order.id}}" mat-cell *matCellDef="let order">{{this.dateHandler.formatDate(order.creation_date)}}</td>
             </ng-container>
 
 

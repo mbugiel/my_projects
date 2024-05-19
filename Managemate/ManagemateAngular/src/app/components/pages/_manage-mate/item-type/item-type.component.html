@@ -14,7 +14,7 @@
 
     <form [formGroup]="item_type_Form" class="main">
 
-        <h2>{{ "itemType.addItemType" | translate }}</h2>
+        <h3>{{ "itemType.addItemType" | translate }}</h3>
 
 
     
@@ -27,12 +27,20 @@
                 </mat-form-field>
             </label>
 
+            <label>
+                <mat-form-field>
+                    <mat-label>{{ "itemType.groupRatePct" | translate }}</mat-label>
+                    <input matInput type="number" #inputItemTypeRate formControlName="inputItemTypeRate">
+                </mat-form-field>
+            </label>
+
             <div class="button-container">
             
                 <input type="button" value="{{ 'itemType.add' | translate }}" (click)="add_item_type()">
-                <div *ngIf="submitted && item_type_Form.invalid" class="errorHeader">{{ "itemAdd.errors.formError" | translate }}</div>
     
             </div>
+
+            <div *ngIf="submitted && item_type_Form.invalid" class="errorHeader right-panel">{{ "itemAdd.errors.formError" | translate }}</div>
             
         </div>
         
@@ -47,6 +55,8 @@
 
         <div class="inner-right-panel">
 
+            <h3>{{ "headerTabs.storage.itemType" | translate }}:</h3>
+
 
             <h4 *ngIf="item_types_count==0 && isLoaded" class="errorHeader">{{ "itemType.noGroups" | translate }}</h4>
 
@@ -58,11 +68,16 @@
                     <th mat-header-cell *matHeaderCellDef>{{ "itemType.groupName" | translate }}</th>
                     <td mat-cell *matCellDef="let item_type">{{item_type.item_type}}</td>
                 </ng-container>
+                
+                <ng-container matColumnDef="group_rate">
+                    <th mat-header-cell *matHeaderCellDef>{{ "itemType.groupRate" | translate }}</th>
+                    <td mat-cell *matCellDef="let item_type">{{item_type.rate * 100}} %</td>
+                </ng-container>
     
                 <ng-container matColumnDef="edit">
                     <th mat-header-cell *matHeaderCellDef>{{ "itemList.edit" | translate }}</th>
                     <td mat-cell *matCellDef="let item_type">
-                        <button mat-raised-button (click)="openEditDialog('100ms', '100ms', item_type.id, item_type.item_type)">
+                        <button mat-raised-button (click)="openEditDialog('100ms', '100ms', item_type.id, item_type.item_type, item_type.rate * 100)">
                             <mat-icon class="edit">edit</mat-icon>
                             {{ "itemList.edit" | translate }}
                         </button>

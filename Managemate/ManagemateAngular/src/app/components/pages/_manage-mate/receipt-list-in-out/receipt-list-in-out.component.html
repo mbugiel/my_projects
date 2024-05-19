@@ -1,0 +1,178 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="menu">
+
+    <h3>{{ "itemList.filter" | translate }}</h3>
+
+    <div>
+        <mat-form-field>
+            <mat-label>{{ "receiptList.element" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputElement>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "receiptList.transport" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputTransport>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "receiptList.summaryWeight" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputSummaryWeight>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{ "receiptList.comment" | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter()" #inputComment>
+        </mat-form-field>
+        
+    </div>
+
+
+</section>
+
+<section class="right-panel">
+
+
+    <div class="inner-right-panel">
+
+        <div class="header-container">
+
+            <div class="inner-header-container">
+                    
+                @if(in_out == '0'){
+
+                    <h3 class="color-red">{{"receiptList.receiptsIn" | translate}}</h3>
+                }
+                @else {
+
+                    <h3 class="color-green">{{"receiptList.receiptsOut" | translate}}</h3>
+                
+                }
+                    
+                <span>{{"receiptList.receiptsHeader" | translate}}</span>
+                <h3>
+                    {{order_name}}
+                </h3>
+    
+            </div>
+
+            <div class="button-container">
+                
+                @if(in_out == '0'){
+    
+                    <button (click)="add_receipt(false)" class="color-red color-red-hover">{{ 'orderInfo.receiptsInNew' | translate }}</button>
+    
+                }@else {
+    
+                    <button (click)="add_receipt(true)" class="color-green color-green-hover">{{ 'orderInfo.receiptsOutNew' | translate }}</button>
+    
+                }
+
+            </div>
+
+
+        </div>
+
+
+        <h3 *ngIf="is_Loaded_Receipts && is_Loaded_Order_Name && receipts_count==0" class="errorHeader">{{ "receiptList.errors.receiptsNotFound" | translate }}</h3>
+
+
+        <table #receipts_table *ngIf="is_Loaded_Receipts && is_Loaded_Order_Name && receipts_count>0" mat-table [dataSource]="receipt_list" matSort multiTemplateDataRows>
+
+
+            <ng-container matColumnDef="element">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "receiptList.element" | translate }}</th>
+                <td routerLink="/manage-mate/receipt-edit/{{receipt.id}}" mat-cell *matCellDef="let receipt">{{receipt.element}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="transport">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "receiptList.transport" | translate }}</th>
+                <td routerLink="/manage-mate/receipt-edit/{{receipt.id}}" mat-cell *matCellDef="let receipt">{{receipt.transport}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="summary_weight">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ "receiptList.summaryWeight" | translate }}</th>
+                <td routerLink="/manage-mate/receipt-edit/{{receipt.id}}" mat-cell *matCellDef="let receipt">{{receipt.summary_weight}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "receiptList.date" | translate }}</th>
+                <td routerLink="/manage-mate/receipt-edit/{{receipt.id}}" mat-cell *matCellDef="let receipt">{{formatDate(receipt.date)}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let receipt" (click)="(expandedReceipt = expandedReceipt === receipt ? null : receipt); $event.stopPropagation()">
+                    <button mat-icon-button aria-label="expand row">
+                        @if (expandedReceipt === receipt) {
+                        <mat-icon>keyboard_arrow_up</mat-icon>
+                        } @else {
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        }
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expandedDetail">
+
+                <td mat-cell *matCellDef="let receipt" [attr.colspan]="columnsToDisplay.length">
+
+                    <div class="client-detail" [@detailExpand]="receipt == expandedReceipt ? 'expanded' : 'collapsed'">
+
+                        <div class="client-description">
+
+                            <p>
+                                <b>{{"receiptList.comment" | translate}}:</b> {{receipt.comment}}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+            </ng-container>
+
+
+
+            
+
+            <tr class="table-header" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+
+            <tr mat-row *matRowDef="let receipt; columns: columnsToDisplay"
+                class="client-row"
+                [class.expanded-row]="expandedReceipt === receipt"
+                (click)="expandedReceipt = expandedReceipt === receipt ? null : receipt">
+            </tr>
+
+            <tr mat-row *matRowDef="let myRowData columns: ['expandedDetail']" class="detail-row"></tr>
+      
+    
+        </table>
+        
+
+    </div>
+
+    <div class="inner-right-panel-1">
+
+        <!-- (page)="pageLoad($event)"
+            [pageSize]="120"
+            [hidePageSize]="false"
+            [length]="1000"
+            [disabled]="false"
+            [pageIndex]="page"
+            [showFirstLastButtons]="false"
+        -->
+        <mat-paginator #pageNum
+               showFirstLastButtons
+               [pageSizeOptions]="[30, 60, 120, 240]"
+               aria-label="Select page">
+        </mat-paginator>
+
+    </div>
+
+</section>
+
+<div *ngIf="!is_Loaded_Order_Name || !is_Loaded_Receipts || !is_Loaded_Add_Receipt" class="loader-page">
+            
+    <div class="loader"></div>
+
+</div>
+

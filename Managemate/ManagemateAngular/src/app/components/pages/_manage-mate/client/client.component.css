@@ -1,0 +1,163 @@
+:host {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.outer-main {
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+h2,
+h3 {
+    margin: 0;
+    margin-bottom: 0.415em;
+}
+
+.panels {
+    display: flex;
+}
+
+.order_name {
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+
+.info-header {
+    color: navy;
+}
+
+.auth-worker-header,
+.auth-worker-header a {
+    color: navy;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.outer-left-panel {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+    padding-right: 2.5rem;
+}
+
+.outer-left-panel div {
+    padding: 0 1rem;
+}
+
+.left-panel {
+    display: flex;
+    align-items: space-between;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+}
+
+.color-blue-hover:hover {
+    color: white;
+    background-color: blue;
+    border-color: blue;
+}
+
+.edit {
+    color: rgb(255, 183, 0);
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: rgb(0, 200, 0);
+}
+
+.add {
+    margin-left: 3rem;
+    font-weight: bold;
+    color: rgb(0, 233, 0);
+}
+
+.color-navy {
+    color: navy;
+}
+
+.auth-worker-panel {
+    width: calc(100% - 350px);
+    height: calc(100vh - 166px);
+}
+
+.inner-table-panel {
+    overflow-y: auto;
+    height: calc(100% - 60px);
+}
+
+table {
+    border-radius: 5px 5px 0 0;
+    /* border-collapse: collapse; */
+}
+
+table th {
+    position: sticky;
+    top: 0px;
+}
+
+td button,
+td a {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer
+}
+
+.edit {
+    color: rgb(255, 183, 0);
+}
+
+.delete {
+    color: rgb(134, 134, 134);
+}
+
+.table-header {
+    background: rgb(223, 223, 223);
+}
+
+.mat-mdc-row:hover {
+    background: rgb(238, 238, 238);
+}
+
+tr.detail-row {
+    height: 0;
+}
+
+tr.auth-worker-row:not(.expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.auth-worker-row:not(.expanded-row):active {
+    background: #efefef;
+}
+
+.auth-worker-row td {
+    border-bottom-width: 0;
+}
+
+.auth-worker-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.auth-worker-description {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}

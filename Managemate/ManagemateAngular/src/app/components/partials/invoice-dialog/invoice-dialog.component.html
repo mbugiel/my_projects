@@ -1,0 +1,74 @@
+
+<div class="header">
+    <h2 mat-dialog-title>{{ "invoiceDialog.title" | translate }} {{data.month}}/{{data.year}}</h2>
+    <h2 mat-dialog-title>{{ "invoiceDialog.type" | translate }} {{data.sale_lease}}</h2>
+</div>
+
+<mat-dialog-content [formGroup]="invoice_form">
+
+    <div class="panel">
+
+        <label>
+            <mat-form-field>
+                <mat-label>{{ "invoiceDialog.issueDate" | translate }}</mat-label>
+                <input type="datetime-local" matInput formControlName="inputIssueDate">
+            </mat-form-field>
+        </label>
+    
+        <label>
+            <mat-form-field>
+                <mat-label>{{ "invoiceDialog.saleDate" | translate }}</mat-label>
+                <input type="datetime-local" matInput formControlName="inputSaleDate">
+            </mat-form-field>
+        </label>
+
+    </div>
+
+    <div class="panel">
+
+        <label>
+            <mat-form-field>
+                <mat-label>{{ "invoiceDialog.paymentDate" | translate }}</mat-label>
+                <input type="datetime-local" matInput formControlName="inputPaymentDate">
+            </mat-form-field>
+        </label>
+
+        <label>
+            <mat-form-field>
+                <mat-label>{{ "invoiceDialog.paymentMethod" | translate }}</mat-label>
+                <input matInput formControlName="inputPaymentMethod">
+            </mat-form-field>
+        </label>        
+        
+    </div>
+    
+    <div class="panel">
+
+        <label>
+            <mat-form-field>
+                <mat-label>{{ "invoiceDialog.discount" | translate }}</mat-label>
+                <input matInput type="number" formControlName="inputDiscount">
+            </mat-form-field>    
+        </label>
+
+        <label>
+            <mat-form-field>
+                <mat-label>{{ "invoiceDialog.comment" | translate }}</mat-label>
+                <textarea matInput formControlName="inputComment"></textarea>
+            </mat-form-field>
+        </label>
+
+    </div>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{ "invoiceDialog.buttonCancel" | translate }}</button>
+  <button mat-button mat-dialog-close (click)="IssueInvoice(false)">{{ "invoiceDialog.buttonShow" | translate }}</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="IssueInvoice(true)">{{ "invoiceDialog.buttonDownload" | translate }}</button>
+</mat-dialog-actions>
+
+<div class="loader-page" *ngIf="!is_loaded_order">
+    <div class="loader"></div>
+</div>
