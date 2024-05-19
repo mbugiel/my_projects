@@ -8,8 +8,6 @@ namespace ManagemateAPI.Management.M_Receipt.Input_Objects
 
         public long receipt_id { get; set; }
 
-        public bool in_out { get; set; }
-
         public string element { get; set; }
 
         public DateTime date { get; set; }

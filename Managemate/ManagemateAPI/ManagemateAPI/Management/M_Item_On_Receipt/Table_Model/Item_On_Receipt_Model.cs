@@ -12,6 +12,8 @@ namespace ManagemateAPI.Management.M_Item_On_Receipt.Table_Model
 
         public string counting_type { get; set; }
 
+        public long item_id { get; set; }
+
         public double count { get; set; }
 
         public double weight { get; set; }

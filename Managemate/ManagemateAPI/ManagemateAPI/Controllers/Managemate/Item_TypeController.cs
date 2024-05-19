@@ -3,6 +3,16 @@ using ManagemateAPI.Management.M_Item_Type.Input_Objects;
 using ManagemateAPI.Management.M_Item_Type.Manager;
 using ManagemateAPI.Management.M_Item_Type.Table_Model;
 
+/*
+ * This is an endpoint controller dedicated to the Item_Type table.
+ * 
+ * It contains methods for endpoints
+ * - Add 
+ * - Edit
+ * - Delete
+ * - Get by ID
+ * - Get all 
+ */
 namespace ManagemateAPI.Controllers.Managemate
 {
 
@@ -16,10 +26,16 @@ namespace ManagemateAPI.Controllers.Managemate
             _DB_Helper = new Item_Type_Manager(configuration);
         }
 
-
-        [Route("api/AddItemType")]
+        /*
+         * Add_Item_Type endpoint
+         * This endpoint is used to add a record to the Item_Type table.
+         * 
+         * It accepts Add_Item_Type_Data object.
+         * The given object is handed over to the Add_Item_Type method in the Item_Type_Manager.
+         */
+        [Route("api/Add_Item_Type")]
         [HttpPost]
-        public async Task<IActionResult> AddItemType([FromBody] Add_Item_Type_Data input_obj)
+        public async Task<IActionResult> Add_Item_Type([FromBody] Add_Item_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -31,7 +47,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    string result = await _DB_Helper.AddItemType(input_obj);
+                    string result = await _DB_Helper.Add_Item_Type(input_obj);
 
                     if (result == null)
                     {
@@ -45,20 +61,21 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
                 catch (Exception e)
                 {
-
                     return BadRequest(Response_Handler.GetExceptionResponse(e));
-
                 }
-
             }
-
         }
 
-
-
-        [Route("api/EditItemType")]
+        /*
+         * Edit_Item_Type endpoint
+         * This endpoint is used to edit a record from the Item_Type table.
+         * 
+         * It accepts Edit_Item_Type_Data object.
+         * The given object is handed over to the Edit_Item_Type method in the Item_Type_Manager.
+         */
+        [Route("api/Edit_Item_Type")]
         [HttpPost]
-        public async Task<IActionResult> EditItemType([FromBody] Edit_Item_Type_Data input_obj)
+        public async Task<IActionResult> Edit_Item_Type([FromBody] Edit_Item_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -70,7 +87,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    string result = await _DB_Helper.EditItemType(input_obj);
+                    string result = await _DB_Helper.Edit_Item_Type(input_obj);
 
                     if (result == null)
                     {
@@ -84,20 +101,21 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
                 catch (Exception e)
                 {
-
                     return BadRequest(Response_Handler.GetExceptionResponse(e));
-
                 }
-
             }
-
         }
 
-
-
-        [Route("api/DeleteItemType")]
+        /*
+         * Delete_Item_Type endpoint
+         * This endpoint is used to remove record from the Item_Type table.
+         * 
+         * It accepts Delete_Item_Type_Data object.
+         * The given object is handed over to the Delete_Item_Type method in the Item_Type_Manager.
+         */
+        [Route("api/Delete_Item_Type")]
         [HttpPost]
-        public async Task<IActionResult> DeleteItemType([FromBody] Delete_Item_Type_Data input_obj)
+        public async Task<IActionResult> Delete_Item_Type([FromBody] Delete_Item_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -109,7 +127,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    string result = await _DB_Helper.DeleteItemType(input_obj);
+                    string result = await _DB_Helper.Delete_Item_Type(input_obj);
 
                     if (result == null)
                     {
@@ -123,20 +141,21 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
                 catch (Exception e)
                 {
-
                     return BadRequest(Response_Handler.GetExceptionResponse(e));
-
                 }
-
             }
-
         }
 
-
-
-        [Route("api/GetItemTypes")]
+        /*
+         * Get_Item_Type_By_ID endpoint
+         * This endpoint is used to get a record from to the Item_Type table by its ID.
+         * 
+         * It accepts Get_Item_Type_By_ID object.
+         * The given object is handed over to the Get_Item_Type_By_ID method in the Item_Type_Manager.
+         */
+        [Route("api/Get_Item_Type_By_ID")]
         [HttpPost]
-        public async Task<IActionResult> GetItemTypes([FromBody] Get_Item_Types_Data input_obj)
+        public async Task<IActionResult> Get_Item_Type_By_ID([FromBody] Get_Item_Type_By_ID_Data input_obj)
         {
 
             if (input_obj == null)
@@ -148,7 +167,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    List<Item_Type_Model> result = await _DB_Helper.GetItemTypes(input_obj);
+                    Item_Type_Model result = await _DB_Helper.Get_Item_Type_By_ID(input_obj);
 
                     if (result == null)
                     {
@@ -162,20 +181,21 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
                 catch (Exception e)
                 {
-
                     return BadRequest(Response_Handler.GetExceptionResponse(e));
-
                 }
-
             }
-
         }
 
-
-
-        [Route("api/GetItemTypeById")]
+        /*
+         * Get_All_Item_Type endpoint
+         * This endpoint is used to to all the records from the Item_Type table.
+         * 
+         * It accepts Get_All_Item_Type_Data object.
+         * The given object is handed over to the Get_All_Item_Type method in the Item_Type_Manager.
+         */
+        [Route("api/Get_All_Item_Type")]
         [HttpPost]
-        public async Task<IActionResult> GetItemTypeById([FromBody] Get_Item_Type_Data input_obj)
+        public async Task<IActionResult> Get_All_Item_Type([FromBody] Get_All_Item_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -187,7 +207,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    Item_Type_Model result = await _DB_Helper.GetItemTypeById(input_obj);
+                    List<Item_Type_Model> result = await _DB_Helper.Get_All_Item_Type(input_obj);
 
                     if (result == null)
                     {
@@ -201,17 +221,9 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
                 catch (Exception e)
                 {
-
                     return BadRequest(Response_Handler.GetExceptionResponse(e));
-
                 }
-
             }
-
         }
-
-
-
-
     }
 }

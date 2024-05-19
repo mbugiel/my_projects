@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManagemateAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c53e677011474b339b473b5c29508138816c99f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManagemateAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManagemateAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

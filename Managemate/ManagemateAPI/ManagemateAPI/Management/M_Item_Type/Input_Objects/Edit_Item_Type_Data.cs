@@ -8,5 +8,6 @@ namespace ManagemateAPI.Management.M_Item_Type.Input_Objects
 
         public long item_type_id { get; set; }
         public string item_type { get; set; }
+        public double rate { get; set; }
     }
 }

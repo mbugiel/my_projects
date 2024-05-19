@@ -1,10 +1,15 @@
 ﻿using ManagemateAPI.Database.Context;
-using ManagemateAPI.Encryption.Input_Objects;
-using ManagemateAPI.Encryption;
 using ManagemateAPI.Management.M_Session.Manager;
 using ManagemateAPI.Management.M_Item_Trading_Type.Input_Objects;
 using ManagemateAPI.Management.M_Item_Trading_Type.Table_Model;
 
+
+/*
+ * This is an endpoint controller dedicated to the Item_Trading_Type table.
+ * 
+ * It contains methods for endpoints
+ * - Get all 
+ */
 namespace ManagemateAPI.Management.M_Item_Trading_Type.Manager
 {
     public class Item_Trading_Type_Manager
@@ -19,8 +24,14 @@ namespace ManagemateAPI.Management.M_Item_Trading_Type.Manager
             _configuration = configuration;
         }
 
-
-        public async Task<List<Item_Trading_Type_Model>> GetItemTradingTypes(Get_Item_Trading_Types_Data obj)
+        /*
+         * Get_All_Item_Trading_Type endpoint
+         * This endpoint is used to to all the records from the Item_Trading_Type table.
+         * 
+         * It accepts Get_All_Item_Trading_Type_Data object.
+         * The given object is handed over to the Get_All_Item_Trading_Type method in the Item_Trading_Type_Manager.
+         */
+        public async Task<List<Item_Trading_Type_Model>> Get_All_Item_Trading_Types(Get_All_Item_Trading_Types_Data obj)
         {
 
             if (obj == null)
@@ -68,8 +79,5 @@ namespace ManagemateAPI.Management.M_Item_Trading_Type.Manager
             }
 
         }
-
-
-
     }
 }

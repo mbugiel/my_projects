@@ -3,6 +3,17 @@ using ManagemateAPI.Management.M_Authorized_Worker.Input_Objects;
 using ManagemateAPI.Management.M_Authorized_Worker.Table_Model;
 using ManagemateAPI.Management.M_Authorized_Worker.Manager;
 
+
+/*
+ * This is an endpoint controller dedicated to the Authorized_Worker table.
+ * 
+ * It contains methods for endpoints
+ * - Add 
+ * - Edit
+ * - Delete
+ * - Get by ID
+ * - Get all 
+ */
 namespace ManagemateAPI.Controllers.Managemate
 {
 
@@ -15,6 +26,13 @@ namespace ManagemateAPI.Controllers.Managemate
             _DB_Helper = new Authorized_Worker_Manager(configuration);
         }
 
+        /*
+         * Add_Authorized_Worker endpoint
+         * This endpoint is used to add a record to the Authorized_Worker table.
+         * 
+         * It accepts Add_Authorized_Worker_Data object.
+         * The given object is handed over to the Add_Authorized_Worker method in the Authorized_Worker_Manager.
+         */
         [Route("api/Add_Authorized_Worker")]
         [HttpPost]
         public async Task<IActionResult> Add_Authorized_Worker([FromBody] Add_Authorized_Worker_Data obj)
@@ -46,6 +64,13 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
+        /*
+         * Edit_Authorized_Worker endpoint
+         * This endpoint is used to edit a record from the Authorized_Worker table.
+         * 
+         * It accepts Edit_Authorized_Worker_Data object.
+         * The given object is handed over to the Edit_Authorized_Worker method in the Authorized_Worker_Manager.
+         */
         [Route("api/Edit_Authorized_Worker")]
         [HttpPost]
         public async Task<IActionResult> Edit_Authorized_Worker([FromBody] Edit_Authorized_Worker_Data obj)
@@ -77,7 +102,14 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
-        [Route("api/Delete_Auth_Worker")]
+        /*
+         * Delete_Authorized_Worker endpoint
+         * This endpoint is used to remove record from the Authorized_Worker table.
+         * 
+         * It accepts Delete_Authorized_Worker_Data object.
+         * The given object is handed over to the Delete_Authorized_Worker method in the Authorized_Worker_Manager.
+         */
+        [Route("api/Delete_Authorized_Worker")]
         [HttpPost]
         public async Task<IActionResult> Delete_Authorized_Worker([FromBody] Delete_Authorized_Worker_Data obj)
         {
@@ -107,6 +139,13 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
+        /*
+         * Get_Authorized_Worker_By_ID endpoint
+         * This endpoint is used to get a record from to the Authorized_Worker table by its ID.
+         * 
+         * It accepts Get_Authorized_Worker_By_ID object.
+         * The given object is handed over to the Get_Authorized_Worker_By_ID method in the Authorized_Worker_Manager.
+         */
         [Route("api/Get_Authorized_Worker_By_ID")]
         [HttpPost]
         public async Task<IActionResult> Get_Authorized_Worker_By_ID([FromBody] Get_Authorized_Worker_By_ID_Data obj)
@@ -137,6 +176,13 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
+        /*
+         * Get_All_Authorized_Worker endpoint
+         * This endpoint is used to to all the records from the Authorized_Worker table.
+         * 
+         * It accepts Get_All_Authorized_Worker_Data object.
+         * The given object is handed over to the Get_All_Authorized_Worker method in the Authorized_Worker_Manager.
+         */
         [Route("api/Get_All_Authorized_Worker")]
         [HttpPost]
         public async Task<IActionResult> Get_All_Authorized_Worker([FromBody] Get_All_Authorized_Worker_Data obj)
@@ -167,7 +213,19 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
-        [Route("api/Get_Authorized_Worker_Page_NOT_IN_USE")]
+
+
+
+
+
+
+
+
+
+
+
+        //==================================NOT+IN+USE==================================\\
+        [Route("api/Get_Authorized_Worker_By_Page_NOT_IN_USE")]
         [HttpPost]
         public async Task<IActionResult> Get_Authorized_Worker_By_Page([FromBody] Get_Authorized_Worker_By_Page_Data obj)
         {
@@ -196,6 +254,5 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
             }
         }
-
     }
 }

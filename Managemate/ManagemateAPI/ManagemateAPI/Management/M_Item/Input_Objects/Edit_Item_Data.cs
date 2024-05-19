@@ -14,7 +14,6 @@ namespace ManagemateAPI.Management.M_Item.Input_Objects
         public long blocked_count { get; set; }
         public double price { get; set; }
         public double tax_pct { get; set; }
-        public long item_trading_type_id_FK { get; set; }
         public int item_counting_type_id_FK { get; set; }
         public string comment { get; set; }
     }

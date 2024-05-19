@@ -12,8 +12,6 @@ namespace ManagemateAPI.Management.M_Item_On_Receipt.Input_Objects
 
         public double count { get; set; }
 
-        public double summary_weight { get; set; }
-
         public string annotation { get; set; }
 
     }

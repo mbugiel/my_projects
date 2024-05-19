@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projekty\\Magazyn\\storage\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj": {}
+    "F:\\Projekty\\my_projects\\Managemate\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj": {}
   },
   "projects": {
-    "F:\\Projekty\\Magazyn\\storage\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj": {
+    "F:\\Projekty\\my_projects\\Managemate\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projekty\\Magazyn\\storage\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj",
+        "projectUniqueName": "F:\\Projekty\\my_projects\\Managemate\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj",
         "projectName": "ManagemateAPI",
-        "projectPath": "F:\\Projekty\\Magazyn\\storage\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj",
+        "projectPath": "F:\\Projekty\\my_projects\\Managemate\\ManagemateAPI\\ManagemateAPI\\ManagemateAPI.csproj",
         "packagesPath": "C:\\Users\\Milosz\\.nuget\\packages\\",
-        "outputPath": "F:\\Projekty\\Magazyn\\storage\\ManagemateAPI\\ManagemateAPI\\obj\\",
+        "outputPath": "F:\\Projekty\\my_projects\\Managemate\\ManagemateAPI\\ManagemateAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Milosz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "DinkToPdf": {
               "target": "Package",
               "version": "[1.0.8, )"
+            },
+            "Humanizer": {
+              "target": "Package",
+              "version": "[2.14.1, )"
             },
             "MailKit": {
               "target": "Package",

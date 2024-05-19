@@ -25,5 +25,12 @@ namespace ManagemateAPI.Database.Tables
         public DateTime creation_date { get; set; }
 
         public byte[]? comment { get; set; }
+
+        public List<Receipt> receipts_FK { get; set; }
+
+
+        public byte[] default_payment_method { get; set; }
+        public int default_payment_date_offset { get; set; }
+        public double default_discount { get; set; }
     }
 }

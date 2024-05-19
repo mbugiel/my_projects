@@ -39,6 +39,19 @@
 
         public static string _21_INVALID_PASSWORD_ERROR = "Password is invalid";
 
+        public static string _22_ADD_RECEIPT_ERROR = "error while adding receipt";
+
+        public static string _23_COMPANY_EXISTS_ERROR = "company data already exists";
+
+        public static string _24_TOO_MANY_RETURNED_ERROR = "can't return more than was released";
+        public static string _25_INCORRECT_ITEM_TRADING_ERROR = "can't return item that was sold";
+
+        public static string _26_FILE_READ_ERROR = "error occured when opening an file";
+        public static string _27_FOLDER_CREATE_ERROR = "error occured when creating an folder";
+        public static string _28_JSON_ERROR = "error occured when serializating or deserialitating a json";
+
+        public static string _29_FILE_TOO_LARGE = "file is to large or has no length";
+
 
         //SUCCESS
         public static string CONFIRM_CODE_SENT = "confirmation code sent";

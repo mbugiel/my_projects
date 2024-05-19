@@ -12,6 +12,8 @@ namespace ManagemateAPI.Database.Tables
         [Required]
         public byte[] item_type { get; set; }
 
+        public byte[] rate { get; set; }
+
 
     }
 }

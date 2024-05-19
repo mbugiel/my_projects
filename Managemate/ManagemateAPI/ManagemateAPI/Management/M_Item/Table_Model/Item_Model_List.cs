@@ -9,8 +9,8 @@ namespace ManagemateAPI.Management.M_Item.Table_Model
         public string product_name { get; set; }
         public string item_type { get; set; }
         public double weight_kg { get; set; }
-        public long count { get; set; }
-        public long blocked_count { get; set; }
+        public double count { get; set; }
+        public double blocked_count { get; set; }
         public string price { get; set; }
         public double tax_pct { get; set; }
         public string trading_type_pl { get; set; }

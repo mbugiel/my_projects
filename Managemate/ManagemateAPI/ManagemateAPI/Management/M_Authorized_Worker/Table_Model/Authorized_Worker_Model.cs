@@ -5,7 +5,6 @@ namespace ManagemateAPI.Management.M_Authorized_Worker.Table_Model
     public class Authorized_Worker_Model
     {
         public long id { get; set; }
-        public Client_Model client_id_FK { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public string phone_number { get; set; }

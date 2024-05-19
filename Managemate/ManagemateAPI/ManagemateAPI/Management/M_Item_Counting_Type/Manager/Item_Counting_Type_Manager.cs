@@ -5,6 +5,16 @@ using ManagemateAPI.Management.M_Item_Counting_Type.Input_Objects;
 using ManagemateAPI.Management.M_Item_Counting_Type.Table_Model;
 using ManagemateAPI.Management.M_Session.Manager;
 
+/*
+ * This is the Item_Counting_Type_Manager with methods dedicated to the Item_Counting_Type table.
+ * 
+ * It contains methods to:
+ * add records,
+ * edit records,
+ * delete records,
+ * get record by id,
+ * get all the records.
+ */
 namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
 {
     public class Item_Counting_Type_Manager
@@ -19,8 +29,14 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
             _configuration = configuration;
         }
 
-
-        public async Task<string> AddItemCountingType(Add_Item_Counting_Type_Data obj)
+        /* 
+         * Add_Item_Counting_Type method
+         * This method is used to add new records to the Item_Counting_Type table.
+         * 
+         * It accepts Add_Item_Counting_Type_Data object as input.
+         * It then adds new record with values based on the data given in the input object.
+         */
+        public async Task<string> Add_Item_Counting_Type(Add_Item_Counting_Type_Data obj)
         {
             if (obj == null)
             {
@@ -33,7 +49,7 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
                     _context = new DB_Context(obj.session.userId, _configuration);
                     _context.Database.EnsureCreated();
 
-                    var counting_type_checker = _context.Item_Counting_Type.Where(i => i.counting_type.Equals(obj.counting_type)).FirstOrDefault();
+                    var counting_type_checker = _context.Item_Counting_Type.Where(i => i.counting_type.Equals(obj.counting_type) && i.id > 0).FirstOrDefault();
 
                     if (counting_type_checker != null)
                     {
@@ -60,8 +76,14 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
 
         }
 
-        //EDIT
-        public async Task<string> EditItemCountingType(Edit_Item_Counting_Type_Data obj)
+        /* 
+         * Edit_Item_Counting_Type method
+         * This method is used to edit a record in the Item_Counting_Type table.
+         * 
+         * It accepts Edit_Item_Counting_Type_Data object as input.
+         * It then changes values of a record with those given in the input object only if its ID matches the one in the input object.
+         */
+        public async Task<string> Edit_Item_Counting_Type(Edit_Item_Counting_Type_Data obj)
         {
             if (obj == null)
             {
@@ -78,7 +100,7 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
 
                     if (edited_record != null)
                     {
-                        var counting_type_checker = _context.Item_Counting_Type.Where(i => i.counting_type.Equals(obj.counting_type)).FirstOrDefault();
+                        var counting_type_checker = _context.Item_Counting_Type.Where(i => i.counting_type.Equals(obj.counting_type) && i.id > 0).FirstOrDefault();
 
                         if (counting_type_checker != null)
                         {
@@ -106,8 +128,14 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
             }
         }
 
-        //Delete
-        public async Task<string> DeleteItemCountingType(Delete_Item_Counting_Type_Data obj)
+        /*
+         * Delete_Item_Counting_Type method
+         * This method is used to a record from the Item_Counting_Type table.
+         *  
+         * It accepts Delete_Item_Counting_Type_Data object as input.
+         * Then it deletes a record if its ID matches the one given in the input object.
+         */
+        public async Task<string> Delete_Item_Counting_Type(Delete_Item_Counting_Type_Data obj)
         {
             if (obj == null)
             {
@@ -120,7 +148,7 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
                     _context = new DB_Context(obj.session.userId, _configuration);
                     _context.Database.EnsureCreated();
 
-                    var id_exits = _context.Item_Counting_Type.Where(i => i.id.Equals(obj.item_counting_type_id)).FirstOrDefault();
+                    var id_exits = _context.Item_Counting_Type.Where(i => i.id.Equals(obj.item_counting_type_id) && i.id > 0).FirstOrDefault();
 
                     if (id_exits == null)
                     {
@@ -141,55 +169,14 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
             }
         }
 
-
-        public async Task<List<Item_Counting_Type_Model>> GetItemCountingTypes(Get_Item_Counting_Types_Data obj)
-        {
-
-            if (obj == null)
-            {
-                throw new Exception("14");//_14_NULL_ERROR
-            }
-            else
-            {
-                if (await Session_Checker.ActiveSession(obj.session))
-                {
-                    _context = new DB_Context(obj.session.userId, _configuration);
-                    _context.Database.EnsureCreated();
-
-                    var item_counting_types = _context.Item_Counting_Type.ToList();
-
-                    if (item_counting_types == null)
-                    {
-                        throw new Exception("19");// counting types not found
-                    }
-                    else
-                    {
-                        List<Item_Counting_Type_Model> item_counting_types_list = new List<Item_Counting_Type_Model>();
-
-                        foreach (var type in item_counting_types)
-                        {
-                            item_counting_types_list.Add(new Item_Counting_Type_Model { id = type.id, counting_type = type.counting_type });
-                        }
-
-                        return item_counting_types_list;
-
-                    }
-
-
-
-                }
-                else
-                {
-                    throw new Exception("1");//_1_SESSION_NOT_FOUND
-                }
-
-            }
-
-        }
-
-
-
-        public async Task<Item_Counting_Type_Model> GetItemCountingTypeById(Get_Item_Counting_Type_Data obj)
+        /*
+         * Get_Item_Counting_Type_By_ID method
+         * This method gets a record from the Item_Counting_Type table by its ID and returns it.
+         * 
+         * It accepts Get_Item_Counting_Type_By_ID_Data object as input.
+         * Then it gets a records that has the same ID as the ID given in the input object
+         */
+        public async Task<Item_Counting_Type_Model> Get_Item_Counting_Type_By_ID(Get_Item_Counting_Type_Data obj)
         {
 
             if (obj == null)
@@ -227,5 +214,55 @@ namespace ManagemateAPI.Management.M_Item_Counting_Type.Manager
 
         }
 
+        /*
+         * Get_All_Item_Counting_Type method
+         * This method gets all of the records in the Item_Counting_Type table and returns them in a list.
+         * 
+         * It accepts Get_All_Item_Counting_Type_Data object as input.
+         */
+        public async Task<List<Item_Counting_Type_Model>> Get_All_Item_Counting_Type(Get_Item_Counting_Type_Data obj)
+        {
+
+            if (obj == null)
+            {
+                throw new Exception("14");//_14_NULL_ERROR
+            }
+            else
+            {
+                if (await Session_Checker.ActiveSession(obj.session))
+                {
+                    _context = new DB_Context(obj.session.userId, _configuration);
+                    _context.Database.EnsureCreated();
+
+                    var item_counting_types = _context.Item_Counting_Type.Where(i => i.id > 0).ToList();
+
+                    if (item_counting_types == null)
+                    {
+                        throw new Exception("19");// counting types not found
+                    }
+                    else
+                    {
+                        List<Item_Counting_Type_Model> item_counting_types_list = new List<Item_Counting_Type_Model>();
+
+                        foreach (var type in item_counting_types)
+                        {
+                            item_counting_types_list.Add(new Item_Counting_Type_Model { id = type.id, counting_type = type.counting_type });
+                        }
+
+                        return item_counting_types_list;
+
+                    }
+
+
+
+                }
+                else
+                {
+                    throw new Exception("1");//_1_SESSION_NOT_FOUND
+                }
+
+            }
+
+        }
     }
 }

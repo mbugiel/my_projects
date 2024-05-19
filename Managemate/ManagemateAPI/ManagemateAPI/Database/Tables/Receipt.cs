@@ -18,15 +18,16 @@ namespace ManagemateAPI.Database.Tables
         [Required]
         public Order order_id_FK { get; set; }
 
-        [Required]
         public byte[] element { get; set; }
 
-        [Required]
         public byte[] transport { get; set; }
 
-        [Required]
         public double summary_weight { get; set; }
 
         public byte[]? comment { get; set; }
+
+        public bool reservation {  get; set; }
+
+        public List<Item_On_Receipt> items_on_receipt_FK { get; set; }
     }
 }

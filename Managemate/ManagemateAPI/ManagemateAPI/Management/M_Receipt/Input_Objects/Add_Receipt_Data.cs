@@ -7,7 +7,11 @@ namespace ManagemateAPI.Management.M_Receipt.Input_Objects
 
         public Session_Data session { get; set; }
 
+        public DateTime creation_date { get; set; }
+
         public bool in_out { get; set; }
+
+        public bool reservation {  get; set; }
 
         public long order_id_FK { get; set; }
 
@@ -15,7 +19,7 @@ namespace ManagemateAPI.Management.M_Receipt.Input_Objects
 
         public string transport { get; set; }
 
-        public string comment { get; set; }
+        //public string comment { get; set; }
 
     }
 }

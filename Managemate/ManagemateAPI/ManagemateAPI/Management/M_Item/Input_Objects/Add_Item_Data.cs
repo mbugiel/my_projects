@@ -10,8 +10,8 @@ namespace ManagemateAPI.Management.M_Item.Input_Objects
         public string product_name { get; set; }
         public long item_type_id_FK { get; set; }
         public double weight_kg { get; set; }
-        public long count { get; set; }
-        public long blocked_count { get; set; }
+        public double count { get; set; }
+        public double blocked_count { get; set; }
         public double price { get; set; }
         public double tax_pct { get; set; }
         public long item_trading_type_id_FK { get; set; }

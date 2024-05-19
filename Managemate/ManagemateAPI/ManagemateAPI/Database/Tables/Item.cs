@@ -22,10 +22,10 @@ namespace ManagemateAPI.Database.Tables
         public double weight_kg { get; set; }
 
         [Required]
-        public long count { get; set; }
+        public double count { get; set; }
 
         [Required]
-        public long blocked_count { get; set; }
+        public double blocked_count { get; set; }
 
         [Required]
         public byte[] price { get; set; }

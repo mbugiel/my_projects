@@ -14,9 +14,9 @@
 
         public string order_name_FK { get; set; }
 
-        public DateOnly issue_date { get; set; }
+        public DateTime issue_date { get; set; }
 
-        public DateOnly sale_date { get; set; }
+        public DateTime sale_date { get; set; }
 
         public double net_worth { get; set; }
 

@@ -3,6 +3,12 @@ using ManagemateAPI.Management.M_Item_Trading_Type.Manager;
 using ManagemateAPI.Management.M_Item_Trading_Type.Table_Model;
 using Microsoft.AspNetCore.Mvc;
 
+/*
+ * This is an endpoint controller dedicated to the Item_Trading_Type table.
+ * 
+ * It contains methods for endpoints
+ * - Get all 
+ */
 namespace ManagemateAPI.Controllers.Managemate
 {
 
@@ -17,9 +23,16 @@ namespace ManagemateAPI.Controllers.Managemate
             _DB_Helper = new Item_Trading_Type_Manager(configuration);
         }
 
-        [Route("api/GetItemTradingTypes")]
+        /*
+         * Get_All_Item_Trading_Type endpoint
+         * This endpoint is used to to all the records from the Item_Trading_Type table.
+         * 
+         * It accepts Get_All_Item_Trading_Type_Data object.
+         * The given object is handed over to the Get_All_Item_Trading_Type method in the Item_Trading_Type_Manager.
+         */
+        [Route("api/Get_All_Item_Trading_Types")]
         [HttpPost]
-        public async Task<IActionResult> GetItemTradingTypes([FromBody] Get_Item_Trading_Types_Data input_obj)
+        public async Task<IActionResult> Get_All_Item_Trading_Types([FromBody] Get_All_Item_Trading_Types_Data input_obj)
         {
 
             if (input_obj == null)
@@ -31,7 +44,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    List<Item_Trading_Type_Model> result = await _DB_Helper.GetItemTradingTypes(input_obj);
+                    List<Item_Trading_Type_Model> result = await _DB_Helper.Get_All_Item_Trading_Types(input_obj);
 
                     if (result == null)
                     {

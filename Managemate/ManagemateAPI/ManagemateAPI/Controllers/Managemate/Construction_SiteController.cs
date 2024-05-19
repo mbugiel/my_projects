@@ -3,6 +3,16 @@ using ManagemateAPI.Management.M_Construction_Site.Input_Objects;
 using ManagemateAPI.Management.M_Construction_Site.Manager;
 using ManagemateAPI.Management.M_Construction_Site.Table_Model;
 
+/*
+ * This is an endpoint controller dedicated to the Construction_Site table.
+ * 
+ * It contains methods for endpoints
+ * - Add 
+ * - Edit
+ * - Delete
+ * - Get by ID
+ * - Get all 
+ */
 namespace ManagemateAPI.Controllers.Managemate
 {
 
@@ -15,9 +25,16 @@ namespace ManagemateAPI.Controllers.Managemate
             _DB_Helper = new Construction_Site_Manager(configuration);
         }
 
-        [Route("api/Add_ConstructionSite")]
+        /*
+         * Add_Construction_Site endpoint
+         * This endpoint is used to add a record to the Construction_Site table.
+         * 
+         * It accepts Add_Construction_Site_Data object.
+         * The given object is handed over to the Add_Construction_Site method in the Construction_Site_Manager.
+         */
+        [Route("api/Add_Construction_Site")]
         [HttpPost]
-        public async Task<IActionResult> Add_ConstructionSite([FromBody] Add_Construction_Site_Data obj)
+        public async Task<IActionResult> Add_Construction_Site([FromBody] Add_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -27,7 +44,7 @@ namespace ManagemateAPI.Controllers.Managemate
             {
                 try
                 {
-                    string result = await _DB_Helper.Add_ConstructionSite(obj);
+                    string result = await _DB_Helper.Add_Construction_Site(obj);
 
                     if (result == null)
                     {
@@ -46,9 +63,16 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
-        [Route("api/Edit_ConstructionSite")]
+        /*
+         * Edit_Construction_Site endpoint
+         * This endpoint is used to edit a record from the Construction_Site table.
+         * 
+         * It accepts Edit_Construction_Site_Data object.
+         * The given object is handed over to the Edit_Construction_Site method in the Construction_Site_Manager.
+         */
+        [Route("api/Edit_Construction_Site")]
         [HttpPost]
-        public async Task<IActionResult> Edit_ConstructionSite([FromBody] Edit_Construction_Site_Data obj)
+        public async Task<IActionResult> Edit_Construction_Site([FromBody] Edit_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -58,7 +82,7 @@ namespace ManagemateAPI.Controllers.Managemate
             {
                 try
                 {
-                    string result = await _DB_Helper.Edit_ConstructionSite(obj);
+                    string result = await _DB_Helper.Edit_Construction_Site(obj);
 
                     if (result == null)
                     {
@@ -77,9 +101,16 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
-        [Route("api/Delete_ConstructionSite")]
+        /*
+         * Delete_Construction_Site endpoint
+         * This endpoint is used to remove record from the Construction_Site table.
+         * 
+         * It accepts Delete_Construction_Site_Data object.
+         * The given object is handed over to the Delete_Construction_Site method in the Construction_Site_Manager.
+         */
+        [Route("api/Delete_Construction_Site")]
         [HttpPost]
-        public async Task<IActionResult> Delete_ConstructionSite([FromBody] Delete_Construction_Site_Data obj)
+        public async Task<IActionResult> Delete_Construction_Site([FromBody] Delete_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -89,7 +120,7 @@ namespace ManagemateAPI.Controllers.Managemate
             {
                 try
                 {
-                    string result = await _DB_Helper.Delete_ConstructionSite(obj);
+                    string result = await _DB_Helper.Delete_Construction_Site(obj);
 
                     if (result == null)
                     {
@@ -107,6 +138,13 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
+        /*
+         * Get_Construction_Site_By_ID endpoint
+         * This endpoint is used to get a record from to the Construction_Site table by its ID.
+         * 
+         * It accepts Get_Construction_Site_By_ID object.
+         * The given object is handed over to the Get_Construction_Site_By_ID method in the Construction_Site_Manager.
+         */
         [Route("api/Get_Construction_Site_By_ID")]
         [HttpPost]
         public async Task<IActionResult> Get_Construction_Site_By_ID([FromBody] Get_Construction_Site_By_ID obj)
@@ -137,9 +175,16 @@ namespace ManagemateAPI.Controllers.Managemate
             }
         }
 
-        [Route("api/Get_Construction_Sites")]
+        /*
+         * Get_All_Construction_Site endpoint
+         * This endpoint is used to to all the records from the Construction_Site table.
+         * 
+         * It accepts Get_All_Construction_Site_Data object.
+         * The given object is handed over to the Get_All_Construction_Site method in the Construction_Site_Manager.
+         */
+        [Route("api/Get_All_Construction_Site")]
         [HttpPost]
-        public async Task<IActionResult> Get_Construction_Sites([FromBody] Get_Construction_Sites obj)
+        public async Task<IActionResult> Get_All_Construction_Site([FromBody] Get_All_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -149,7 +194,7 @@ namespace ManagemateAPI.Controllers.Managemate
             {
                 try
                 {
-                    List<Construction_Site_Model_List> result = await _DB_Helper.Get_Construction_Sites(obj);
+                    List<Construction_Site_Model_List> result = await _DB_Helper.Get_All_Construction_Site(obj);
 
                     if (result == null)
                     {
@@ -166,6 +211,5 @@ namespace ManagemateAPI.Controllers.Managemate
                 }
             }
         }
-
     }
 }

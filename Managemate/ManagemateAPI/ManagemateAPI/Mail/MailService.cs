@@ -28,9 +28,6 @@ namespace ManagemateAPI.Mail
                     MailboxAddress emailTo = new MailboxAddress(mailData.EmailToName, mailData.EmailToid);
                     emailMessage.To.Add(emailTo);
 
-                    // you can add the CCs and BCCs here.
-                    //emailMessage.Cc.Add(new MailboxAddress("Cc Receiver", "cc@example.com"));
-                    //emailMessage.Bcc.Add(new MailboxAddress("Bcc Receiver", "bcc@example.com"));
 
                     emailMessage.Subject = Mail_Vars.ADD_USER_SUBJECT;
 
@@ -71,6 +68,7 @@ namespace ManagemateAPI.Mail
 
 
                     emailMessage.Body = emailBodyBuilder.ToMessageBody();
+
                     //this is the SmtpClient from the Mailkit.Net.Smtp namespace, not the System.Net.Mail one
                     using (SmtpClient mailClient = new SmtpClient())
                     {

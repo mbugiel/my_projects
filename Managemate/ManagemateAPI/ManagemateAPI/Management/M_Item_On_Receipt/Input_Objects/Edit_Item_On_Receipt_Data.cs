@@ -8,11 +8,7 @@ namespace ManagemateAPI.Management.M_Item_On_Receipt.Input_Objects
 
         public long id { get; set; }
 
-        public long item_id_FK { get; set; }
-
         public double count { get; set; }
-
-        public double summary_weight { get; set; }
 
         public string annotation { get; set; }
 

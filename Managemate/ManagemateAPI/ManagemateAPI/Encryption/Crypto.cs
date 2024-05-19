@@ -146,6 +146,144 @@ namespace ManagemateAPI.Encryption
 
         }
 
+
+
+        public async static Task<byte[]> EncryptByte(Session_Data session, byte[] data_to_encrypt)
+        {
+            if (session == null || data_to_encrypt == null)
+            {
+                throw new Exception("14");//_14_NULL_ERROR
+            }
+            else
+            {
+
+                using (var httpClient = new HttpClient())
+                {
+
+                    Encrypt_Byte_Data encryptData = new Encrypt_Byte_Data { SessionData = session, DataToEncrypt = data_to_encrypt };
+
+                    StringContent content = new StringContent(JsonSerializer.Serialize(encryptData), Encoding.UTF8, "application/json");
+
+                    using (var authResponse = await httpClient.PostAsync(System_Path.AUTHENTICATION_API+"EncryptByteData", content))
+                    {
+
+                        var responseAsString = await authResponse.Content.ReadAsStringAsync();
+
+                        if (responseAsString == null)
+                        {
+                            throw new Exception("14");//_14_NULL_ERROR
+                        }
+                        else
+                        {
+
+                            Api_Response_Encrypted apiResponse = JsonSerializer.Deserialize<Api_Response_Encrypted>(responseAsString);
+
+
+                            if (apiResponse != null)
+                            {
+
+                                if (apiResponse.code.Equals("1"))
+                                {
+
+                                    throw new Exception(apiResponse.message.ToString());
+
+                                }
+                                else
+                                {
+                                    return apiResponse.responseData;
+                                }
+
+                            }
+                            else
+                            {
+                                throw new Exception("16");//_16_SERVER_RESPONSE_ERROR
+                            }
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+
+
+
+        public async static Task<byte[]> DecryptByte(Session_Data session, byte[] data_to_decrypt)
+        {
+            if (session == null || data_to_decrypt == null)
+            {
+                throw new Exception("14");//_14_NULL_ERROR
+            }
+            else
+            {
+
+                using (var httpClient = new HttpClient())
+                {
+                    Decrypt_Byte_Data decryptData = new Decrypt_Byte_Data { SessionData = session, EncryptedData = data_to_decrypt };
+
+                    StringContent content = new StringContent(JsonSerializer.Serialize(decryptData), Encoding.UTF8, "application/json");
+
+                    using (var authResponse = await httpClient.PostAsync(System_Path.AUTHENTICATION_API+"DecryptByteData", content))
+                    {
+
+                        var responseAsString = await authResponse.Content.ReadAsStringAsync();
+
+                        if (responseAsString == null)
+                        {
+                            throw new Exception("14");//_14_NULL_ERROR
+                        }
+                        else
+                        {
+
+                            Api_Response_Encrypted apiResponse = JsonSerializer.Deserialize<Api_Response_Encrypted>(responseAsString);
+
+
+                            if (apiResponse != null)
+                            {
+
+                                if (apiResponse.code.Equals("1"))
+                                {
+
+                                    throw new Exception(apiResponse.message.ToString());
+
+                                }
+                                else
+                                {
+                                    return apiResponse.responseData;
+                                }
+
+                            }
+                            else
+                            {
+                                throw new Exception("16");//_16_SERVER_RESPONSE_ERROR
+                            }
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+
+
+
+
         public async static Task<List<Encrypted_Object>> EncryptList(Session_Data session, List<Decrypted_Object> list_to_encrypt)
         {
             if (session == null || list_to_encrypt == null)

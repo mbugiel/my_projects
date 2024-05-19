@@ -10,6 +10,17 @@ using ManagemateAPI.Information;
 using ManagemateAPI.Management.M_Client.Table_Model;
 using ManagemateAPI.Management.M_Construction_Site.Table_Model;
 
+
+/*
+ * This is the Order_Manager with methods dedicated to the Order table.
+ * 
+ * It contains methods to:
+ * add records,
+ * edit records,
+ * delete records,
+ * get record by id,
+ * get all the records.
+ */
 namespace ManagemateAPI.Management.M_Order.Manager
 {
     public class Order_Manager
@@ -24,8 +35,14 @@ namespace ManagemateAPI.Management.M_Order.Manager
             _configuration = configuration;
         }
 
-
-        public async Task<string> AddOrder(Add_Order_Data input)
+        /* 
+         * Add_Order method
+         * This method is used to add new records to the Order table.
+         * 
+         * It accepts Add_Order_Data object as input.
+         * It then adds new record with values based on the data given in the input object.
+         */
+        public async Task<string> Add_Order(Add_Order_Data input)
         {
 
             if (input == null)
@@ -60,7 +77,10 @@ namespace ManagemateAPI.Management.M_Order.Manager
                                 client_id_FK = client,
                                 construction_site_id_FK = construction_site,
                                 status = input.status,
-                                creation_date = DateTime.UtcNow, //.AddHours(1)
+                                creation_date = input.creation_date,
+                                default_payment_method = await Crypto.Encrypt(input.session, input.default_payment_method),
+                                default_payment_date_offset = input.default_payment_date_offset,
+                                default_discount = input.default_discount,
                                 comment = await Crypto.Encrypt(input.session, input.comment)
                             };
 
@@ -90,8 +110,14 @@ namespace ManagemateAPI.Management.M_Order.Manager
 
         }
 
-
-        public async Task<string> EditOrder(Edit_Order_Data input)
+        /* 
+         * Edit_Order method
+         * This method is used to edit a record in the Order table.
+         * 
+         * It accepts Edit_Order_Data object as input.
+         * It then changes values of a record with those given in the input object only if its ID matches the one in the input object.
+         */
+        public async Task<string> Edit_Order(Edit_Order_Data input)
         {
 
             if (input == null)
@@ -120,6 +146,9 @@ namespace ManagemateAPI.Management.M_Order.Manager
                         editing_order.construction_site_id_FK = construction_site;
                         editing_order.status = input.status;
                         editing_order.creation_date = input.creation_date;
+                        editing_order.default_payment_method = await Crypto.Encrypt(input.session, input.default_payment_method);
+                        editing_order.default_payment_date_offset = input.default_payment_date_offset;
+                        editing_order.default_discount = input.default_discount;
                         editing_order.comment = await Crypto.Encrypt(input.session, input.comment);
 
                         _context.SaveChanges();
@@ -137,8 +166,14 @@ namespace ManagemateAPI.Management.M_Order.Manager
 
         }
 
-
-        public async Task<string> DeleteOrder(Delete_Order_Data input)
+        /*
+         * Delete_Order method
+         * This method is used to a record from the Order table.
+         *  
+         * It accepts Delete_Order_Data object as input.
+         * Then it deletes a record if its ID matches the one given in the input object.
+         */
+        public async Task<string> Delete_Order(Delete_Order_Data input)
         {
 
             if (input == null)
@@ -176,307 +211,14 @@ namespace ManagemateAPI.Management.M_Order.Manager
 
         }
 
-
-        public async Task<List<Order_Model_List>> GetOrders(Get_Orders_Data input)
-        {
-
-            if (input == null)
-            {
-                throw new Exception("14");//_14_NULL_ERROR
-            }
-            else
-            {
-                if (await Session_Checker.ActiveSession(input.session))
-                {
-                    _context = new DB_Context(input.session.userId, _configuration);
-                    _context.Database.EnsureCreated();
-
-                    List<Order> Orders = _context.Order.Include(o => o.client_id_FK).Include(o => o.construction_site_id_FK).ToList();
-
-                    if (Orders == null)
-                    {
-                        throw new Exception("19");//Order not found
-                    }
-                    else
-                    {
-
-                        List<Encrypted_Object> order_names = new List<Encrypted_Object>();
-                        List<Encrypted_Object> order_comments = new List<Encrypted_Object>();
-                        List<Encrypted_Object> order_client_names = new List<Encrypted_Object>();
-                        List<Encrypted_Object> order_construction_sites_names = new List<Encrypted_Object>();
-
-
-                        List<Order_Model_List> Orders_decrypted = new List<Order_Model_List>();
-
-                        foreach (var order in Orders)
-                        {
-                            Orders_decrypted.Add(new Order_Model_List
-                            {
-                                id = order.id,
-                                //client_name = item.client_id_FK,
-                                //construction_site_name = item.construction_site_id_FK,
-                                status = order.status,
-                                creation_date = order.creation_date
-
-                            });
-
-                            order_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.order_name });
-                            order_comments.Add(new Encrypted_Object { id = order.id, encryptedValue = order.comment });
-
-                            if (order.client_id_FK.company_name != null)
-                            {
-                                order_client_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.client_id_FK.company_name });
-                            }
-                            else
-                            {
-                                order_client_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.client_id_FK.name });
-                            }
-
-                            order_construction_sites_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.construction_site_id_FK.construction_site_name });
-
-
-                        }
-
-                        List<Decrypted_Object> order_names_decrypted = await Crypto.DecryptList(input.session, order_names);
-                        List<Decrypted_Object> order_comments_decrypted = await Crypto.DecryptList(input.session, order_comments);
-                        List<Decrypted_Object> order_client_names_decrypted = await Crypto.DecryptList(input.session, order_client_names);
-                        List<Decrypted_Object> order_construction_sites_names_decrypted = await Crypto.DecryptList(input.session, order_construction_sites_names);
-
-                        foreach (var order in Orders_decrypted)
-                        {
-                            var name = order_names_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
-
-                            if (name == null)
-                            {
-                                throw new Exception("3");//error while decrypting data 
-                            }
-                            else
-                            {
-                                order.order_name = name.decryptedValue;
-                            }
-
-
-                            var comment = order_comments_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
-
-                            if (comment == null)
-                            {
-                                throw new Exception("3");//error while decrypting data 
-                            }
-                            else
-                            {
-                                order.comment = comment.decryptedValue;
-                            }
-
-
-                            var client_name = order_client_names_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
-
-                            if (client_name == null)
-                            {
-                                throw new Exception("3");//error while decrypting data 
-                            }
-                            else
-                            {
-                                order.client_name = client_name.decryptedValue;
-                            }
-
-
-
-                            var construction_site_name = order_construction_sites_names_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
-
-                            if (construction_site_name == null)
-                            {
-                                throw new Exception("3");//error while decrypting data 
-                            }
-                            else
-                            {
-                                order.construction_site_name = construction_site_name.decryptedValue;
-                            }
-
-                        }
-
-                        return Orders_decrypted;
-
-
-
-                    }
-
-                }
-                else
-                {
-                    throw new Exception("1");//_1_SESSION_NOT_FOUND
-                }
-
-            }
-
-        }
-
-
-
         /*
-        public async Task<List<Order_Model_List>> GetOrders(Get_Orders_Data order)
-        {
-
-            if (order == null)
-            {
-                throw new Exception("14");//_14_NULL_ERROR
-            }
-            else
-            {
-                if (await Session_Checker.ActiveSession(order.session))
-                {
-                    _context = new DB_Context(order.session.userId, _configuration);
-                    _context.Database.EnsureCreated();
-
-                    List<Order> Orders = _context.Order.Include(o => o.client_id_FK).Include(o => o.construction_site_id_FK).ToList();
-
-                    if (Orders == null)
-                    {
-                        throw new Exception("19");//Order not found
-                    }
-                    else
-                    {
-
-                        int page_length = order.pageSize;
-                        int start_position = order.pageid * page_length;
-
-
-                        if (Orders.Count() > start_position)
-                        {
-
-                            if (Orders.Count() >= start_position + page_length)
-                            {
-                                Orders = Orders.Slice(start_position, page_length);
-
-                            }
-                            else
-                            {
-                                int valid_length = Orders.Count() - start_position;
-
-                                Orders = Orders.Slice(start_position, valid_length);
-                            }
-
-                            List<Encrypted_Object> order_names = new List<Encrypted_Object>();
-                            List<Encrypted_Object> order_comments = new List<Encrypted_Object>();
-                            List<Encrypted_Object> order_client_names = new List<Encrypted_Object>();
-                            List<Encrypted_Object> order_construction_sites_names = new List<Encrypted_Object>();
-
-
-                            List<Order_Model_List> Orders_decrypted = new List<Order_Model_List>();
-
-                            foreach (var item in Orders)
-                            {
-                                Orders_decrypted.Add(new Order_Model_List
-                                {
-                                    id = item.id,
-                                    //client_name = item.client_id_FK,
-                                    //construction_site_name = item.construction_site_id_FK,
-                                    status = item.status,
-                                    creation_date = item.creation_date
-
-                                });
-
-                                order_names.Add(new Encrypted_Object { id = item.id, encryptedValue = item.order_name });
-                                order_comments.Add(new Encrypted_Object { id = item.id, encryptedValue = item.comment });
-
-                                if (item.client_id_FK.company_name != null)
-                                {
-                                    order_client_names.Add(new Encrypted_Object { id = item.id, encryptedValue = item.client_id_FK.company_name });
-                                }
-                                else
-                                {
-                                    order_client_names.Add(new Encrypted_Object { id = item.id, encryptedValue = item.client_id_FK.name });
-                                }
-
-                                order_construction_sites_names.Add(new Encrypted_Object { id = item.id, encryptedValue = item.construction_site_id_FK.construction_site_name });
-
-
-                            }
-
-                            List<Decrypted_Object> order_names_decrypted = await Crypto.DecryptList(order.session, order_names);
-                            List<Decrypted_Object> order_comments_decrypted = await Crypto.DecryptList(order.session, order_comments);
-                            List<Decrypted_Object> order_client_names_decrypted = await Crypto.DecryptList(order.session, order_client_names);
-                            List<Decrypted_Object> order_construction_sites_names_decrypted = await Crypto.DecryptList(order.session, order_construction_sites_names);
-
-                            foreach (var item in Orders_decrypted)
-                            {
-                                var name = order_names_decrypted.Where(o => o.id.Equals(item.id)).FirstOrDefault();
-
-                                if (name == null)
-                                {
-                                    throw new Exception("3");//error while decrypting data 
-                                }
-                                else
-                                {
-                                    item.order_name = name.decryptedValue;
-                                }
-
-
-                                var comment = order_comments_decrypted.Where(o => o.id.Equals(item.id)).FirstOrDefault();
-
-                                if (comment == null)
-                                {
-                                    throw new Exception("3");//error while decrypting data 
-                                }
-                                else
-                                {
-                                    item.comment = comment.decryptedValue;
-                                }
-
-
-                                var client_name = order_client_names_decrypted.Where(o => o.id.Equals(item.id)).FirstOrDefault();
-
-                                if (client_name == null)
-                                {
-                                    throw new Exception("3");//error while decrypting data 
-                                }
-                                else
-                                {
-                                    item.client_name = client_name.decryptedValue;
-                                }
-
-
-
-                                var construction_site_name = order_construction_sites_names_decrypted.Where(o => o.id.Equals(item.id)).FirstOrDefault();
-
-                                if (construction_site_name == null)
-                                {
-                                    throw new Exception("3");//error while decrypting data 
-                                }
-                                else
-                                {
-                                    item.construction_site_name = construction_site_name.decryptedValue;
-                                }
-
-                            }
-
-                            return Orders_decrypted;
-
-
-
-                        }
-                        else
-                        {
-                            throw new Exception("19");//no more orders
-                        }
-
-
-
-                    }
-
-                }
-                else
-                {
-                    throw new Exception("1");//_1_SESSION_NOT_FOUND
-                }
-
-            }
-
-        }
-
-        */
-
-
-        public async Task<Order_Model> GetOrderById(Get_Order_By_Id_Data input)
+         * Get_Order_By_ID method
+         * This method gets a record from the Order table by its ID and returns it.
+         * 
+         * It accepts Get_Order_By_ID_Data object as input.
+         * Then it gets a records that has the same ID as the ID given in the input object
+         */
+        public async Task<Order_Model> Get_Order_By_ID(Get_Order_By_Id_Data input)
         {
 
             if (input == null)
@@ -504,6 +246,7 @@ namespace ManagemateAPI.Management.M_Order.Manager
                             //encrypted fields in Order table
                             new Encrypted_Object { id = 0, encryptedValue = selected_order.order_name },
                             new Encrypted_Object { id = 1, encryptedValue = selected_order.comment },
+                            new Encrypted_Object { id = 17, encryptedValue = selected_order.default_payment_method },
                             //encrypted fields in Client table
                             new Encrypted_Object { id = 2, encryptedValue = selected_order.client_id_FK.surname },
                             new Encrypted_Object { id = 3, encryptedValue = selected_order.client_id_FK.name },
@@ -530,6 +273,8 @@ namespace ManagemateAPI.Management.M_Order.Manager
                             id = selected_order.id,
                             status = selected_order.status,
                             creation_date = selected_order.creation_date,
+                            default_payment_date_offset = selected_order.default_payment_date_offset,
+                            default_discount = selected_order.default_discount,
                             client_id_FK = new Client_Model { id = selected_order.client_id_FK.id },
                             construction_site_id_FK = new Construction_Site_Model { id = selected_order.construction_site_id_FK.id }
                         };
@@ -598,6 +343,9 @@ namespace ManagemateAPI.Management.M_Order.Manager
 
                                     case 16:
                                         order_model.construction_site_id_FK.comment = order.decryptedValue; break;
+
+                                    case 17:
+                                        order_model.default_payment_method = order.decryptedValue; break;
                                     default:
                                         throw new Exception("3");//error while decrypting data 
                                 }
@@ -622,6 +370,172 @@ namespace ManagemateAPI.Management.M_Order.Manager
 
         }
 
-    }
+        /*
+         * Get_All_Order method
+         * This method gets all of the records in the Order table and returns them in a list.
+         * 
+         * It accepts Get_All_Order_Data object as input.
+         */
+        public async Task<List<Order_Model_List>> Get_All_Order(Get_All_Order_Data input)
+        {
 
+            if (input == null)
+            {
+                throw new Exception("14");//_14_NULL_ERROR
+            }
+            else
+            {
+                if (await Session_Checker.ActiveSession(input.session))
+                {
+                    _context = new DB_Context(input.session.userId, _configuration);
+                    _context.Database.EnsureCreated();
+
+                    List<Order> Orders;
+
+                    if (input.all_or_active_only)
+                    {
+                        Orders = _context.Order.Where(o => o.status.Equals(1)).Include(o => o.client_id_FK).Include(o => o.construction_site_id_FK).ToList(); // active only
+                    }
+                    else
+                    {
+
+                        Orders = _context.Order.Include(o => o.client_id_FK).Include(o => o.construction_site_id_FK).ToList(); // all of orders
+
+                    }
+
+
+                    if (Orders == null)
+                    {
+                        throw new Exception("19");//Order not found
+                    }
+                    else
+                    {
+
+                        List<Encrypted_Object> order_names = new List<Encrypted_Object>();
+                        List<Encrypted_Object> order_default_payment_methods = new List<Encrypted_Object>();
+                        List<Encrypted_Object> order_comments = new List<Encrypted_Object>();
+                        List<Encrypted_Object> order_client_names = new List<Encrypted_Object>();
+                        List<Encrypted_Object> order_construction_sites_names = new List<Encrypted_Object>();
+
+
+                        List<Order_Model_List> Orders_decrypted = new List<Order_Model_List>();
+
+                        foreach (var order in Orders)
+                        {
+                            Orders_decrypted.Add(new Order_Model_List
+                            {
+                                id = order.id,
+                                //client_name = item.client_id_FK,
+                                //construction_site_name = item.construction_site_id_FK,
+                                status = order.status,
+                                creation_date = order.creation_date,
+                                default_payment_date_offset = order.default_payment_date_offset,
+                                default_discount = order.default_discount
+
+                            });
+
+                            order_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.order_name });
+                            order_default_payment_methods.Add(new Encrypted_Object { id = order.id, encryptedValue = order.default_payment_method });
+                            order_comments.Add(new Encrypted_Object { id = order.id, encryptedValue = order.comment });
+
+                            if (order.client_id_FK.company_name != null)
+                            {
+                                order_client_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.client_id_FK.company_name });
+                            }
+                            else
+                            {
+                                order_client_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.client_id_FK.name });
+                            }
+
+                            order_construction_sites_names.Add(new Encrypted_Object { id = order.id, encryptedValue = order.construction_site_id_FK.construction_site_name });
+
+
+                        }
+
+                        List<Decrypted_Object> order_names_decrypted = await Crypto.DecryptList(input.session, order_names);
+                        List<Decrypted_Object> order_default_payment_methods_decrypted = await Crypto.DecryptList(input.session, order_default_payment_methods);
+                        List<Decrypted_Object> order_comments_decrypted = await Crypto.DecryptList(input.session, order_comments);
+                        List<Decrypted_Object> order_client_names_decrypted = await Crypto.DecryptList(input.session, order_client_names);
+                        List<Decrypted_Object> order_construction_sites_names_decrypted = await Crypto.DecryptList(input.session, order_construction_sites_names);
+
+                        foreach (var order in Orders_decrypted)
+                        {
+                            var name = order_names_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
+
+                            if (name == null)
+                            {
+                                throw new Exception("3");//error while decrypting data 
+                            }
+                            else
+                            {
+                                order.order_name = name.decryptedValue;
+                            }
+
+
+                            var default_payment_method = order_default_payment_methods_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
+
+                            if (default_payment_method == null)
+                            {
+                                throw new Exception("3");//error while decrypting data 
+                            }
+                            else
+                            {
+                                order.default_payment_method = default_payment_method.decryptedValue;
+                            }
+
+
+                            var comment = order_comments_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
+
+                            if (comment == null)
+                            {
+                                throw new Exception("3");//error while decrypting data 
+                            }
+                            else
+                            {
+                                order.comment = comment.decryptedValue;
+                            }
+
+
+                            var client_name = order_client_names_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
+
+                            if (client_name == null)
+                            {
+                                throw new Exception("3");//error while decrypting data 
+                            }
+                            else
+                            {
+                                order.client_name = client_name.decryptedValue;
+                            }
+
+
+
+                            var construction_site_name = order_construction_sites_names_decrypted.Where(o => o.id.Equals(order.id)).FirstOrDefault();
+
+                            if (construction_site_name == null)
+                            {
+                                throw new Exception("3");//error while decrypting data 
+                            }
+                            else
+                            {
+                                order.construction_site_name = construction_site_name.decryptedValue;
+                            }
+
+                        }
+
+                        return Orders_decrypted;
+
+
+
+                    }
+
+                }
+                else
+                {
+                    throw new Exception("1");//_1_SESSION_NOT_FOUND
+                }
+
+            }
+
+        }
+    }
 }

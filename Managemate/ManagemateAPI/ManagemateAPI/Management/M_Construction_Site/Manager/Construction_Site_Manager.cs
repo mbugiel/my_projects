@@ -8,6 +8,16 @@ using ManagemateAPI.Management.M_Construction_Site.Table_Model;
 using ManagemateAPI.Management.M_Session.Manager;
 using Microsoft.EntityFrameworkCore;
 
+/*
+ * This is the Construction_Site_Manager with methods dedicated to the Construction_Site table.
+ * 
+ * It contains methods to:
+ * add records,
+ * edit records,
+ * delete records,
+ * get record by id,
+ * get all the records.
+ */
 namespace ManagemateAPI.Management.M_Construction_Site.Manager
 {
     public class Construction_Site_Manager
@@ -20,7 +30,14 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
             _configuration = configuration;
         }
 
-        public async Task<string> Add_ConstructionSite(Add_Construction_Site_Data obj)
+        /* 
+         * Add_Construction_Site method
+         * This method is used to add new records to the Construction_Site table.
+         * 
+         * It accepts Add_Construction_Site_Data object as input.
+         * It then adds new record with values based on the data given in the input object.
+         */
+        public async Task<string> Add_Construction_Site(Add_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -114,8 +131,14 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
 
         }
 
-        //EDIT
-        public async Task<string> Edit_ConstructionSite(Edit_Construction_Site_Data obj)
+        /* 
+         * Edit_Construction_Site method
+         * This method is used to edit a record in the Construction_Site table.
+         * 
+         * It accepts Edit_Construction_Site_Data object as input.
+         * It then changes values of a record with those given in the input object only if its ID matches the one in the input object.
+         */
+        public async Task<string> Edit_Construction_Site(Edit_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -178,8 +201,14 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
             }
         }
 
-        //Delete
-        public async Task<string> Delete_ConstructionSite(Delete_Construction_Site_Data obj)
+        /*
+         * Delete_Construction_Site method
+         * This method is used to a record from the Construction_Site table.
+         *  
+         * It accepts Delete_Construction_Site_Data object as input.
+         * Then it deletes a record if its ID matches the one given in the input object.
+         */
+        public async Task<string> Delete_Construction_Site(Delete_Construction_Site_Data obj)
         {
             if (obj == null)
             {
@@ -213,7 +242,13 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
             }
         }
 
-        //Get by ID
+        /*
+         * Get_Construction_Site_By_ID method
+         * This method gets a record from the Construction_Site table by its ID and returns it.
+         * 
+         * It accepts Get_Construction_Site_By_ID_Data object as input.
+         * Then it gets a records that has the same ID as the ID given in the input object
+         */
         public async Task<Construction_Site_Model> Get_Construction_Site_By_ID(Get_Construction_Site_By_ID obj)
         {
             if (obj == null)
@@ -285,8 +320,153 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
             }
         }
 
-        //Get by page
+        /*
+         * Get_All_Construction_Site method
+         * This method gets all of the records in the Construction_Site table and returns them in a list.
+         * 
+         * It accepts Get_All_Construction_Site_Data object as input.
+         */
+        public async Task<List<Construction_Site_Model_List>> Get_All_Construction_Site(Get_All_Construction_Site_Data obj)
+        {
+            if (obj == null)
+            {
+                throw new Exception("14");
+            }
+            else
+            {
+                if (await Session_Checker.ActiveSession(obj.session))
+                {
+                    _context = new DB_Context(obj.session.userId, _configuration);
+                    _context.Database.EnsureCreated();
 
+                    List<Construction_Site> record_list = _context.Construction_Site.Include(e => e.cities_list_id_FK).ToList();
+
+                    if (record_list == null)
+                    {
+                        throw new Exception("19");
+                    }
+                    else
+                    {
+                        
+
+                        List<Encrypted_Object> construction_site_name_encrypted = new List<Encrypted_Object>();
+                        List<Encrypted_Object> address_encrypted = new List<Encrypted_Object>();
+                        List<Encrypted_Object> city_encrypted = new List<Encrypted_Object>();
+                        List<Encrypted_Object> postal_code_encrypted = new List<Encrypted_Object>();
+                        List<Encrypted_Object> comment_encrypted = new List<Encrypted_Object>();
+
+                        List<Construction_Site_Model_List> decrypted_records = new List<Construction_Site_Model_List>();
+
+                        foreach (var item in record_list)
+                        {
+                            decrypted_records.Add(new Construction_Site_Model_List
+                            {
+                                id = item.id,
+                            });
+
+                            construction_site_name_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.construction_site_name });
+                            address_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.address });
+                            city_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.cities_list_id_FK.city });
+                            postal_code_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.postal_code });
+                            comment_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.comment });
+                        }
+
+                        List<Decrypted_Object> decrypted_construction_site = await Crypto.DecryptList(obj.session, construction_site_name_encrypted);
+                        List<Decrypted_Object> decrypted_address = await Crypto.DecryptList(obj.session, address_encrypted);
+                        List<Decrypted_Object> decrypted_city = await Crypto.DecryptList(obj.session, city_encrypted);
+                        List<Decrypted_Object> decrypted_postal_code = await Crypto.DecryptList(obj.session, postal_code_encrypted);
+                        List<Decrypted_Object> decrypted_comment = await Crypto.DecryptList(obj.session, comment_encrypted);
+
+                        foreach (var item in decrypted_records)
+                        {
+                            var construction_site_name = decrypted_construction_site.Where(s => s.id.Equals(item.id)).FirstOrDefault();
+                            if (construction_site_name == null)
+                            {
+                                throw new Exception("3");
+                            }
+                            else
+                            {
+                                item.construction_site_name = construction_site_name.decryptedValue;
+                            }
+
+                            var address = decrypted_address.Where(s => s.id.Equals(item.id)).FirstOrDefault();
+                            if (address == null)
+                            {
+                                throw new Exception("3");
+                            }
+                            else
+                            {
+                                item.address = address.decryptedValue;
+                            }
+
+                            var cities_list_id_FK = decrypted_city.Where(s => s.id.Equals(item.id)).FirstOrDefault();
+                            if (cities_list_id_FK == null)
+                            {
+                                throw new Exception("3");
+                            }
+                            else
+                            {
+                                item.cities_list_id_FK = cities_list_id_FK.decryptedValue;
+                            }
+
+                            var postal_code = decrypted_postal_code.Where(s => s.id.Equals(item.id)).FirstOrDefault();
+                            if (postal_code == null)
+                            {
+                                throw new Exception("3");
+                            }
+                            else
+                            {
+                                item.postal_code = postal_code.decryptedValue;
+                            }
+
+                            var comment = decrypted_comment.Where(s => s.id.Equals(item.id)).FirstOrDefault();
+                            if (comment == null)
+                            {
+                                throw new Exception("3");
+                            }
+                            else
+                            {
+                                item.comment = comment.decryptedValue;
+                            }
+                        }
+                        return decrypted_records;
+
+
+                    }
+                }
+                else
+                {
+                    throw new Exception("1");
+                }
+            }
+        }
+
+        /*
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         */
+
+        //Get by page
         /*
         public async Task<List<Construction_Site_Model_List>> Get_Construction_Site_By_Page(Get_Construction_Site_By_Page obj)
         {
@@ -419,124 +599,6 @@ namespace ManagemateAPI.Management.M_Construction_Site.Manager
                 }
             }
         }
-
         */
-
-
-        public async Task<List<Construction_Site_Model_List>> Get_Construction_Sites(Get_Construction_Sites obj)
-        {
-            if (obj == null)
-            {
-                throw new Exception("14");
-            }
-            else
-            {
-                if (await Session_Checker.ActiveSession(obj.session))
-                {
-                    _context = new DB_Context(obj.session.userId, _configuration);
-                    _context.Database.EnsureCreated();
-
-                    List<Construction_Site> record_list = _context.Construction_Site.Include(e => e.cities_list_id_FK).ToList();
-
-                    if (record_list == null)
-                    {
-                        throw new Exception("19");
-                    }
-                    else
-                    {
-                        
-
-                        List<Encrypted_Object> construction_site_name_encrypted = new List<Encrypted_Object>();
-                        List<Encrypted_Object> address_encrypted = new List<Encrypted_Object>();
-                        List<Encrypted_Object> city_encrypted = new List<Encrypted_Object>();
-                        List<Encrypted_Object> postal_code_encrypted = new List<Encrypted_Object>();
-                        List<Encrypted_Object> comment_encrypted = new List<Encrypted_Object>();
-
-                        List<Construction_Site_Model_List> decrypted_records = new List<Construction_Site_Model_List>();
-
-                        foreach (var item in record_list)
-                        {
-                            decrypted_records.Add(new Construction_Site_Model_List
-                            {
-                                id = item.id,
-                            });
-
-                            construction_site_name_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.construction_site_name });
-                            address_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.address });
-                            city_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.cities_list_id_FK.city });
-                            postal_code_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.postal_code });
-                            comment_encrypted.Add(new Encrypted_Object { id = item.id, encryptedValue = item.comment });
-                        }
-
-                        List<Decrypted_Object> decrypted_construction_site = await Crypto.DecryptList(obj.session, construction_site_name_encrypted);
-                        List<Decrypted_Object> decrypted_address = await Crypto.DecryptList(obj.session, address_encrypted);
-                        List<Decrypted_Object> decrypted_city = await Crypto.DecryptList(obj.session, city_encrypted);
-                        List<Decrypted_Object> decrypted_postal_code = await Crypto.DecryptList(obj.session, postal_code_encrypted);
-                        List<Decrypted_Object> decrypted_comment = await Crypto.DecryptList(obj.session, comment_encrypted);
-
-                        foreach (var item in decrypted_records)
-                        {
-                            var construction_site_name = decrypted_construction_site.Where(s => s.id.Equals(item.id)).FirstOrDefault();
-                            if (construction_site_name == null)
-                            {
-                                throw new Exception("3");
-                            }
-                            else
-                            {
-                                item.construction_site_name = construction_site_name.decryptedValue;
-                            }
-
-                            var address = decrypted_address.Where(s => s.id.Equals(item.id)).FirstOrDefault();
-                            if (address == null)
-                            {
-                                throw new Exception("3");
-                            }
-                            else
-                            {
-                                item.address = address.decryptedValue;
-                            }
-
-                            var cities_list_id_FK = decrypted_city.Where(s => s.id.Equals(item.id)).FirstOrDefault();
-                            if (cities_list_id_FK == null)
-                            {
-                                throw new Exception("3");
-                            }
-                            else
-                            {
-                                item.cities_list_id_FK = cities_list_id_FK.decryptedValue;
-                            }
-
-                            var postal_code = decrypted_postal_code.Where(s => s.id.Equals(item.id)).FirstOrDefault();
-                            if (postal_code == null)
-                            {
-                                throw new Exception("3");
-                            }
-                            else
-                            {
-                                item.postal_code = postal_code.decryptedValue;
-                            }
-
-                            var comment = decrypted_comment.Where(s => s.id.Equals(item.id)).FirstOrDefault();
-                            if (comment == null)
-                            {
-                                throw new Exception("3");
-                            }
-                            else
-                            {
-                                item.comment = comment.decryptedValue;
-                            }
-                        }
-                        return decrypted_records;
-
-
-                    }
-                }
-                else
-                {
-                    throw new Exception("1");
-                }
-            }
-        }
-
     }
 }

@@ -77,6 +77,30 @@ namespace ManagemateAPI.Controllers
                 case "21":
                     response.message = Info._21_INVALID_PASSWORD_ERROR; break;
 
+                case "22":
+                    response.message = Info._22_ADD_RECEIPT_ERROR; break;
+
+                case "23":
+                    response.message = Info._23_COMPANY_EXISTS_ERROR; break;
+
+                case "24":
+                    response.message = Info._24_TOO_MANY_RETURNED_ERROR; break;
+
+                case "25":
+                    response.message = Info._25_INCORRECT_ITEM_TRADING_ERROR; break;
+
+                case "26":
+                    response.message = Info._26_FILE_READ_ERROR; break;
+
+                case "27":
+                    response.message = Info._27_FOLDER_CREATE_ERROR; break;
+
+                case "28":
+                    response.message = Info._28_JSON_ERROR; break;
+
+                case "29":
+                    response.message = Info._29_FILE_TOO_LARGE; break;
+
                 default:
                     response.message = "Failure";
                     break;

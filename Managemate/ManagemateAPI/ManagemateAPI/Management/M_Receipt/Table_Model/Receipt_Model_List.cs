@@ -6,6 +6,8 @@
 
         public bool in_out { get; set; }
 
+        public bool reservation { get; set; }
+
         public DateTime date { get; set; }
 
         public string element { get; set; }

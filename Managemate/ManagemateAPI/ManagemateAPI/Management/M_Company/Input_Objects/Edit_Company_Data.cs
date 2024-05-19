@@ -6,7 +6,7 @@ namespace ManagemateAPI.Management.M_Company.Input_Objects
     {
         public Session_Data session { get; set; }
 
-        public long id { get; set; }
+        //public long id { get; set; }
 
         public string name { get; set; }
 
@@ -33,5 +33,11 @@ namespace ManagemateAPI.Management.M_Company.Input_Objects
         public string web_page { get; set; }
 
         public string money_sign { get; set; }
+
+        public string money_sign_decimal { get; set; }
+
+        public byte[]? company_logo { get; set; }
+
+        public string? file_type { get; set; }
     }
 }

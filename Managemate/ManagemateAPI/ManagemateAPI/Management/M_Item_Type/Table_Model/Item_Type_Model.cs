@@ -5,5 +5,6 @@
         public long id { get; set; }
 
         public string item_type { get; set; }
+        public double rate { get; set; }
     }
 }

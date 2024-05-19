@@ -9,6 +9,17 @@ using ManagemateAPI.Management.M_Client.Table_Model;
 using ManagemateAPI.Management.M_Session.Manager;
 using Microsoft.EntityFrameworkCore;
 
+/*
+ * This is the Client_Manager with methods dedicated to the Client table.
+ * 
+ * It contains methods to:
+ * add records,
+ * edit records,
+ * delete records,
+ * get record by id,
+ * get all the records.
+ */
+
 namespace ManagemateAPI.Management.M_Client.Manager
 {
     public class Client_Manager
@@ -21,8 +32,14 @@ namespace ManagemateAPI.Management.M_Client.Manager
             _configuration = configuration;
         }
 
-
-        public async Task<string> AddClient(Add_Client_Data obj)
+        /* 
+         * Add_Client method
+         * This method is used to add new records to the Client table.
+         * 
+         * It accepts Add_Client_Data object as input.
+         * It then adds new record with values based on the data given in the input object.
+         */
+        public async Task<string> Add_Client(Add_Client_Data obj)
         {
             if (obj == null)
             {
@@ -120,7 +137,13 @@ namespace ManagemateAPI.Management.M_Client.Manager
 
         }
 
-        //EDIT
+        /* 
+         * Edit_Client method
+         * This method is used to edit a record in the Client table.
+         * 
+         * It accepts Edit_Client_Data object as input.
+         * It then changes values of a record with those given in the input object only if its ID matches the one in the input object.
+         */
         public async Task<string> Edit_Client(Edit_Client_Data obj)
         {
             if (obj == null)
@@ -189,7 +212,13 @@ namespace ManagemateAPI.Management.M_Client.Manager
             }
         }
 
-        //Delete
+        /*
+         * Delete_Client method
+         * This method is used to a record from the Client table.
+         *  
+         * It accepts Delete_Client_Data object as input.
+         * Then it deletes a record if its ID matches the one given in the input object.
+         */
         public async Task<string> Delete_Client(Delete_Client_Data obj)
         {
             if (obj == null)
@@ -224,7 +253,13 @@ namespace ManagemateAPI.Management.M_Client.Manager
             }
         }
 
-        //Get by ID
+        /*
+         * Get_Client_By_ID method
+         * This method gets a record from the Client table by its ID and returns it.
+         * 
+         * It accepts Get_Client_By_ID_Data object as input.
+         * Then it gets a records that has the same ID as the ID given in the input object
+         */
         public async Task<Client_Model> Get_Client_by_ID(Get_Client_By_ID obj)
         {
             if (obj == null)
@@ -310,7 +345,12 @@ namespace ManagemateAPI.Management.M_Client.Manager
             }
         }
 
-        //Get all
+        /*
+         * Get_All_Client method
+         * This method gets all of the records in the Client table and returns them in a list.
+         * 
+         * It accepts Get_All_Client_Data object as input.
+         */
         public async Task<List<Client_Model_List>> Get_All_Clients(Get_All_Clients_Data obj)
         {
             if (obj == null)
@@ -489,6 +529,30 @@ namespace ManagemateAPI.Management.M_Client.Manager
             }
         }
 
+        /*
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         * złom
+         */
         //Get by page | Nieużywane
         public async Task<List<Client_Model_List>> Get_Client_Page(Get_Client_Page obj)
         {

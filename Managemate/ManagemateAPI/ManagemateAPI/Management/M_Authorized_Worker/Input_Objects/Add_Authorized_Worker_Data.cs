@@ -1,5 +1,11 @@
 ﻿using ManagemateAPI.Management.M_Session.Input_Objects;
 
+/*
+ * Add_Authorized_Worker_Data class
+ * 
+ * This class is used in
+ */
+
 namespace ManagemateAPI.Management.M_Authorized_Worker.Input_Objects
 {
     public class Add_Authorized_Worker_Data

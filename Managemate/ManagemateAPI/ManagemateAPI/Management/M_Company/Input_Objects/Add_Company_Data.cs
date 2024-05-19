@@ -32,5 +32,11 @@ namespace ManagemateAPI.Management.M_Company.Input_Objects
 
         public string money_sign { get; set; }
 
+        public string money_sign_decimal { get; set; }
+
+        public byte[]? company_logo { get; set; }
+
+        public string? file_type { get; set; }
+
     }
 }

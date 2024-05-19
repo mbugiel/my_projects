@@ -7,5 +7,7 @@ namespace ManagemateAPI.Management.M_Item_Type.Input_Objects
         public Session_Data session { get; set; }
 
         public string item_type { get; set; }
+
+        public double rate { get; set; }
     }
 }

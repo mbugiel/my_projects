@@ -9,14 +9,16 @@ namespace ManagemateAPI.Database.Tables
         [Key, Required]
         public long id { get; set; }
 
+        public bool sale_lease {  get; set; }
+
         [Required]
         public string prefix { get; set; }
 
         [Required]
-        public long year { get; set; }
+        public int year { get; set; }
 
         [Required]
-        public long month { get; set; }
+        public int month { get; set; }
 
         [Required]
         public long number { get; set; }
@@ -25,13 +27,13 @@ namespace ManagemateAPI.Database.Tables
         public Order order_id_FK { get; set; }
 
         [Required]
-        public DateOnly issue_date { get; set; }
+        public DateTime issue_date { get; set; }
 
         [Required]
-        public DateOnly sale_date { get; set; }
+        public DateTime sale_date { get; set; }
 
         [Required]
-        public DateOnly payment_date { get; set; }
+        public DateTime payment_date { get; set; }
 
         [Required]
         public byte[] payment_method { get; set; }

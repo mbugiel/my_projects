@@ -46,6 +46,20 @@ namespace ManagemateAPI.Database.Context
 
             );
 
+
+            modelBuilder.Entity<Item_Type>().HasData(
+
+                new Item_Type { id = -1, item_type = new byte[1], rate = new byte[1] }
+
+            );
+
+
+            modelBuilder.Entity<Item_Counting_Type>().HasData(
+
+                new Item_Counting_Type { id = -1, counting_type = "-" }
+
+            );
+
         }
 
 

@@ -3,6 +3,16 @@ using ManagemateAPI.Management.M_Item_Counting_Type.Input_Objects;
 using ManagemateAPI.Management.M_Item_Counting_Type.Manager;
 using ManagemateAPI.Management.M_Item_Counting_Type.Table_Model;
 
+/*
+ * This is an endpoint controller dedicated to the Item_Counting_Type table.
+ * 
+ * It contains methods for endpoints
+ * - Add 
+ * - Edit
+ * - Delete
+ * - Get by ID
+ * - Get all 
+ */
 namespace ManagemateAPI.Controllers.Managemate
 {
 
@@ -16,10 +26,16 @@ namespace ManagemateAPI.Controllers.Managemate
             _DB_Helper = new Item_Counting_Type_Manager(configuration);
         }
 
-
-        [Route("api/AddItemCountingType")]
+        /*
+         * Add_Item_Counting_Type endpoint
+         * This endpoint is used to add a record to the Item_Counting_Type table.
+         * 
+         * It accepts Add_Item_Counting_Type_Data object.
+         * The given object is handed over to the Add_Item_Counting_Type method in the Item_Counting_Type_Manager.
+         */
+        [Route("api/Add_Item_Counting_Type")]
         [HttpPost]
-        public async Task<IActionResult> AddItemCountingType([FromBody] Add_Item_Counting_Type_Data input_obj)
+        public async Task<IActionResult> Add_Item_Counting_Type([FromBody] Add_Item_Counting_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -31,7 +47,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    string result = await _DB_Helper.AddItemCountingType(input_obj);
+                    string result = await _DB_Helper.Add_Item_Counting_Type(input_obj);
 
                     if (result == null)
                     {
@@ -54,11 +70,16 @@ namespace ManagemateAPI.Controllers.Managemate
 
         }
 
-
-
-        [Route("api/EditItemCountingType")]
+        /*
+         * Edit_Item_Counting_Type endpoint
+         * This endpoint is used to edit a record from the Item_Counting_Type table.
+         * 
+         * It accepts Edit_Item_Counting_Type_Data object.
+         * The given object is handed over to the Edit_Item_Counting_Type method in the Item_Counting_Type_Manager.
+         */
+        [Route("api/Edit_Item_Counting_Type")]
         [HttpPost]
-        public async Task<IActionResult> EditItemCountingType([FromBody] Edit_Item_Counting_Type_Data input_obj)
+        public async Task<IActionResult> Edit_Item_Counting_Type([FromBody] Edit_Item_Counting_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -70,7 +91,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    string result = await _DB_Helper.EditItemCountingType(input_obj);
+                    string result = await _DB_Helper.Edit_Item_Counting_Type(input_obj);
 
                     if (result == null)
                     {
@@ -93,11 +114,16 @@ namespace ManagemateAPI.Controllers.Managemate
 
         }
 
-
-
-        [Route("api/DeleteItemCountingType")]
+        /*
+         * Delete_Item_Counting_Type endpoint
+         * This endpoint is used to remove record from the Item_Counting_Type table.
+         * 
+         * It accepts Delete_Item_Counting_Type_Data object.
+         * The given object is handed over to the Delete_Item_Counting_Type method in the Item_Counting_Type_Manager.
+         */
+        [Route("api/Delete_Item_Counting_Type")]
         [HttpPost]
-        public async Task<IActionResult> DeleteItemCountingType([FromBody] Delete_Item_Counting_Type_Data input_obj)
+        public async Task<IActionResult> Delete_Item_Counting_Type([FromBody] Delete_Item_Counting_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -109,7 +135,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    string result = await _DB_Helper.DeleteItemCountingType(input_obj);
+                    string result = await _DB_Helper.Delete_Item_Counting_Type(input_obj);
 
                     if (result == null)
                     {
@@ -132,11 +158,16 @@ namespace ManagemateAPI.Controllers.Managemate
 
         }
 
-
-
-        [Route("api/GetItemCountingTypes")]
+        /*
+         * Get_Item_Counting_Type_By_ID endpoint
+         * This endpoint is used to get a record from to the Item_Counting_Type table by its ID.
+         * 
+         * It accepts Get_Item_Counting_Type_By_ID object.
+         * The given object is handed over to the Get_Item_Counting_Type_By_ID method in the Item_Counting_Type_Manager.
+         */
+        [Route("api/Get_Item_Counting_Type_By_ID")]
         [HttpPost]
-        public async Task<IActionResult> GetItemCountingTypes([FromBody] Get_Item_Counting_Types_Data input_obj)
+        public async Task<IActionResult> Get_Item_Counting_Type_By_ID([FromBody] Get_Item_Counting_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -148,7 +179,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    List<Item_Counting_Type_Model> result = await _DB_Helper.GetItemCountingTypes(input_obj);
+                    Item_Counting_Type_Model result = await _DB_Helper.Get_Item_Counting_Type_By_ID(input_obj);
 
                     if (result == null)
                     {
@@ -171,11 +202,16 @@ namespace ManagemateAPI.Controllers.Managemate
 
         }
 
-
-
-        [Route("api/GetItemCountingTypeById")]
+        /*
+         * Get_All_Item_Counting_Type endpoint
+         * This endpoint is used to to all the records from the Item_Counting_Type table.
+         * 
+         * It accepts Get_All_Item_Counting_Type_Data object.
+         * The given object is handed over to the Get_All_Item_Counting_Type method in the Item_Counting_Type_Manager.
+         */
+        [Route("api/Get_All_Item_Counting_Type")]
         [HttpPost]
-        public async Task<IActionResult> GetItemCountingTypeById([FromBody] Get_Item_Counting_Type_Data input_obj)
+        public async Task<IActionResult> Get_All_Item_Counting_Type([FromBody] Get_Item_Counting_Type_Data input_obj)
         {
 
             if (input_obj == null)
@@ -187,7 +223,7 @@ namespace ManagemateAPI.Controllers.Managemate
                 try
                 {
 
-                    Item_Counting_Type_Model result = await _DB_Helper.GetItemCountingTypeById(input_obj);
+                    List<Item_Counting_Type_Model> result = await _DB_Helper.Get_All_Item_Counting_Type(input_obj);
 
                     if (result == null)
                     {
@@ -209,9 +245,5 @@ namespace ManagemateAPI.Controllers.Managemate
             }
 
         }
-
-
-
-
     }
 }

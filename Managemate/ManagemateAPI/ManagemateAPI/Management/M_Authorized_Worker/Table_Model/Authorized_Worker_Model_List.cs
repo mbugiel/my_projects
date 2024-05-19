@@ -12,7 +12,7 @@ namespace ManagemateAPI.Management.M_Authorized_Worker.Table_Model
         public bool contact { get; set; }
         public bool collection { get; set; }
         public string comment { get; set; }
-        public string client_name { get; set; } //client name
+        //public string client_name { get; set; }
         //public string client_surname { get; set; }
         //public string client_id_FK { get; set; }
         //public string client_company_name { get; set; }

@@ -5,6 +5,14 @@ using ManagemateAPI.Encryption.Input_Objects;
 using ManagemateAPI.Encryption;
 using ManagemateAPI.Database.Tables;
 
+/*
+ * This a controller is only for testing purposes used to fill the database of the specified user.
+ * 
+ * It accepts inputClass object.
+ * 
+ * That object contains session token (which contains user id) and integer that tells the function how much records it needs to add.
+ */
+
 namespace ManagemateAPI.Controllers.Managemate
 {
     [ApiController]
@@ -17,7 +25,7 @@ namespace ManagemateAPI.Controllers.Managemate
             _configuration = configuration;
         }
 
-        [Route("api/Fill_the_Database_and_crash_the_server")]
+        [Route("api/FillDB")]
         [HttpPost]
         public async Task<IActionResult> FillDB([FromBody] inputClass obj)
         {
@@ -31,12 +39,14 @@ namespace ManagemateAPI.Controllers.Managemate
 
                 List<Decrypted_Object> uncrypted_stringus = new List<Decrypted_Object>();
 
-                for (int i = 0; i < obj.ile; i++)
+                for (int i = 0; i < obj.amount; i++)
                 {
                     uncrypted_stringus.Add(new Decrypted_Object { id = i, decryptedValue = "stringus" + i });
                 }
 
                 List<Encrypted_Object> encrypted_stringus = await Crypto.EncryptList(obj.session, uncrypted_stringus);
+
+                int iye = 0;
 
                 foreach (var stringus in encrypted_stringus)
                 {
@@ -102,8 +112,8 @@ namespace ManagemateAPI.Controllers.Managemate
                     {
 
                         prefix = "stringus" + stringus.id,
-                        year = stringus.id,
-                        month = stringus.id,
+                        year = iye,
+                        month = iye,
                         number = stringus.id,
                         order_id_FK = new Order
                         {
@@ -133,9 +143,9 @@ namespace ManagemateAPI.Controllers.Managemate
                             creation_date = DateTime.UtcNow,
                             comment = stringus.encryptedValue
                         },
-                        issue_date = DateOnly.FromDateTime(DateTime.UtcNow),
-                        sale_date = DateOnly.FromDateTime(DateTime.UtcNow),
-                        payment_date = DateOnly.FromDateTime(DateTime.UtcNow),
+                        issue_date = DateTime.UtcNow,
+                        sale_date = DateTime.UtcNow,
+                        payment_date = DateTime.UtcNow,
                         payment_method = stringus.encryptedValue,
                         discount = stringus.id,
                         net_worth = stringus.encryptedValue,
@@ -168,6 +178,8 @@ namespace ManagemateAPI.Controllers.Managemate
                         collection = false,
                         comment = stringus.encryptedValue
                     });
+
+                    iye++;
                 }
 
                 _context.SaveChanges();
@@ -188,6 +200,6 @@ namespace ManagemateAPI.Controllers.Managemate
     public class inputClass
     {
         public Session_Data session { get; set; }
-        public int ile { get; set; }
+        public int amount { get; set; }
     }
 }
